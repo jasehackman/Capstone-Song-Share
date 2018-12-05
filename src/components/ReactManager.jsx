@@ -58,8 +58,8 @@ export default class ReactManager extends Component {
 
 
       <React.Fragment>
-        {/* <ApplicationManager passedState={this.state}/> */}
         <NavBar passedState={this.state}/>
+        <ApplicationManager passedState={this.state}/>
       </React.Fragment>
     )
   }
