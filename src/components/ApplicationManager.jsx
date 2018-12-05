@@ -11,10 +11,10 @@ export default class ApplicationManager extends Component{
     return(
     <React.Fragment>
       <Route exact path = "/songs" render={(props => {
-        return <SongsView songs = {this.props.passedState.songs}/>
+        return <SongsView songs = {this.props.passedState.songs} fileUploader = {this.props.fileUploader}/>
       })}/>
        <Route exact path = "/playlists" render={(props => {
-        return <PlaylistsView playlists = {this.props.passedState.playlists}/>
+        return <PlaylistsView playlists = {this.props.passedState.playlists} songs_playlists={this.props.passedState.songs_playlists} songs={this.props.passedState.songs}/>
       })}/>
     <Route exact path = "/profile" render={(props => {
         return <ProfileView passedState = {this.props.passedState}/>

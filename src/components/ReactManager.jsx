@@ -8,7 +8,7 @@ import APICalls from "../modules/APICalls"
 export default class ReactManager extends Component {
 
   state = {
-    pageLoaded: true,
+    pageLoaded: false,
 
     //need to reset with login
     currentUser:
@@ -29,7 +29,7 @@ export default class ReactManager extends Component {
     APICalls.getAllFromJson("songs", this.state.currentUser.userId)
       .then(data => {
         stateSetter.songs = data;
-        return APICalls.getFromJsonForUser("playlists", this.state.currentUser.userId)
+        return APICalls.getEmbedFromJson('playlists', 'songs_playlists', this.state.currentUser.userId)
       })
       .then(data => {
         stateSetter.playlists = data;
@@ -38,6 +38,7 @@ export default class ReactManager extends Component {
       .then(data => {
         stateSetter.songs_playlists = data;
         this.setState(stateSetter)
+        this.setState({pageLoaded: true})
       })
 
 
@@ -48,19 +49,20 @@ export default class ReactManager extends Component {
     this.refreshData();
   }
 
-  buildDom() {
-
+  fileUploader = (e) => {
+    let file = e.target.files[0];
+    console.log(file);
   }
-
   render() {
-
+    if(this.state.pageLoaded)
     return (
 
 
       <React.Fragment>
         <NavBar passedState={this.state}/>
-        <ApplicationManager passedState={this.state}/>
+        <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} />
       </React.Fragment>
     )
+    else{return(<p>page loading....</p>)}
   }
 }

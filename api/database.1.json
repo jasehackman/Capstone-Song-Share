@@ -31,9 +31,9 @@
       "fileName": "You Know master 8.22.17.mp3",
       "userId": 1,
       "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/You%20Know%20master%208.22.17.mp3?alt=media&token=ca81fac5-d280-4839-aa20-5f2157972f89",
-      "lyric": "You Know",
+      "lyrics": "You Know",
       "co-writers": null,
-      "duration": "3:18"
+      "duration": "3:23"
 
     },
     {
@@ -42,23 +42,23 @@
       "url": "Needle in a Haystack (Corley-Herring-Vance).m4a",
       "userId": 1,
       "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Needle%20in%20a%20Haystack%20(Corley-Herring-Vance).m4a?alt=media&token=b4971f22-fd5f-44a0-9478-a8aee8409949",
-      "lyric": "You Know",
+      "lyrics": "You Know",
       "co-writers": null,
-      "duration": "4:23"
+      "duration": "3:23"
     }
   ],
 
   "playlists": [{
       "id": 1,
       "userId": 1,
-      "title": "Pop Rock",
+      "name": "Pop Rock",
       "password": "123abc",
       "url": null
     },
     {
       "id": 2,
       "userId": 1,
-      "title": "Blues",
+      "name": "Blues",
       "password": "123abc",
       "url": null
     }
