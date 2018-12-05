@@ -60,33 +60,29 @@ export default class ReactManager extends Component {
     let uploadedSong = firebase.storage().ref(file.name)
     let task = uploadedSong.put(file)
     let songDownloadUrl = ""
-    task.on('state_changed', function(snapshot){
-      // Observe state change events such as progress, pause, and resume
-      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    task.on('state_changed', (snapshot) => {
+      let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log('Upload is ' + progress + '% done');
       switch (snapshot.state) {
-        case firebase.storage.TaskState.PAUSED: // or 'paused'
+        case firebase.storage.TaskState.PAUSED:
           console.log('Upload is paused');
           break;
-        case firebase.storage.TaskState.RUNNING: // or 'running'
+        case firebase.storage.TaskState.RUNNING:
           console.log('Upload is running');
           break;
       }
-    }, function(error) {
-      // Handle unsuccessful uploads
-    }, function() {
-      // Handle successful uploads on complete
-      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-      task.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-        console.log(downloadURL)
-        songDownloadUrl = downloadURL})
+    }, (error) => {
+      console.log(error)
+    },
+     () => {
+
+      task.snapshot.ref.getDownloadURL().then((downloadURL)=>{
+        songDownloadUrl = downloadURL
+        this.setState({
+          uploadedFileName: fileName,
+          songDownloadURL: downloadURL
+        })})
       })
-    console.log(songDownloadUrl)
-    this.setState({
-      uploadedFileName: fileName,
-      songDownloadURL: songDownloadUrl
-    })
     };
     // let songDownloadURL = APICalls.getSingleSong(uploadedSong)
     // this.setState({
