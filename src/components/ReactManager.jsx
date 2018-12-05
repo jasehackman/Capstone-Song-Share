@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import NavBar from "./nav/NavBar"
-import ApplicationManager from "./ApplicationManager"
+import NavBar from "./nav/NavBar.jsx"
+import ApplicationManager from "./ApplicationManager.jsx"
 import APICalls from "../modules/APICalls"
 
 
@@ -58,8 +58,8 @@ export default class ReactManager extends Component {
 
 
       <React.Fragment>
-        <ApplicationManager/>
-        <NavBar />
+        {/* <ApplicationManager passedState={this.state}/> */}
+        <NavBar passedState={this.state}/>
       </React.Fragment>
     )
   }
