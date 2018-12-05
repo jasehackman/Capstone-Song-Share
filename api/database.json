@@ -1,0 +1,56 @@
+{
+  "users": [
+    { "id": 1, "name": "Laura Vance", "email": "lauravance@mail.com", "password": "123abc" },
+    { "id": 2, "name": "Jase Hackman", "email": "jasehackman@mail.com", "password": "123abc"  },
+    { "id": 3, "name": "Bob Bobson", "email": "bobbobson@mail.com", "password": "123abc"  },
+    { "id": 4, "name": "Mike Roberts", "email": "mikeroberts@mail.com", "password": "123abc"  }
+],
+
+  "songs": [
+  {
+    "id": 1,
+    "title": "You Know",
+    "fileName": "You Know master 8.22.17.mp3",
+    "userId": 1,
+    "downloadURL":"https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/You%20Know%20master%208.22.17.mp3?alt=media&token=ca81fac5-d280-4839-aa20-5f2157972f89" ,
+    "lyrics": "You Know",
+    "co-writers": null,
+    "duration": "3:23"
+
+  },
+  { "id": 2,
+    "title": "Needle In A Haystack",
+    "url": "Needle in a Haystack (Corley-Herring-Vance).m4a",
+    "userId": 1,
+    "downloadURL":"https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Needle%20in%20a%20Haystack%20(Corley-Herring-Vance).m4a?alt=media&token=b4971f22-fd5f-44a0-9478-a8aee8409949",
+    "lyrics": "You Know",
+    "co-writers": null,
+    "duration": "3:23"
+  }
+],
+
+  "playlists" : [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Pop Rock",
+      "password": "123abc",
+      "url": null
+    }
+
+],
+
+  "songs_playlists" : [
+  {
+    "id": 1,
+    "songId": 1,
+    "playlistId": 1
+  },
+  {
+    "id": 1,
+    "songId": 2,
+    "playlistId": 1
+  }
+
+]
+}
