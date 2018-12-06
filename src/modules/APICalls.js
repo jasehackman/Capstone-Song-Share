@@ -23,10 +23,27 @@ const jsonURL = "http://localhost:8088"
     .then(data => data.json())
   }
 
+  getEmbedFromJson(dataType, dataType2, id){
+    return fetch(`${jsonURL}/${dataType}/?${id}&_embed=${dataType2}`)
+    .then(data => data.json())
+  }
+
   getOneFromJson(dataType, id) {
     return fetch(`${jsonURL}/${dataType}/${id}`)
     .then(data => data.json())
   }
+
+  saveToJson(category, item) {
+    return fetch(`${jsonURL}/${category}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(item)
+    }
+    ).then(jsonData => jsonData.json())
+  }
+
 
   getSingleSong(songURL) {
   return storage.ref(songURL).getDownloadURL()
