@@ -47,24 +47,14 @@
       "duration": "4:23"
     },
     {
-      "title": "Test",
-      "fileName": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/03_Dream.mp3?alt=media&token=ad349bcd-254d-45d2-96f8-23bfa5e2a0d9",
+      "title": "Searching ",
+      "fileName": "02_Searching.mp3",
       "userId": 1,
-      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/03_Dream.mp3?alt=media&token=ad349bcd-254d-45d2-96f8-23bfa5e2a0d9",
-      "lyric": "Test",
-      "coWriters": "Test",
-      "duration": "Test",
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/02_Searching.mp3?alt=media&token=18a281bf-55f0-4c41-90e4-e7c75803c571",
+      "lyric": "Running in circles While trying to catch my breath Never grasping what i'm racing after While being chased by ghosts from my past  Searching for answers For the questions on my mind Nothing seems true enough Answers i cant find  Searching for Searching to find Searching for the one thing I'll find That will make the hurt no more  I swear this will be the last time I wont need it anymore But i knew from the very start That was a lie to its core  Searching for  Searching to find Searching for the one thing i'll find That will make the hurt no more  Where can I find love I've looked in every open door None of it seems real enough Always leaves me wanting more",
+      "coWriters": "None",
+      "duration": "4:16",
       "id": 3
-    },
-    {
-      "title": "Testing",
-      "fileName": "04_How Long  (feat. Whitney McCombs).mp3",
-      "userId": 1,
-      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/04_How%20Long%20%20(feat.%20Whitney%20McCombs).mp3?alt=media&token=d64f71ab-08d7-4f5e-a60a-ef8d51ffe403",
-      "lyric": "Testing",
-      "coWriters": "testing",
-      "duration": "testing",
-      "id": 4
     }
   ],
   "playlists": [
