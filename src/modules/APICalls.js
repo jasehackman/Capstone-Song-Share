@@ -33,8 +33,8 @@ const jsonURL = "http://localhost:8088"
     .then(data => data.json())
   }
 
-  saveToJson(category, item) {
-    return fetch(`${jsonURL}/${category}`, {
+  saveToJson(dataType, item) {
+    return fetch(`${jsonURL}/${dataType}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -42,6 +42,15 @@ const jsonURL = "http://localhost:8088"
       body: JSON.stringify(item)
     }
     ).then(jsonData => jsonData.json())
+  }
+
+  deleteItem(dataType, id) {
+    return fetch(`${jsonURL}/${dataType}/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
   }
 
 
