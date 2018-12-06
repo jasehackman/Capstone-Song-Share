@@ -33,6 +33,18 @@ const jsonURL = "http://localhost:8088"
     .then(data => data.json())
   }
 
+  saveToJson(category, item) {
+    return fetch(`${jsonURL}/${category}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(item)
+    }
+    ).then(jsonData => jsonData.json())
+  }
+
+
   getSingleSong(songURL) {
   return storage.ref(songURL).getDownloadURL()
   }

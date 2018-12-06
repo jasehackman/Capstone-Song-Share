@@ -22,9 +22,16 @@ export default class ReactManager extends Component {
     playlists: [],
 
     songs_playlists: [],
+
+    //new song form
     uploader: 0,
     uploadedFileName:"",
-    songDownloadURL:""
+    songDownloadURL:"",
+    songTitleInput: "",
+    songLyricInput: "",
+    songCoWriters: "",
+    songDuration: ""
+
   }
 
 
@@ -48,18 +55,29 @@ export default class ReactManager extends Component {
 
   }
 
+  handleFieldChange = (evt) => {
+    const stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
+  }
 
   componentDidMount() {
     this.refreshData();
   }
 
+
+  //uploading a song to firebase
   fileUploader = (e) => {
     let file = e.target.files[0];
-    console.log(file.name);
+    //file name to save in database
     let fileName = file.name
+
+    //reference to the file location on firebase
     let uploadedSong = firebase.storage().ref(file.name)
+    //uploading the song
     let task = uploadedSong.put(file)
     let songDownloadUrl = ""
+    //an open connection to the status of that upload
     task.on('state_changed', (snapshot) => {
       let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log('Upload is ' + progress + '% done');
@@ -75,15 +93,39 @@ export default class ReactManager extends Component {
       console.log(error)
     },
      () => {
-
+      //getting the download url
       task.snapshot.ref.getDownloadURL().then((downloadURL)=>{
         songDownloadUrl = downloadURL
+
+        //setting the download url and file name to state
         this.setState({
           uploadedFileName: fileName,
           songDownloadURL: downloadURL
         })})
       })
-    };
+  };
+
+  //someone submits a new song
+  newSongSave = () => {
+
+    let songObj = {
+      title: this.state.songTitleInput,
+      fileName: this.state.uploadedFileName,
+      userId: this.state.currentUser.userId,
+      downloadURL: this.state.songDownloadURL,
+      lyric: this.state.songLyricInput,
+      coWriters: this.state.songCoWriters,
+      duration: this.state.songDuration
+    }
+
+    APICalls.saveToJson("songs", songObj)
+    .then(() => APICalls.getFromJsonForUser("songs", this.state.currentUser.userId).then(data => {
+      console.log(data)
+      this.setState({songs: data})
+    }))
+
+  }
+
     // let songDownloadURL = APICalls.getSingleSong(uploadedSong)
     // this.setState({
     //   uploadedFileName: fileName,
@@ -112,7 +154,8 @@ export default class ReactManager extends Component {
 
       <React.Fragment>
         <NavBar passedState={this.state}/>
-        <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} />
+        <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} handleFieldChange={this.handleFieldChange}
+              newSongSave={this.newSongSave}/>
       </React.Fragment>
     )
     else{return(<p>page loading....</p>)}

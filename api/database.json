@@ -1,5 +1,6 @@
 {
-  "users": [{
+  "users": [
+    {
       "id": 1,
       "name": "Laura Vance",
       "email": "lauravance@mail.com",
@@ -24,17 +25,16 @@
       "password": "123abc"
     }
   ],
-
-  "songs": [{
+  "songs": [
+    {
       "id": 1,
       "title": "You Know",
       "fileName": "You Know master 8.22.17.mp3",
       "userId": 1,
       "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/You%20Know%20master%208.22.17.mp3?alt=media&token=ca81fac5-d280-4839-aa20-5f2157972f89",
       "lyric": "You Know",
-      "co-writers": null,
+      "coWriters": null,
       "duration": "3:18"
-
     },
     {
       "id": 2,
@@ -43,12 +43,32 @@
       "userId": 1,
       "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Needle%20in%20a%20Haystack%20(Corley-Herring-Vance).m4a?alt=media&token=b4971f22-fd5f-44a0-9478-a8aee8409949",
       "lyric": "You Know",
-      "co-writers": null,
+      "coWriters": null,
       "duration": "4:23"
+    },
+    {
+      "title": "Test",
+      "fileName": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/03_Dream.mp3?alt=media&token=ad349bcd-254d-45d2-96f8-23bfa5e2a0d9",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/03_Dream.mp3?alt=media&token=ad349bcd-254d-45d2-96f8-23bfa5e2a0d9",
+      "lyric": "Test",
+      "coWriters": "Test",
+      "duration": "Test",
+      "id": 3
+    },
+    {
+      "title": "Testing",
+      "fileName": "04_How Long  (feat. Whitney McCombs).mp3",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/04_How%20Long%20%20(feat.%20Whitney%20McCombs).mp3?alt=media&token=d64f71ab-08d7-4f5e-a60a-ef8d51ffe403",
+      "lyric": "Testing",
+      "coWriters": "testing",
+      "duration": "testing",
+      "id": 4
     }
   ],
-
-  "playlists": [{
+  "playlists": [
+    {
       "id": 1,
       "userId": 1,
       "title": "Pop Rock",
@@ -62,10 +82,9 @@
       "password": "123abc",
       "url": null
     }
-
   ],
-
-  "songs_playlists": [{
+  "songs_playlists": [
+    {
       "id": 1,
       "songId": 1,
       "playlistId": 1
@@ -80,6 +99,5 @@
       "songId": 1,
       "playlistId": 2
     }
-
   ]
 }

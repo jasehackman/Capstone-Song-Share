@@ -13,16 +13,21 @@ export default class SongsView extends Component{
             <Song key={song.id} song = {song}/>
           )}
         </div>
+
+        {/* new song form */}
         <div>
           <h1>Add New Song</h1>
           <label>Title</label>
-          <input id = "songTitleInput" type = "text" />
-          <label>Lyic</label>
-          <input id = "songLyricInput" type = "text"/>
+          <input id = "songTitleInput" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <label>Lyric</label>
+          <input id = "songLyricInput" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <label>Co-Writers</label>
-          <input id = "songCo-Writers" type = "text"/>
+          <input id = "songCoWriters" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <label>Duration</label>
+          <input id = "songDuration" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <progress id = "uploader" value = "0" max = "100">0%</progress>
-          <input id = "songUpload" type = "file" onChange= {(e) => this.props.fileUploader(e)}/>
+          <input id = "songUpload" type = "file" onChange= {(e) => this.props.fileUploader(e)} />
+          <button onClick = {()=> this.props.newSongSave()}>Save</button>
 
         </div>
     </React.Fragment>
