@@ -140,6 +140,21 @@ export default class ReactManager extends Component {
     }).then(()=> this.refreshData())
   }
 
+  removeSongFromPlaylist = (evt) => {
+
+    const idOfSong = Number(evt.target.value);
+    const idOfPlaylistArray = evt.target.id.split('-');
+    const idOfPlaylist = Number(idOfPlaylistArray[1])
+    const arrayOfSongs = this.state.songs_playlists.filter(relationship => relationship.playlistId===idOfPlaylist)
+    const objOfCorrectRelationship = arrayOfSongs.filter(relationship => relationship.songId===idOfSong)
+    console.log(arrayOfSongs)
+    console.log(objOfCorrectRelationship)
+
+
+    APICalls.deleteItem('songs_playlists', objOfCorrectRelationship[0].id)
+    .then(()=> this.refreshData())
+  }
+
   addPlaylist = ()=>{
     APICalls.saveToJson("playlists",{
       title: this.state.newPlaylistText,
@@ -158,7 +173,8 @@ export default class ReactManager extends Component {
       <React.Fragment>
         <NavBar passedState={this.state}/>
         <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} handleFieldChange={this.handleFieldChange}
-              newSongSave={this.newSongSave}  addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}/>
+              newSongSave={this.newSongSave}  addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
+              removeSongFromPlaylist={this.removeSongFromPlaylist}/>
       </React.Fragment>
     )
     else{return(<p>page loading....</p>)}

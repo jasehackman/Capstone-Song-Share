@@ -51,6 +51,14 @@ export default class Playlist extends Component {
             })}
 
           </select>
+          <label>Remove A Song</label>
+          <select id={"removeSongFromPlaylist-" + this.props.playlist.id} onChange = {(evt)=> this.props.removeSongFromPlaylist(evt)}>
+            <option>Select A Song</option>
+              {this.props.songs.map(song => {
+                if(arrayOfSongIds.includes(song.id))
+                return <option key={song.id} value={song.id}>{song.title}</option>
+              })}
+          </select>
 
         </div>
         {arrayOfSongs.map(song => {
