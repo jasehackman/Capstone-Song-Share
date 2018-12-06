@@ -8,19 +8,27 @@ export default class Playlist extends Component {
     let arrayOfSongIds = this.props.songsIds.map(songid => {
       return songid.songId
     })
-    // let arrayOfSongs = this.props.songs.map(song => {
 
-    //   return arrayOfSongIds.filter(songId => songId === song.id)
-    // })
 
     let arrayOfSongs = arrayOfSongIds.map(songid => {
-      console.log(songid)
       return this.props.songs.filter(song => song.id===songid )
     })
 
     return(
       <div>
         <h1>{this.props.playlist.title}</h1>
+        <div>
+          <label>Add A Song</label>
+          <select id={"addSongToPlaylist-" + this.props.playlist.id} value = "pick a song" onChange = {(evt)=> this.props.addSongToPlaylist(evt)}>
+            <option>Select A Song</option>
+            {this.props.songs.map(song => {
+              if(!arrayOfSongIds.includes(song.id))
+              return <option key={song.id} value={song.id}>{song.title}</option>
+            })}
+
+          </select>
+
+        </div>
         {arrayOfSongs.map(song => {
          return <Song key={song[0].id} song={song[0]}/>
         }
