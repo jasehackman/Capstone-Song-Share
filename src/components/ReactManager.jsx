@@ -30,7 +30,10 @@ export default class ReactManager extends Component {
     songTitleInput: "",
     songLyricInput: "",
     songCoWriters: "",
-    songDuration: ""
+    songDuration: "",
+
+    //playlists
+    newPlaylistText: ""
 
   }
 
@@ -127,6 +130,7 @@ export default class ReactManager extends Component {
   }
 
   addSongToPlaylist = (evt) => {
+
     const idOfSong = Number(evt.target.value);
     const idOfPlaylistArray = evt.target.id.split('-');
     const idOfPlaylist = Number(idOfPlaylistArray[1])
@@ -136,6 +140,16 @@ export default class ReactManager extends Component {
     }).then(()=> this.refreshData())
   }
 
+  addPlaylist = ()=>{
+    APICalls.saveToJson("playlists",{
+      title: this.state.newPlaylistText,
+      userId: this.state.currentUser.userId,
+      password: "123abc",
+      url: null
+
+    }).then(() => APICalls.getFromJsonForUser("playlists", this.state.currentUser.userId)).then((data) => this.setState({playlists: data}))}
+
+
   render() {
     if(this.state.pageLoaded)
     return (
@@ -144,7 +158,7 @@ export default class ReactManager extends Component {
       <React.Fragment>
         <NavBar passedState={this.state}/>
         <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} handleFieldChange={this.handleFieldChange}
-              newSongSave={this.newSongSave}  addSongToPlaylist={this. addSongToPlaylist}/>
+              newSongSave={this.newSongSave}  addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}/>
       </React.Fragment>
     )
     else{return(<p>page loading....</p>)}
