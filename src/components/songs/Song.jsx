@@ -5,7 +5,6 @@ export default class Song extends Component {
 
   state = {
     songPlayerClicked: false,
-    editSongClicked: false
   }
 
   songClicked = () => {
@@ -17,36 +16,14 @@ export default class Song extends Component {
   }
 
 
-  editSongClickedFunction = () => {
-    this.setState({editSongClicked: true})
-  }
 
 
 
   render(){
-    //edit button clicked
-    if(this.state.songPlayerClicked && this.state.editSongClicked){
-      return(
-        <div>
-          <h3 contentEditable="true">{this.props.song.title}</h3>
-
-          <audio controls src={this.props.song.downloadURL}></audio>
-          <div>
-            <h5>CoWriters</h5>
-            <p contentEditable="true">{this.props.song.coWriter}</p>
-            <h3>Lyric</h3>
-            <p contentEditable="true">{this.props.song.lyric}</p>
-            <button>Edit</button><button>Delete</button>
-          </div>
-          <img className="icon" alt="expand" src="images/iconfinder_collapse2_308968.svg"/>
-
-        </div>
-      )
-    }
     //if a song is clicked
-    else if(this.state.songPlayerClicked){
+    if(this.state.songPlayerClicked){
         return(
-        <div onClick={()=>this.songUnClicked()} >
+        <div  >
           <h3>{this.props.song.title}</h3>
 
           <audio controls src={this.props.song.downloadURL}></audio>
@@ -54,9 +31,8 @@ export default class Song extends Component {
             <p>Cowriter:{this.props.song.coWriter}</p>
             <h3>Lyric</h3>
             <p>{this.props.song.lyric}</p>
-            <button onClick = {this.editSongClickedFunction}>Edit</button><button>Delete</button>
           </div>
-          <img className="icon" alt="expand" src="images/iconfinder_collapse2_308968.svg"/>
+          <img className="icon" onClick={()=>this.songUnClicked()} alt="collapse" src="images/iconfinder_collapse2_308968.svg"/>
 
         </div>
         )
