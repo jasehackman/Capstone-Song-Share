@@ -126,26 +126,15 @@ export default class ReactManager extends Component {
 
   }
 
-    // let songDownloadURL = APICalls.getSingleSong(uploadedSong)
-    // this.setState({
-    //   uploadedFileName: fileName,
-    //   songDownloadURL: songDownloadURL
-
-    // })
-    // task.on('state_changed',
-    //   function progress(snapshot) {
-    //     let percentage = (snapshot.bytesTransferred/snapshot.totalBytes) *100;
-    //     console.log(percentage)
-
-    //   }),
-    //   function error(err) {
-
-    //   },
-    //   function complete() {
-
-    //   }
-
-
+  addSongToPlaylist = (evt) => {
+    const idOfSong = Number(evt.target.value);
+    const idOfPlaylistArray = evt.target.id.split('-');
+    const idOfPlaylist = Number(idOfPlaylistArray[1])
+    APICalls.saveToJson('songs_playlists', {
+      songId: idOfSong,
+      playlistId: idOfPlaylist
+    }).then(()=> this.refreshData())
+  }
 
   render() {
     if(this.state.pageLoaded)
@@ -155,7 +144,7 @@ export default class ReactManager extends Component {
       <React.Fragment>
         <NavBar passedState={this.state}/>
         <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} handleFieldChange={this.handleFieldChange}
-              newSongSave={this.newSongSave}/>
+              newSongSave={this.newSongSave}  addSongToPlaylist={this. addSongToPlaylist}/>
       </React.Fragment>
     )
     else{return(<p>page loading....</p>)}
