@@ -5,6 +5,30 @@ export default class Playlist extends Component {
 
 
   render(){
+
+    if(this.props.songsIds.length===0){
+      return(
+        <div>
+          <h1>{this.props.playlist.title}</h1>
+          <div>
+            <label>Add A Song</label>
+            <select id={"addSongToPlaylist-" + this.props.playlist.id} value = "pick a song" onChange = {(evt)=> this.props.addSongToPlaylist(evt)}>
+              <option>Select A Song</option>
+              {this.props.songs.map(song => {
+                return <option key={song.id} value={song.id}>{song.title}</option>
+              })}
+
+            </select>
+
+          </div>
+
+
+
+        </div>
+      )
+    }
+
+    else{
     let arrayOfSongIds = this.props.songsIds.map(songid => {
       return songid.songId
     })
@@ -38,5 +62,5 @@ export default class Playlist extends Component {
 
       </div>
     )
-  }
+  }}
 }

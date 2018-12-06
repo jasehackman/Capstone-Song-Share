@@ -11,6 +11,9 @@ export default class PlaylistsView extends Component {
     return (
       <React.Fragment>
         <h1>Playlist</h1>
+        <label>Add Playlist</label>
+        <input type="text" id="newPlaylistText" onChange={(evt)=>this.props.handleFieldChange(evt)}/>
+        <button onClick={()=>this.props.addPlaylist()}>+</button>
         {this.props.playlists.map(playlist =>{
           return <Playlist key={playlist.id} playlist = {playlist} songsIds = {playlist.songs_playlists} songs={this.props.songs}
            addSongToPlaylist={this.props.addSongToPlaylist}/>
