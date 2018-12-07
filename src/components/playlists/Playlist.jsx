@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Song from "../songs/Song.jsx"
+import SongForPubs from "../pubView/SongForPub.jsx"
 
 export default class Playlist extends Component {
 
@@ -28,7 +28,7 @@ export default class Playlist extends Component {
 
   }
 
-
+  console.log(this.props.songsIds)
   //if there are no songs in a playlist
     if(this.props.songsIds.length===0){
       return(
@@ -89,7 +89,7 @@ export default class Playlist extends Component {
         {/* Songs in playlists */}
         <div>
         {arrayOfSongs.map(song => {
-         return <Song key={song[0].id} song={song[0]}/>
+         return <SongForPubs key={song[0].id} song={song[0]}/>
         }
 
         )}

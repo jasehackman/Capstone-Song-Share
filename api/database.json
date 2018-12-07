@@ -27,22 +27,12 @@
   ],
   "songs": [
     {
-      "id": 1,
-      "title": "You Know",
-      "fileName": "You Know master 8.22.17.mp3",
-      "userId": 1,
-      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/You%20Know%20master%208.22.17.mp3?alt=media&token=ca81fac5-d280-4839-aa20-5f2157972f89",
-      "lyric": "You Know",
-      "coWriters": null,
-      "duration": "3:18"
-    },
-    {
       "id": 2,
       "title": "Needle In A Haystack",
       "url": "Needle in a Haystack (Corley-Herring-Vance).m4a",
       "userId": 1,
       "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Needle%20in%20a%20Haystack%20(Corley-Herring-Vance).m4a?alt=media&token=b4971f22-fd5f-44a0-9478-a8aee8409949",
-      "lyric": "You Know",
+      "lyric": "You Knowss",
       "coWriters": null,
       "duration": "4:23"
     },
@@ -59,23 +49,64 @@
   ],
   "playlists": [
     {
-      "title": "DID IT WOKR",
+      "title": "Test",
       "userId": 1,
       "password": "123abc",
       "url": null,
       "id": 3
+    },
+    {
+      "title": "My New Playlist",
+      "userId": 1,
+      "password": "123abc",
+      "url": null,
+      "id": 4
+    },
+    {
+      "title": "Will it break again",
+      "userId": 1,
+      "password": "123abc",
+      "url": null,
+      "id": 5
+    },
+    {
+      "title": "Will it break?",
+      "userId": 1,
+      "password": "123abc",
+      "url": null,
+      "id": 6
     }
   ],
   "songs_playlists": [
     {
-      "songId": 1,
-      "playlistId": 3,
-      "id": 4
-    },
-    {
       "songId": 3,
       "playlistId": 3,
       "id": 5
+    },
+    {
+      "songId": 2,
+      "playlistId": 3,
+      "id": 6
+    },
+    {
+      "songId": 2,
+      "playlistId": 4,
+      "id": 7
+    },
+    {
+      "songId": 3,
+      "playlistId": 4,
+      "id": 8
+    },
+    {
+      "songId": 2,
+      "playlistId": 5,
+      "id": 9
+    },
+    {
+      "songId": 2,
+      "playlistId": 6,
+      "id": 10
     }
   ]
 }

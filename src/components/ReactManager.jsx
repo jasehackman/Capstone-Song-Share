@@ -5,6 +5,8 @@ import APICalls from "../modules/APICalls"
 import firebase from "firebase"
 
 
+let storage = firebase.storage()
+
 
 export default class ReactManager extends Component {
 
@@ -25,16 +27,24 @@ export default class ReactManager extends Component {
 
     //new song form
     uploader: 0,
-    uploadedFileName:"",
-    songDownloadURL:"",
+    uploadedFileName: "",
+    songDownloadURL: "",
     songTitleInput: "",
     songLyricInput: "",
     songCoWriters: "",
     songDuration: "",
 
+    //edit song
+    editSongButtonClick: 0,
+    editSongTitleInput: "",
+    editSongLyricInput: "",
+    editSongCoWriters: "",
+    editSongDuration: "",
+
     //playlists
     newPlaylistText: "",
     editTitleButtonClicked: false
+
 
 
 
@@ -53,10 +63,10 @@ export default class ReactManager extends Component {
         return APICalls.getFromJsonForUser("songs_playlists", this.state.currentUser.userId)
       })
       .then(data => {
-        stateSetter.editTitleButtonClicked= false;
+        stateSetter.editTitleButtonClicked = false;
         stateSetter.songs_playlists = data;
         this.setState(stateSetter)
-        this.setState({pageLoaded: true})
+        this.setState({ pageLoaded: true })
       })
 
 
@@ -72,6 +82,7 @@ export default class ReactManager extends Component {
     this.refreshData();
   }
 
+  //Songs-----------------------------------------------------------------------------------------------------
 
   //uploading a song to firebase
   fileUploader = (e) => {
@@ -99,16 +110,17 @@ export default class ReactManager extends Component {
     }, (error) => {
       console.log(error)
     },
-     () => {
-      //getting the download url
-      task.snapshot.ref.getDownloadURL().then((downloadURL)=>{
-        songDownloadUrl = downloadURL
+      () => {
+        //getting the download url
+        task.snapshot.ref.getDownloadURL().then((downloadURL) => {
+          songDownloadUrl = downloadURL
 
-        //setting the download url and file name to state
-        this.setState({
-          uploadedFileName: fileName,
-          songDownloadURL: downloadURL
-        })})
+          //setting the download url and file name to state
+          this.setState({
+            uploadedFileName: fileName,
+            songDownloadURL: downloadURL
+          })
+        })
       })
   };
 
@@ -126,13 +138,82 @@ export default class ReactManager extends Component {
     }
 
     APICalls.saveToJson("songs", songObj)
-    .then(() => APICalls.getFromJsonForUser("songs", this.state.currentUser.userId).then(data => {
-      console.log(data)
-      this.setState({songs: data})
-    }))
+      .then(() => APICalls.getFromJsonForUser("songs", this.state.currentUser.userId).then(data => {
+        console.log(data)
+        this.setState({ songs: data })
+      }))
 
   }
 
+  //deleteSongs
+  deleteSongClick = (evt) => {
+    const idOfSongArray = evt.target.id.split('-');
+
+
+    //test
+    APICalls.getOneFromJson("songs", idOfSongArray[1])
+    .then(data => {
+    let songRef = storage.ref(data.fileName);
+      songRef.delete().then(() => {
+        alert("file deleted")
+      }).catch((error) =>{
+        alert(error)
+      });
+    })
+
+    APICalls.deleteItem("songs", idOfSongArray[1])
+      .then(() => APICalls.getFromJsonForUser("songs", this.state.currentUser.userId).then(data => {
+        this.setState({ songs: data })
+
+      }
+
+      ))
+  }
+
+  //editSongs
+
+  editSongClick = (e) => {
+    let songId = e.target.id.split('-')
+    APICalls.getOneFromJson("songs", Number(songId[1]))
+    .then(data =>
+    this.setState({
+
+      editSongButtonClick: Number(songId[1]),
+      editSongTitleInput: data.title,
+      editSongLyricInput: data.lyric,
+      editSongCoWriters: data.coWriters,
+      editSongDuration: data.duration,
+
+    }))
+  }
+
+  editSongSave = () => {
+    APICalls.updateItem("songs", this.state.editSongButtonClick, {
+      title: this.state.editSongTitleInput,
+      lyric: this.state.editSongLyricInput,
+      coWriters: this.state.editSongCoWriters,
+      duration: this.state.editSongDuration
+
+    }).then(() => APICalls.getFromJsonForUser("songs",this.state.currentUser.userId)
+    .then(data => {
+      this.setState({
+        songs: data,
+        editSongButtonClick: 0
+      })
+
+    }))
+  }
+
+  backSongClick = (e) => {
+    let buttonId = e.target.id
+    let buttonNumber = buttonId.split('-')
+    let setId = `editSongButton-${Number(buttonNumber[1])}`
+    this.setState({editSongButtonClick: 0})
+
+  }
+
+
+  //Playlists-----------------------------------------------------------------------------------------
   addSongToPlaylist = (evt) => {
 
     const idOfSong = Number(evt.target.value);
@@ -141,7 +222,7 @@ export default class ReactManager extends Component {
     APICalls.saveToJson('songs_playlists', {
       songId: idOfSong,
       playlistId: idOfPlaylist
-    }).then(()=> this.refreshData())
+    }).then(() => this.refreshData())
   }
 
   removeSongFromPlaylist = (evt) => {
@@ -149,20 +230,24 @@ export default class ReactManager extends Component {
     const idOfSong = Number(evt.target.value);
     const idOfPlaylistArray = evt.target.id.split('-');
     const idOfPlaylist = Number(idOfPlaylistArray[1])
-    const arrayOfSongs = this.state.songs_playlists.filter(relationship => relationship.playlistId===idOfPlaylist)
-    const objOfCorrectRelationship = arrayOfSongs.filter(relationship => relationship.songId===idOfSong)
-      APICalls.deleteItem('songs_playlists', objOfCorrectRelationship[0].id)
-    .then(()=> this.refreshData())
+    const arrayOfSongs = this.state.songs_playlists.filter(relationship => relationship.playlistId === idOfPlaylist)
+    const objOfCorrectRelationship = arrayOfSongs.filter(relationship => relationship.songId === idOfSong)
+    APICalls.deleteItem('songs_playlists', objOfCorrectRelationship[0].id)
+      .then(() => this.refreshData())
   }
 
-  addPlaylist = ()=>{
-    APICalls.saveToJson("playlists",{
+  addPlaylist = () => {
+    APICalls.saveToJson("playlists", {
       title: this.state.newPlaylistText,
       userId: this.state.currentUser.userId,
       password: "123abc",
       url: null
 
-    }).then(() => APICalls.getFromJsonForUser("playlists", this.state.currentUser.userId)).then((data) => this.setState({playlists: data}))}
+    }).then(() => this.refreshData())
+
+    //The bellow code broke. See if you can just render playlist and get it to work
+    // APICalls.getFromJsonForUser("playlists", this.state.currentUser.userId)).then((data) => this.setState({ playlists: data }))
+  }
 
   removePlaylist = (evt) => {
     const idOfPlaylistArray = evt.target.id.split('-');
@@ -170,41 +255,54 @@ export default class ReactManager extends Component {
     const arrayOfSongsinPlaylist = this.state.songs_playlists.filter(relationship => relationship.playlistId === Number(idOfPlaylistArray[1]))
     console.log(arrayOfSongsinPlaylist)
     let arrayOfPromises = arrayOfSongsinPlaylist.map(relationship => {
-      APICalls.deleteItem("songs_playlists",relationship.id)
+      APICalls.deleteItem("songs_playlists", relationship.id)
     })
     Promise.all(arrayOfPromises).then(() => APICalls.deleteItem("playlists", idOfPlaylistArray[1])).then(() => this.refreshData())
 
   }
 
-  editPlaylistTitle=(evt) => {
+  editPlaylistTitle = (evt) => {
     const idOfPlaylistArray = evt.target.id.split('-');
-    APICalls.updateItem("playlists",idOfPlaylistArray[1],{title: this.state[`editTitleButtonForm-${idOfPlaylistArray[1]}`]})
-    .then(() => this.refreshData())
+    APICalls.updateItem("playlists", idOfPlaylistArray[1], { title: this.state[`editTitleButtonForm-${idOfPlaylistArray[1]}`] })
+      .then(() => this.refreshData())
 
   }
 
   editTitleButton = () => {
-    this.setState({editTitleButtonClicked: true})
+    this.setState({ editTitleButtonClicked: true })
   }
 
   editTitleBackButton = () => {
-    this.setState({editTitleButtonClicked: false})
+    this.setState({ editTitleButtonClicked: false })
   }
 
 
   render() {
-    if(this.state.pageLoaded)
-    return (
+    if (this.state.pageLoaded)
+      return (
 
 
-      <React.Fragment>
-        <NavBar passedState={this.state}/>
-        <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} handleFieldChange={this.handleFieldChange}
-              newSongSave={this.newSongSave}  addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
-              removeSongFromPlaylist={this.removeSongFromPlaylist} removePlaylist = {this.removePlaylist} editTitleButton={this.editTitleButton}
-              editTitleBackButton={this.editTitleBackButton} editPlaylistTitle={this.editPlaylistTitle}/>
-      </React.Fragment>
-    )
-    else{return(<p>page loading....</p>)}
+        <React.Fragment>
+          <NavBar passedState={this.state} />
+          <ApplicationManager passedState={this.state}
+
+            //playlists
+            addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
+            removeSongFromPlaylist={this.removeSongFromPlaylist} removePlaylist={this.removePlaylist} editTitleButton={this.editTitleButton}
+            editTitleBackButton={this.editTitleBackButton} editPlaylistTitle={this.editPlaylistTitle}
+
+            //songs
+            deleteSongClick={this.deleteSongClick} fileUploader={this.fileUploader} handleFieldChange={this.handleFieldChange}
+            newSongSave={this.newSongSave} editSongClick={this.editSongClick} backSongClick = {this.backSongClick}
+            editSongSave={this.editSongSave}
+
+
+
+          />
+        </React.Fragment >
+      )
+    else {
+      return (<p> page loading....</p >)
+    }
   }
 }
