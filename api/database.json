@@ -59,13 +59,6 @@
   ],
   "playlists": [
     {
-      "id": 2,
-      "userId": 1,
-      "title": "Blues",
-      "password": "123abc",
-      "url": null
-    },
-    {
       "title": "asdf",
       "userId": 1,
       "password": "123abc",
@@ -74,11 +67,6 @@
     }
   ],
   "songs_playlists": [
-    {
-      "id": 3,
-      "songId": 1,
-      "playlistId": 2
-    },
     {
       "songId": 1,
       "playlistId": 3,

@@ -4,8 +4,30 @@ import Song from "../songs/Song.jsx"
 export default class Playlist extends Component {
 
 
+
+
+
+
   render(){
 
+    //edit Title Button
+    let editButtonForm
+    if(this.props.passedState.editTitleButtonClicked){
+      editButtonForm = <div><input type = "text" id={"editTitleButtonForm-"+this.props.playlist.id}/>
+      <button id = {"savePlaylistTitle-"+this.props.playlist.id} onClick={() => console.log("SaveMe")}>Save Title</button>
+      <button onClick={()=> this.props.editTitleBackButton()}>Back</button>
+      </div>
+    } else{
+      editButtonForm = <div>
+        <h1>{this.props.playlist.title}</h1>
+        <button id = {"editPlaylistTitle-"+this.props.playlist.id} onClick={() => this.props.editTitleButton()}>Edit Title</button>
+        <button id = {"deletePlaylist-"+this.props.playlist.id} onClick={(evt)=> this.props.removePlaylist(evt)}>Delete</button>
+       </div>
+
+  }
+
+
+  //if there are no songs in a playlist
     if(this.props.songsIds.length===0){
       return(
         <div>
@@ -40,9 +62,7 @@ export default class Playlist extends Component {
 
     return(
       <div>
-        <h1>{this.props.playlist.title}</h1>
-        <button id = {"deletePlaylist-"+this.props.playlist.id} onClick={(evt)=> this.props.removePlaylist(evt)}>Delete</button>
-
+        {editButtonForm}
         <div>
           {/* add songs */}
           <label>Add A Song</label>

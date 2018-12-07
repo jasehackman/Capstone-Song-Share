@@ -33,7 +33,10 @@ export default class ReactManager extends Component {
     songDuration: "",
 
     //playlists
-    newPlaylistText: ""
+    newPlaylistText: "",
+    editTitleButtonClicked: false
+
+
 
   }
 
@@ -172,6 +175,19 @@ export default class ReactManager extends Component {
 
   }
 
+  editPlaylistTitle=(evt) => {
+
+  }
+
+  editTitleButton = () => {
+    this.setState({editTitleButtonClicked: true})
+  }
+
+  editTitleBackButton = () => {
+    this.setState({editTitleButtonClicked: false})
+  }
+
+
   render() {
     if(this.state.pageLoaded)
     return (
@@ -181,7 +197,8 @@ export default class ReactManager extends Component {
         <NavBar passedState={this.state}/>
         <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} handleFieldChange={this.handleFieldChange}
               newSongSave={this.newSongSave}  addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
-              removeSongFromPlaylist={this.removeSongFromPlaylist} removePlaylist = {this.removePlaylist}/>
+              removeSongFromPlaylist={this.removeSongFromPlaylist} removePlaylist = {this.removePlaylist} editTitleButton={this.editTitleButton}
+              editTitleBackButton={this.editTitleBackButton}/>
       </React.Fragment>
     )
     else{return(<p>page loading....</p>)}
