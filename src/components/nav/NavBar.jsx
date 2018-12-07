@@ -10,7 +10,7 @@ export default class NavBar extends Component {
         <Link to="/playlists">Playlists</Link>
         <Link to = "/songs">Songs</Link>
         <Link to = "/profile">Profile</Link>
-        <a href="http://localhost:3000">Logout</a>
+        <a href="http://localhost:3000/playlists" onClick={()=>this.props.logout()}>Logout</a>
       </div>
     )
   }

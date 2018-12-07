@@ -89,11 +89,6 @@
       "id": 6
     },
     {
-      "songId": 2,
-      "playlistId": 4,
-      "id": 7
-    },
-    {
       "songId": 3,
       "playlistId": 4,
       "id": 8
@@ -107,6 +102,11 @@
       "songId": 2,
       "playlistId": 6,
       "id": 10
+    },
+    {
+      "songId": 2,
+      "playlistId": 4,
+      "id": 11
     }
   ]
 }

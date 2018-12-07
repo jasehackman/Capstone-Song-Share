@@ -13,6 +13,10 @@ export default class ReactManager extends Component {
   state = {
     pageLoaded: false,
 
+    //Login
+
+    loggedIn: false,
+
     //need to reset with login
     currentUser:
     {
@@ -47,6 +51,13 @@ export default class ReactManager extends Component {
 
 
 
+
+  }
+
+  //Login/out ---------------------------------------------------------------------------------------------
+
+  logout = () => {
+    sessionStorage.removeItem('id')
 
   }
 
@@ -283,8 +294,9 @@ export default class ReactManager extends Component {
 
 
         <React.Fragment>
-          <NavBar passedState={this.state} />
+          <NavBar passedState={this.state} logout = {this.logout}/>
           <ApplicationManager passedState={this.state}
+          refreshData={this.refreshData}
 
             //playlists
             addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
