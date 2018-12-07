@@ -15,9 +15,10 @@ export default class ApplicationManager extends Component{
         newSongSave={this.props.newSongSave}/>
       })}/>
        <Route exact path = "/playlists" render={(props => {
-        return <PlaylistsView playlists = {this.props.passedState.playlists} songs_playlists={this.props.passedState.songs_playlists}
+        return <PlaylistsView passedState = {this.props.passedState} playlists = {this.props.passedState.playlists} songs_playlists={this.props.passedState.songs_playlists}
         songs={this.props.passedState.songs} handleFieldChange={this.props.handleFieldChange} addSongToPlaylist={this.props.addSongToPlaylist}
-        addPlaylist={this.props.addPlaylist} removeSongFromPlaylist={this.props.removeSongFromPlaylist} removePlaylist = {this.props.removePlaylist}/>
+        addPlaylist={this.props.addPlaylist} removeSongFromPlaylist={this.props.removeSongFromPlaylist} removePlaylist = {this.props.removePlaylist}
+        editTitleButton={this.props.editTitleButton} editTitleBackButton={this.props.editTitleBackButton} editPlaylistTitle={this.props.editPlaylistTitle}/>
       })}/>
     <Route exact path = "/profile" render={(props => {
         return <ProfileView passedState = {this.props.passedState} handleFieldChange={this.props.handleFieldChange}/>
