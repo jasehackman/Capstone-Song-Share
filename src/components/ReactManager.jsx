@@ -147,11 +147,7 @@ export default class ReactManager extends Component {
     const idOfPlaylist = Number(idOfPlaylistArray[1])
     const arrayOfSongs = this.state.songs_playlists.filter(relationship => relationship.playlistId===idOfPlaylist)
     const objOfCorrectRelationship = arrayOfSongs.filter(relationship => relationship.songId===idOfSong)
-    console.log(arrayOfSongs)
-    console.log(objOfCorrectRelationship)
-
-
-    APICalls.deleteItem('songs_playlists', objOfCorrectRelationship[0].id)
+      APICalls.deleteItem('songs_playlists', objOfCorrectRelationship[0].id)
     .then(()=> this.refreshData())
   }
 
@@ -164,6 +160,17 @@ export default class ReactManager extends Component {
 
     }).then(() => APICalls.getFromJsonForUser("playlists", this.state.currentUser.userId)).then((data) => this.setState({playlists: data}))}
 
+  removePlaylist = (evt) => {
+    const idOfPlaylistArray = evt.target.id.split('-');
+    console.log(evt.target.id)
+    const arrayOfSongsinPlaylist = this.state.songs_playlists.filter(relationship => relationship.playlistId === Number(idOfPlaylistArray[1]))
+    console.log(arrayOfSongsinPlaylist)
+    let arrayOfPromises = arrayOfSongsinPlaylist.map(relationship => {
+      APICalls.deleteItem("songs_playlists",relationship.id)
+    })
+    Promise.all(arrayOfPromises).then(() => APICalls.deleteItem("playlists", idOfPlaylistArray[1])).then(() => this.refreshData())
+
+  }
 
   render() {
     if(this.state.pageLoaded)
@@ -174,7 +181,7 @@ export default class ReactManager extends Component {
         <NavBar passedState={this.state}/>
         <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} handleFieldChange={this.handleFieldChange}
               newSongSave={this.newSongSave}  addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
-              removeSongFromPlaylist={this.removeSongFromPlaylist}/>
+              removeSongFromPlaylist={this.removeSongFromPlaylist} removePlaylist = {this.removePlaylist}/>
       </React.Fragment>
     )
     else{return(<p>page loading....</p>)}
