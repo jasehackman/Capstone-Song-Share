@@ -9,11 +9,9 @@ export default class Playlist extends Component {
 
 
   render(){
-    console.log("playlists", this.props.playlists)
-    console.log("other", this.props.match.params.playlistsId)
-    const playlist = this.props.playlists.find(a => a.id === parseInt(this.props.match.params.playlistId)) || {}
-    console.log(playlist)
-    return(<p>I'm here</p>)
+    const playlist = this.props.playlists.find(playlist => playlist.id === parseInt(this.props.match.params.playlistsId)
+      ) || {}
+
 
 
   //   //edit Title Button
@@ -35,74 +33,49 @@ export default class Playlist extends Component {
   // }
 
 
-  // //if there are no songs in a playlist
-  //   if(this.props.songsIds.length===0){
-  //     return(
-  //       <div>
-  //         <h1>{this.props.playlist.title}</h1>
-  //         <div>
-  //           <label>Add A Song</label>
-  //           <select id={"addSongToPlaylist-" + this.props.playlist.id} value = "pick a song" onChange = {(evt)=> this.props.addSongToPlaylist(evt)}>
-  //             <option>Select A Song</option>
-  //             {this.props.songs.map(song => {
-  //               return <option key={song.id} value={song.id}>{song.title}</option>
-  //             })}
+  //if there are no songs in a playlist
+    if(playlist.songs_playlists.length===0){
+      return(
+        <div>
+          <h1>{this.props.playlist.title}</h1>
+          <div>
 
-  //           </select>
-
-  //         </div>
+          </div>
 
 
 
-  //       </div>
-  //     )
-  //   }
+        </div>
+      )
+    }
 
-  //   else{
-  //   let arrayOfSongIds = this.props.songsIds.map(songid => {
-  //     return songid.songId
-  //   })
+    else{
+    let arrayOfSongIds = playlist.songs_playlists.map(songid => {
+      return songid.songId
+    })
 
 
-  //   let arrayOfSongs = arrayOfSongIds.map(songid => {
-  //     return this.props.songs.filter(song => song.id===songid )
-  //   })
+    let arrayOfSongs = arrayOfSongIds.map(songid => {
+      return this.props.songs.filter(song => song.id===songid )
+    })
 
-  //   return(
-  //     <div>
-  //       {editButtonForm}
-  //       <div>
-  //         {/* add songs */}
-  //         <label>Add A Song</label>
-  //         <select id={"addSongToPlaylist-" + this.props.playlist.id} value = "pick a song" onChange = {(evt)=> this.props.addSongToPlaylist(evt)}>
-  //           <option>Select A Song</option>
-  //           {this.props.songs.map(song => {
-  //             if(!arrayOfSongIds.includes(song.id))
-  //             return <option key={song.id} value={song.id}>{song.title}</option>
-  //           })}
-  //         {/* remove songs */}
-  //         </select>
-  //         <label>Remove A Song</label>
-  //         <select id={"removeSongFromPlaylist-" + this.props.playlist.id} onChange = {(evt)=> this.props.removeSongFromPlaylist(evt)}>
-  //           <option>Select A Song</option>
-  //             {this.props.songs.map(song => {
-  //               if(arrayOfSongIds.includes(song.id))
-  //               return <option key={song.id} value={song.id}>{song.title}</option>
-  //             })}
-  //         </select>
+    return(
+      <div>
+        <h1>{playlist.title}</h1>
+        <div>
+          {/* add songs */}
 
-  //       </div>
-  //       {/* Songs in playlists */}
-  //       <div>
-  //       {arrayOfSongs.map(song => {
-  //        return <SongForPub key={song[0].id} song={song[0]}/>
-  //       }
+        </div>
+        {/* Songs in playlists */}
+        <div>
+        {arrayOfSongs.map(song => {
+         return <SongForPub key={song[0].id} song={song[0]}/>
+        }
 
-  //       )}
+        )}
 
-  //       </div>
-  //     </div>
-  //   )
-  // }
+        </div>
+      </div>
+    )
+  }
 }
 }
