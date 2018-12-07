@@ -41,7 +41,10 @@ export default class Playlist extends Component {
     return(
       <div>
         <h1>{this.props.playlist.title}</h1>
+        <button id = {"deletePlaylist-"+this.props.playlist.id} onClick={(evt)=> this.props.removePlaylist(evt)}>Delete</button>
+
         <div>
+          {/* add songs */}
           <label>Add A Song</label>
           <select id={"addSongToPlaylist-" + this.props.playlist.id} value = "pick a song" onChange = {(evt)=> this.props.addSongToPlaylist(evt)}>
             <option>Select A Song</option>
@@ -49,7 +52,7 @@ export default class Playlist extends Component {
               if(!arrayOfSongIds.includes(song.id))
               return <option key={song.id} value={song.id}>{song.title}</option>
             })}
-
+          {/* remove songs */}
           </select>
           <label>Remove A Song</label>
           <select id={"removeSongFromPlaylist-" + this.props.playlist.id} onChange = {(evt)=> this.props.removeSongFromPlaylist(evt)}>
@@ -61,13 +64,15 @@ export default class Playlist extends Component {
           </select>
 
         </div>
+        {/* Songs in playlists */}
+        <div>
         {arrayOfSongs.map(song => {
          return <Song key={song[0].id} song={song[0]}/>
         }
 
         )}
 
-
+        </div>
       </div>
     )
   }}

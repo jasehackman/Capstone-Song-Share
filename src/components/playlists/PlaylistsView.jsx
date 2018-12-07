@@ -16,7 +16,7 @@ export default class PlaylistsView extends Component {
         <button onClick={()=>this.props.addPlaylist()}>+</button>
         {this.props.playlists.map(playlist =>{
           return <Playlist key={playlist.id} playlist = {playlist} songsIds = {playlist.songs_playlists} songs={this.props.songs}
-           addSongToPlaylist={this.props.addSongToPlaylist} removeSongFromPlaylist={this.props.removeSongFromPlaylist}/>
+           addSongToPlaylist={this.props.addSongToPlaylist} removeSongFromPlaylist={this.props.removeSongFromPlaylist} removePlaylist={this.props.removePlaylist}/>
 
     })}
       </React.Fragment>
