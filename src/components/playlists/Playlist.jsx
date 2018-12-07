@@ -13,9 +13,11 @@ export default class Playlist extends Component {
     //edit Title Button
     let editButtonForm
     if(this.props.passedState.editTitleButtonClicked){
-      editButtonForm = <div><input type = "text" id={"editTitleButtonForm-"+this.props.playlist.id}/>
-      <button id = {"savePlaylistTitle-"+this.props.playlist.id} onClick={() => console.log("SaveMe")}>Save Title</button>
-      <button onClick={()=> this.props.editTitleBackButton()}>Back</button>
+      editButtonForm =
+      <div>
+        <input type = "text" id={"editTitleButtonForm-"+this.props.playlist.id} onChange = {(evt)=> this.props.handleFieldChange(evt)}/>
+        <button id = {"savePlaylistTitle-"+this.props.playlist.id} onClick={(evt) => this.props.editPlaylistTitle(evt)}>Save Title</button>
+        <button onClick={()=> this.props.editTitleBackButton()}>Back</button>
       </div>
     } else{
       editButtonForm = <div>

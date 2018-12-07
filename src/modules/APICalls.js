@@ -52,6 +52,15 @@ const jsonURL = "http://localhost:8088"
       }
     })
   }
+  updateItem(dataType, id, item) {
+    return fetch(`${jsonURL}/${dataType}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(item)
+    })
+  }
 
 
   getSingleSong(songURL) {

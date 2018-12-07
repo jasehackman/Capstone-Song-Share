@@ -53,6 +53,7 @@ export default class ReactManager extends Component {
         return APICalls.getFromJsonForUser("songs_playlists", this.state.currentUser.userId)
       })
       .then(data => {
+        stateSetter.editTitleButtonClicked= false;
         stateSetter.songs_playlists = data;
         this.setState(stateSetter)
         this.setState({pageLoaded: true})
@@ -176,6 +177,9 @@ export default class ReactManager extends Component {
   }
 
   editPlaylistTitle=(evt) => {
+    const idOfPlaylistArray = evt.target.id.split('-');
+    APICalls.updateItem("playlists",idOfPlaylistArray[1],{title: this.state[`editTitleButtonForm-${idOfPlaylistArray[1]}`]})
+    .then(() => this.refreshData())
 
   }
 
@@ -198,7 +202,7 @@ export default class ReactManager extends Component {
         <ApplicationManager passedState={this.state} fileUploader = {this.fileUploader} handleFieldChange={this.handleFieldChange}
               newSongSave={this.newSongSave}  addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
               removeSongFromPlaylist={this.removeSongFromPlaylist} removePlaylist = {this.removePlaylist} editTitleButton={this.editTitleButton}
-              editTitleBackButton={this.editTitleBackButton}/>
+              editTitleBackButton={this.editTitleBackButton} editPlaylistTitle={this.editPlaylistTitle}/>
       </React.Fragment>
     )
     else{return(<p>page loading....</p>)}
