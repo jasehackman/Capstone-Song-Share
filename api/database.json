@@ -27,16 +27,6 @@
   ],
   "songs": [
     {
-      "id": 1,
-      "title": "You Know",
-      "fileName": "You Know master 8.22.17.mp3",
-      "userId": 1,
-      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/You%20Know%20master%208.22.17.mp3?alt=media&token=ca81fac5-d280-4839-aa20-5f2157972f89",
-      "lyric": "You Know",
-      "coWriters": null,
-      "duration": "3:18"
-    },
-    {
       "id": 2,
       "title": "Needle In A Haystack",
       "url": "Needle in a Haystack (Corley-Herring-Vance).m4a",

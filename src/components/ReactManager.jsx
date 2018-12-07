@@ -34,9 +34,13 @@ export default class ReactManager extends Component {
     songCoWriters: "",
     songDuration: "",
 
+    //edit song
+    editSongButtonClick: false,
+
     //playlists
     newPlaylistText: "",
     editTitleButtonClicked: false
+
 
 
 
@@ -137,6 +141,7 @@ export default class ReactManager extends Component {
 
   }
 
+  //deleteSongs
   deleteSongClick = (evt) => {
     const idOfSongArray = evt.target.id.split('-');
 
@@ -159,6 +164,21 @@ export default class ReactManager extends Component {
       }
 
       ))
+  }
+
+  //editSongs
+
+  editSongClick = (e) => {
+    let buttonId = e.target.id
+    this.setState({[buttonId]: true})
+  }
+
+  backSongClick = (e) => {
+    let buttonId = e.target.id
+    let buttonNumber = buttonId.split('-')
+    let setId = `editSongButton-${Number(buttonNumber[1])}`
+    this.setState({[setId]: false})
+
   }
 
 
@@ -239,7 +259,7 @@ export default class ReactManager extends Component {
 
             //songs
             deleteSongClick={this.deleteSongClick} fileUploader={this.fileUploader} handleFieldChange={this.handleFieldChange}
-            newSongSave={this.newSongSave}
+            newSongSave={this.newSongSave} editSongClick={this.editSongClick} backSongClick = {this.backSongClick}
 
 
 
