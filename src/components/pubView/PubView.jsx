@@ -10,31 +10,15 @@ export default class Playlist extends Component {
 
   render(){
     const playlist = this.props.playlists.find(playlist => playlist.id === parseInt(this.props.match.params.playlistsId)
-      ) || {}
-
-
-
-  //   //edit Title Button
-  //   let editButtonForm
-  //   if(this.props.passedState.editTitleButtonClicked){
-  //     editButtonForm =
-  //     <div>
-  //       <input type = "text" id={"editTitleButtonForm-"+this.props.playlist.id} onChange = {(evt)=> this.props.handleFieldChange(evt)}/>
-  //       <button id = {"savePlaylistTitle-"+this.props.playlist.id} onClick={(evt) => this.props.editPlaylistTitle(evt)}>Save Title</button>
-  //       <button onClick={()=> this.props.editTitleBackButton()}>Back</button>
-  //     </div>
-  //   } else{
-  //     editButtonForm = <div>
-  //       <h1>{this.props.playlist.title}</h1>
-  //       <button id = {"editPlaylistTitle-"+this.props.playlist.id} onClick={() => this.props.editTitleButton()}>Edit Title</button>
-  //       <button id = {"deletePlaylist-"+this.props.playlist.id} onClick={(evt)=> this.props.removePlaylist(evt)}>Delete</button>
-  //      </div>
-
-  // }
+      ) || 0
+    console.log(playlist)
+  if(playlist === 0){
+      return(<p>playlist does not exist</p>)
+  }
 
 
   //if there are no songs in a playlist
-    if(playlist.songs_playlists.length===0){
+  else if(playlist.songs_playlists.length===0){
       return(
         <div>
           <h1>{this.props.playlist.title}</h1>
