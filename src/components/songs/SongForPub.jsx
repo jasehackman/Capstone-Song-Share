@@ -32,9 +32,8 @@ export default class Song extends Component {
             <h3>Lyric</h3>
             <p>{this.props.song.lyric}</p>
           </div>
-          <button id={`editSongButton-${this.props.song.id}`} onClick={(e)=> console.log(e)}>Edit</button>
-          <button id={`deleteSongButton-${this.props.song.id}`} onClick = {(evt)=> this.props.deleteSongClick(evt)}>Delete</button>
           <img className="icon" onClick={()=>this.songUnClicked()} alt="collapse" src="images/iconfinder_collapse2_308968.svg"/>
+
         </div>
         )
 
@@ -44,6 +43,9 @@ export default class Song extends Component {
     return (
       <div onClick={()=>this.songClicked()}>
           <h3>{this.props.song.title}</h3>
+
+          <audio controls src={this.props.song.downloadURL}></audio>
+
         <img className="icon" alt="expand" src="images/iconfinder_expand2_308964.svg"/>
         </div>
     )

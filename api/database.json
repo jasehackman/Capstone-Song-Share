@@ -59,7 +59,7 @@
   ],
   "playlists": [
     {
-      "title": "DID IT WOKR",
+      "title": "Test",
       "userId": 1,
       "password": "123abc",
       "url": null,
@@ -68,14 +68,14 @@
   ],
   "songs_playlists": [
     {
-      "songId": 1,
-      "playlistId": 3,
-      "id": 4
-    },
-    {
       "songId": 3,
       "playlistId": 3,
       "id": 5
+    },
+    {
+      "songId": 2,
+      "playlistId": 3,
+      "id": 6
     }
   ]
 }
