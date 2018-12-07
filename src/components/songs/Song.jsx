@@ -21,20 +21,18 @@ export default class Song extends Component {
 
   render(){
 
-    //edit page
-    if(this.props.passedState[`editSongButton-${this.props.song.id}`]){
+//edit page--------------------------------------------------------------------------------------------------------------------------------------
+    if(this.props.passedState.editSongButtonClick === this.props.song.id){
       return(<div>
           <label>Title</label>
-          <input id = "songTitleInput" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <input id = "editSongTitleInput" value = {this.props.passedState.editSongTitleInput} type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <label>Lyric</label>
-          <input id = "songLyricInput" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <input id = "editSongLyricInput" value = {this.props.passedState.editSongLyricInput} type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <label>Co-Writers</label>
-          <input id = "songCoWriters" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <input id = "editSongCoWriters" value = {this.props.passedState.editSongCoWriters} type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <label>Duration</label>
-          <input id = "songDuration" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
-          <progress id = "uploader" value = "0" max = "100">0%</progress>
-          <input id = "songUpload" type = "file" onChange= {(e) => this.props.fileUploader(e)} />
-          <button onClick = {()=> this.props.newSongSave()}>Save</button>
+          <input id = "editSongDuration" value = {this.props.passedState.editSongDuration} type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <button onClick = {()=> this.props.editSongSave()}>Save</button>
           <button id = {`editButtonBack-${this.props.song.id}`} onClick = {(e)=> this.props.backSongClick(e)}>Back</button>
 
 

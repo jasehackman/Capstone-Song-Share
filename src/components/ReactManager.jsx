@@ -35,7 +35,11 @@ export default class ReactManager extends Component {
     songDuration: "",
 
     //edit song
-    editSongButtonClick: false,
+    editSongButtonClick: 0,
+    editSongTitleInput: "",
+    editSongLyricInput: "",
+    editSongCoWriters: "",
+    editSongDuration: "",
 
     //playlists
     newPlaylistText: "",
@@ -169,15 +173,42 @@ export default class ReactManager extends Component {
   //editSongs
 
   editSongClick = (e) => {
-    let buttonId = e.target.id
-    this.setState({[buttonId]: true})
+    let songId = e.target.id.split('-')
+    APICalls.getOneFromJson("songs", Number(songId[1]))
+    .then(data =>
+    this.setState({
+
+      editSongButtonClick: Number(songId[1]),
+      editSongTitleInput: data.title,
+      editSongLyricInput: data.lyric,
+      editSongCoWriters: data.coWriters,
+      editSongDuration: data.duration,
+
+    }))
+  }
+
+  editSongSave = () => {
+    APICalls.updateItem("songs", this.state.editSongButtonClick, {
+      title: this.state.editSongTitleInput,
+      lyric: this.state.editSongLyricInput,
+      coWriters: this.state.editSongCoWriters,
+      duration: this.state.editSongDuration
+
+    }).then(() => APICalls.getFromJsonForUser("songs",this.state.currentUser.userId)
+    .then(data => {
+      this.setState({
+        songs: data,
+        editSongButtonClick: 0
+      })
+
+    }))
   }
 
   backSongClick = (e) => {
     let buttonId = e.target.id
     let buttonNumber = buttonId.split('-')
     let setId = `editSongButton-${Number(buttonNumber[1])}`
-    this.setState({[setId]: false})
+    this.setState({editSongButtonClick: 0})
 
   }
 
@@ -212,7 +243,10 @@ export default class ReactManager extends Component {
       password: "123abc",
       url: null
 
-    }).then(() => APICalls.getFromJsonForUser("playlists", this.state.currentUser.userId)).then((data) => this.setState({ playlists: data }))
+    }).then(() => this.refreshData())
+
+    //The bellow code broke. See if you can just render playlist and get it to work
+    // APICalls.getFromJsonForUser("playlists", this.state.currentUser.userId)).then((data) => this.setState({ playlists: data }))
   }
 
   removePlaylist = (evt) => {
@@ -260,6 +294,7 @@ export default class ReactManager extends Component {
             //songs
             deleteSongClick={this.deleteSongClick} fileUploader={this.fileUploader} handleFieldChange={this.handleFieldChange}
             newSongSave={this.newSongSave} editSongClick={this.editSongClick} backSongClick = {this.backSongClick}
+            editSongSave={this.editSongSave}
 
 
 

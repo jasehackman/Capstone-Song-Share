@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import './song.css'
+import '../songs/song.css'
 
 export default class Song extends Component {
 

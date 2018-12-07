@@ -32,7 +32,7 @@
       "url": "Needle in a Haystack (Corley-Herring-Vance).m4a",
       "userId": 1,
       "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Needle%20in%20a%20Haystack%20(Corley-Herring-Vance).m4a?alt=media&token=b4971f22-fd5f-44a0-9478-a8aee8409949",
-      "lyric": "You Know",
+      "lyric": "You Knowss",
       "coWriters": null,
       "duration": "4:23"
     },
@@ -54,6 +54,27 @@
       "password": "123abc",
       "url": null,
       "id": 3
+    },
+    {
+      "title": "My New Playlist",
+      "userId": 1,
+      "password": "123abc",
+      "url": null,
+      "id": 4
+    },
+    {
+      "title": "Will it break again",
+      "userId": 1,
+      "password": "123abc",
+      "url": null,
+      "id": 5
+    },
+    {
+      "title": "Will it break?",
+      "userId": 1,
+      "password": "123abc",
+      "url": null,
+      "id": 6
     }
   ],
   "songs_playlists": [
@@ -66,6 +87,26 @@
       "songId": 2,
       "playlistId": 3,
       "id": 6
+    },
+    {
+      "songId": 2,
+      "playlistId": 4,
+      "id": 7
+    },
+    {
+      "songId": 3,
+      "playlistId": 4,
+      "id": 8
+    },
+    {
+      "songId": 2,
+      "playlistId": 5,
+      "id": 9
+    },
+    {
+      "songId": 2,
+      "playlistId": 6,
+      "id": 10
     }
   ]
 }
