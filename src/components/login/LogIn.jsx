@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import SignUp from "./SignUp.jsx"
 import APICalls from "../../modules/APICalls"
-
+import { Link } from "react-router-dom"
 
 
 export default class LogIn extends Component{
@@ -48,8 +48,8 @@ export default class LogIn extends Component{
         <input id = "password" type="password" onChange={(e) => this.handleFieldChange(e)}/>
 
         <button onClick={()=> this.loginCheck()} >Login</button>
-        <button>SignUp</button>
 
+        <Link to="/signup">Sign Up</Link>
 
 
 

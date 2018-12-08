@@ -47,7 +47,12 @@ export default class ReactManager extends Component {
 
     //playlists
     newPlaylistText: "",
-    editTitleButtonClicked: false
+    editTitleButtonClicked: false,
+
+    //Sign Up
+    signUpNameInput: "",
+    signUpEmailInput: "",
+    signUpPassword: ""
 
 
 
@@ -59,6 +64,26 @@ export default class ReactManager extends Component {
   logout = () => {
     sessionStorage.removeItem('id')
 
+  }
+
+  //Sign Up ----------------------------------------------------------------------------------------
+  signUpSave = () => {
+    APICalls.getAllFromJson("users")
+    .then(data => {
+      data.forEach(user => {
+        if(user.email===this.state){
+          return alert("Account with that email already exists")
+        }
+      })
+      APICalls.saveToJson("users",{
+        name: this.state.signUpNameInput,
+        email: this.state.signUpEmailInput,
+        password: this.state.signUpPassword
+      }).then(data => {
+        sessionStorage.setItem("id", data.id)
+        this.refreshData()
+      })
+    })
   }
 
 
@@ -296,7 +321,7 @@ export default class ReactManager extends Component {
         <React.Fragment>
           <NavBar passedState={this.state} logout = {this.logout}/>
           <ApplicationManager passedState={this.state}
-          refreshData={this.refreshData}
+          refreshData={this.refreshData} signUpSave={this.signUpSave}
 
             //playlists
             addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}

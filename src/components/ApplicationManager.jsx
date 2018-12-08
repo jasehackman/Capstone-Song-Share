@@ -68,7 +68,23 @@ export default class ApplicationManager extends Component{
 
       })}/>
 
-      <Route />
+      <Route exact path="/signup" render={(props) => {
+         if (!this.isAuthenticated()) {
+            return <SignUp refreshData={this.props.refreshData} handleFieldChange={this.props.handleFieldChange} signUpSave={this.props.signUpSave}/>
+         }else {
+           return <Redirect to='/'/>
+         }
+
+      }}/>
+
+      <Route exact path="/login" render={(props) => {
+         if (!this.isAuthenticated()) {
+            return <Login refreshData={this.props.refreshData} handleFieldChange={this.props.handleFieldChange}/>
+         }else {
+           return <Redirect to='/'/>
+         }
+
+      }}/>
 
 
 

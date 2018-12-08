@@ -23,6 +23,12 @@
       "name": "Mike Roberts",
       "email": "mikeroberts@mail.com",
       "password": "123abc"
+    },
+    {
+      "name": "Jim",
+      "email": "jim@jim.com",
+      "password": "123abc",
+      "id": 5
     }
   ],
   "songs": [
