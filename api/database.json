@@ -81,6 +81,13 @@
       "password": "123abc",
       "url": null,
       "id": 6
+    },
+    {
+      "title": "New Playlist",
+      "userId": "5",
+      "password": "123abc",
+      "url": null,
+      "id": 7
     }
   ],
   "songs_playlists": [

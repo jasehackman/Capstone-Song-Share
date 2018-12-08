@@ -4,10 +4,6 @@ import SongForPubs from "../pubView/SongForPub.jsx"
 export default class Playlist extends Component {
 
 
-
-
-
-
   render(){
 
     //edit Title Button
@@ -28,7 +24,6 @@ export default class Playlist extends Component {
 
   }
 
-  console.log(this.props.songsIds)
   //if there are no songs in a playlist
     if(this.props.songsIds.length===0){
       return(
@@ -88,8 +83,16 @@ export default class Playlist extends Component {
         </div>
         {/* Songs in playlists */}
         <div>
-        {arrayOfSongs.map(song => {
-         return <SongForPubs key={song[0].id} song={song[0]}/>
+        {
+
+          arrayOfSongs.map(song => {
+            if(song.length===0){
+              return <p>Please Upload Songs</p>
+            }else{
+              return <SongForPubs key={song[0].id} song={song[0]}/>
+
+            }
+
         }
 
         )}

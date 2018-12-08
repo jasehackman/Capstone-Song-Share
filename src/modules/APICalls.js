@@ -24,7 +24,7 @@ const jsonURL = "http://localhost:8088"
   }
 
   getEmbedFromJson(dataType, dataType2, id){
-    return fetch(`${jsonURL}/${dataType}/?${id}&_embed=${dataType2}`)
+    return fetch(`${jsonURL}/${dataType}/?userId=${id}&_embed=${dataType2}`)
     .then(data => data.json())
   }
 
