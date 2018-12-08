@@ -13,6 +13,10 @@ export default class ReactManager extends Component {
   state = {
     pageLoaded: false,
 
+    //Login
+
+    loggedIn: false,
+
     //need to reset with login
     currentUser:
     {
@@ -43,24 +47,56 @@ export default class ReactManager extends Component {
 
     //playlists
     newPlaylistText: "",
-    editTitleButtonClicked: false
+    editTitleButtonClicked: false,
+
+    //Sign Up
+    signUpNameInput: "",
+    signUpEmailInput: "",
+    signUpPassword: ""
 
 
 
 
   }
 
+  //Login/out ---------------------------------------------------------------------------------------------
+
+  logout = () => {
+    sessionStorage.removeItem('id')
+
+  }
+
+  //Sign Up ----------------------------------------------------------------------------------------
+  signUpSave = () => {
+    APICalls.getAllFromJson("users")
+    .then(data => {
+      data.forEach(user => {
+        if(user.email===this.state){
+          return alert("Account with that email already exists")
+        }
+      })
+      APICalls.saveToJson("users",{
+        name: this.state.signUpNameInput,
+        email: this.state.signUpEmailInput,
+        password: this.state.signUpPassword
+      }).then(data => {
+        sessionStorage.setItem("id", data.id)
+        this.refreshData()
+      })
+    })
+  }
+
 
   refreshData = () => {
     let stateSetter = {}
-    APICalls.getAllFromJson("songs", this.state.currentUser.userId)
+    APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id"))
       .then(data => {
         stateSetter.songs = data;
-        return APICalls.getEmbedFromJson('playlists', 'songs_playlists', this.state.currentUser.userId)
+        return APICalls.getEmbedFromJson('playlists', 'songs_playlists', sessionStorage.getItem("id"))
       })
       .then(data => {
         stateSetter.playlists = data;
-        return APICalls.getFromJsonForUser("songs_playlists", this.state.currentUser.userId)
+        return APICalls.getFromJsonForUser("songs_playlists", sessionStorage.getItem("id"))
       })
       .then(data => {
         stateSetter.editTitleButtonClicked = false;
@@ -130,7 +166,7 @@ export default class ReactManager extends Component {
     let songObj = {
       title: this.state.songTitleInput,
       fileName: this.state.uploadedFileName,
-      userId: this.state.currentUser.userId,
+      userId: sessionStorage.getItem("id"),
       downloadURL: this.state.songDownloadURL,
       lyric: this.state.songLyricInput,
       coWriters: this.state.songCoWriters,
@@ -138,7 +174,7 @@ export default class ReactManager extends Component {
     }
 
     APICalls.saveToJson("songs", songObj)
-      .then(() => APICalls.getFromJsonForUser("songs", this.state.currentUser.userId).then(data => {
+      .then(() => APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id")).then(data => {
         console.log(data)
         this.setState({ songs: data })
       }))
@@ -162,7 +198,7 @@ export default class ReactManager extends Component {
     })
 
     APICalls.deleteItem("songs", idOfSongArray[1])
-      .then(() => APICalls.getFromJsonForUser("songs", this.state.currentUser.userId).then(data => {
+      .then(() => APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id")).then(data => {
         this.setState({ songs: data })
 
       }
@@ -194,7 +230,7 @@ export default class ReactManager extends Component {
       coWriters: this.state.editSongCoWriters,
       duration: this.state.editSongDuration
 
-    }).then(() => APICalls.getFromJsonForUser("songs",this.state.currentUser.userId)
+    }).then(() => APICalls.getFromJsonForUser("songs",sessionStorage.getItem("id"))
     .then(data => {
       this.setState({
         songs: data,
@@ -239,14 +275,14 @@ export default class ReactManager extends Component {
   addPlaylist = () => {
     APICalls.saveToJson("playlists", {
       title: this.state.newPlaylistText,
-      userId: this.state.currentUser.userId,
+      userId: sessionStorage.getItem("id"),
       password: "123abc",
       url: null
 
     }).then(() => this.refreshData())
 
     //The bellow code broke. See if you can just render playlist and get it to work
-    // APICalls.getFromJsonForUser("playlists", this.state.currentUser.userId)).then((data) => this.setState({ playlists: data }))
+    // APICalls.getFromJsonForUser("playlists", sessionStorage.getItem("id"))).then((data) => this.setState({ playlists: data }))
   }
 
   removePlaylist = (evt) => {
@@ -283,8 +319,9 @@ export default class ReactManager extends Component {
 
 
         <React.Fragment>
-          <NavBar passedState={this.state} />
+          <NavBar passedState={this.state} logout = {this.logout}/>
           <ApplicationManager passedState={this.state}
+          refreshData={this.refreshData} signUpSave={this.signUpSave}
 
             //playlists
             addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}

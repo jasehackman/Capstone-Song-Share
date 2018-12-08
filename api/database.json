@@ -23,6 +23,12 @@
       "name": "Mike Roberts",
       "email": "mikeroberts@mail.com",
       "password": "123abc"
+    },
+    {
+      "name": "Jim",
+      "email": "jim@jim.com",
+      "password": "123abc",
+      "id": 5
     }
   ],
   "songs": [
@@ -75,6 +81,13 @@
       "password": "123abc",
       "url": null,
       "id": 6
+    },
+    {
+      "title": "New Playlist",
+      "userId": "5",
+      "password": "123abc",
+      "url": null,
+      "id": 7
     }
   ],
   "songs_playlists": [
@@ -87,11 +100,6 @@
       "songId": 2,
       "playlistId": 3,
       "id": 6
-    },
-    {
-      "songId": 2,
-      "playlistId": 4,
-      "id": 7
     },
     {
       "songId": 3,
@@ -107,6 +115,11 @@
       "songId": 2,
       "playlistId": 6,
       "id": 10
+    },
+    {
+      "songId": 2,
+      "playlistId": 4,
+      "id": 11
     }
   ]
 }
