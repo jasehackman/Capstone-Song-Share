@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import SongForPubs from "../pubView/SongForPub.jsx"
+import { Link } from "react-router-dom"
+
 
 export default class Playlist extends Component {
 
@@ -29,6 +31,7 @@ export default class Playlist extends Component {
       return(
         <div>
           <h1>{this.props.playlist.title}</h1>
+          <h3>Share Link: http://localhost:8088/playlists/{this.props.playlist.id}</h3>
           <div>
             <label>Add A Song</label>
             <select id={"addSongToPlaylist-" + this.props.playlist.id} value = "pick a song" onChange = {(evt)=> this.props.addSongToPlaylist(evt)}>
@@ -60,6 +63,8 @@ export default class Playlist extends Component {
     return(
       <div>
         {editButtonForm}
+        <h3>Share Link: http://localhost:8088/playlists/{this.props.playlist.id}</h3>
+
         <div>
           {/* add songs */}
           <label>Add A Song</label>
