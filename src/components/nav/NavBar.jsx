@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import './nav.css'
 
 export default class NavBar extends Component {
 
 
   render() {
     return(
-      <div id="nav">
-        <Link to="/playlists">Playlists</Link>
-        <Link to = "/songs">Songs</Link>
-        <Link to = "/profile">Profile</Link>
+      <div className="list-group list-group-flush" id="nav">
+        <img className = "logo list-group-item "src='images/Song-Share Vector Final.png'/>
+        <Link className="logo list-group-item" to="/playlists">Playlists</Link>
+        <Link className="logo list-group-item" to = "/songs">Songs</Link>
+        <Link className="logo list-group-item" to = "/profile">Profile</Link>
 
-        <a href="http://localhost:3000/playlists" onClick={()=>this.props.logout()}>Logout</a>
+        <a className="logo list-group-item" href="http://localhost:3000/playlists" onClick={()=>this.props.logout()}>Logout</a>
       </div>
     )
   }

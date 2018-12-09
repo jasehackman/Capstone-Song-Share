@@ -8,12 +8,16 @@ export default class SongsView extends Component{
     return(
       <React.Fragment>
         <div className = "songList">
-          <h1>Saved Songs</h1>
+          <div className="">
+          <h1 className="display-4">Saved Songs</h1>
+          </div>
+          <div className = "row">
           {this.props.songs.map(song =>
             <Song key={song.id} deleteSongClick={this.props.deleteSongClick} song = {song} editSongClick={this.props.editSongClick}
                 passedState={this.props.passedState} backSongClick = {this.props.backSongClick} handleFieldChange={this.props.handleFieldChange}
                 editSongSave={this.props.editSongSave}/>
           )}
+          </div>
         </div>
 
         {/* new song form */}

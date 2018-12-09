@@ -64,7 +64,7 @@ export default class Song extends Component {
 
     else{
     return (
-      <div onClick={()=>this.songClicked()}>
+      <div className="card col-sm-6"onClick={()=>this.songClicked()}>
           <h3>{this.props.song.title}</h3>
         <img className="icon" alt="expand" src="images/iconfinder_expand2_308964.svg"/>
         </div>

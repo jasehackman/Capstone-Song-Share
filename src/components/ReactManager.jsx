@@ -3,7 +3,7 @@ import NavBar from "./nav/NavBar.jsx"
 import ApplicationManager from "./ApplicationManager.jsx"
 import APICalls from "../modules/APICalls"
 import firebase from "firebase"
-
+import './reactManager.css'
 
 let storage = firebase.storage()
 
@@ -317,9 +317,12 @@ export default class ReactManager extends Component {
     if (this.state.pageLoaded)
       return (
 
-
-        <React.Fragment>
+        <div className="">
+        <div className="row">
+          <div className="col-2">
           <NavBar passedState={this.state} logout = {this.logout}/>
+          </div>
+          <div className="col container mainContainer">
           <ApplicationManager passedState={this.state}
           refreshData={this.refreshData} signUpSave={this.signUpSave}
 
@@ -336,7 +339,9 @@ export default class ReactManager extends Component {
 
 
           />
-        </React.Fragment >
+          </div>
+        </div >
+        </div>
       )
     else {
       return (<p> page loading....</p >)
