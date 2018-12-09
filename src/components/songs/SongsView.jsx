@@ -20,15 +20,15 @@ export default class SongsView extends Component{
         <div>
           <h1>Add New Song</h1>
           <label>Title</label>
-          <input id = "editSongTitleInput" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <input id = "songTitleInput" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <label>Lyric</label>
-          <input id = "editSongLyricInput" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <input id = "songLyricInput" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <label>Co-Writers</label>
-          <input id = "editSongCoWriters" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <input id = "songCoWriters" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <label>Duration</label>
-          <input id = "editSongDuration" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+          <input id = "songDuration" type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <progress id = "uploader" value = "0" max = "100">0%</progress>
-          <input id = "editSongUpload" type = "file" onChange= {(e) => this.props.fileUploader(e)} />
+          <input id = "songUpload" type = "file" onChange= {(e) => this.props.fileUploader(e)} />
           <button onClick = {()=> this.props.newSongSave()}>Save</button>
 
         </div>
