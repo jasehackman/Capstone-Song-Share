@@ -32,6 +32,7 @@ export default class Song extends Component {
           <input id = "editSongCoWriters" value = {this.props.passedState.editSongCoWriters} type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
           <label>Duration</label>
           <input id = "editSongDuration" value = {this.props.passedState.editSongDuration} type = "text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+
           <button onClick = {()=> this.props.editSongSave()}>Save</button>
           <button id = {`editButtonBack-${this.props.song.id}`} onClick = {(e)=> this.props.backSongClick(e)}>Back</button>
 
@@ -43,7 +44,7 @@ export default class Song extends Component {
     //if a song is clicked
     else if(this.state.songPlayerClicked){
         return(
-        <div  >
+        <div className="song m-1 card col-sm-3" >
           <h3>{this.props.song.title}</h3>
 
           <audio controls src={this.props.song.downloadURL}></audio>
@@ -52,9 +53,12 @@ export default class Song extends Component {
             <h3>Lyric</h3>
             <p>{this.props.song.lyric}</p>
           </div>
-          <button id={`editSongButton-${this.props.song.id}`} onClick={(e)=> this.props.editSongClick(e)}>Edit</button>
-          <button id={`deleteSongButton-${this.props.song.id}`} onClick = {(evt)=> this.props.deleteSongClick(evt)}>Delete</button>
+          <div className="container row ">
+          <button className= "btn btn-primary col m-3" id={`editSongButton-${this.props.song.id}`} onClick={(e)=> this.props.editSongClick(e)}>Edit</button>
+          <button className= "btn btn-primary col m-3" id={`deleteSongButton-${this.props.song.id}`} onClick = {(evt)=> this.props.deleteSongClick(evt)}>Delete</button>
+          </div>
           <img className="icon" onClick={()=>this.songUnClicked()} alt="collapse" src="images/iconfinder_collapse2_308968.svg"/>
+
         </div>
         )
 
@@ -64,7 +68,7 @@ export default class Song extends Component {
 
     else{
     return (
-      <div className="card col-sm-6"onClick={()=>this.songClicked()}>
+      <div className="song m-1 card col-sm-3" onClick={()=>this.songClicked()}>
           <h3>{this.props.song.title}</h3>
         <img className="icon" alt="expand" src="images/iconfinder_expand2_308964.svg"/>
         </div>
