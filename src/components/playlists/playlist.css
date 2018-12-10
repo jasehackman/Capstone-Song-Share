@@ -4,3 +4,13 @@
   max-height: 20px;
   margin: .25vw;
 }
+
+.playlistTitle {
+  background-color: white;
+  margin-left: -10px;
+  margin-right: -10px;
+  border-bottom: solid whitesmoke .5px
+  /* box-shadow: 1px 1px whitesmoke */
+
+}
+
