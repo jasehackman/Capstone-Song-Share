@@ -35,7 +35,7 @@ export default class PlaylistLinkModal extends Component {
             <p>http://localhost:8088/playlists/{this.props.playlist.id}</p>
           </ModalBody>
           <ModalFooter>
-            <button className="btn"onClick={() => console.log("click")}>Preview</button>
+          <a class="btn btn-primary" href={"http://localhost:3000/playlists/"+this.props.playlist.id} role="button">Preview</a>
             <button type="button" className="btn btn-secondary" onClick={this.toggle} >Close</button>
           </ModalFooter>
         </Modal>
