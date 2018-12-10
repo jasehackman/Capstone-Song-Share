@@ -10,7 +10,7 @@ export default class PlaylistsView extends Component {
 
     return (
       <React.Fragment>
-        <h1>Playlist</h1>
+        <h1 className="display-4" >Playlist</h1>
         <label>Add Playlist</label>
         <input type="text" id="newPlaylistText" onChange={(evt)=>this.props.handleFieldChange(evt)}/>
         <button onClick={()=>this.props.addPlaylist()}>+</button>

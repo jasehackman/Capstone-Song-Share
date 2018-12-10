@@ -317,12 +317,12 @@ export default class ReactManager extends Component {
     if (this.state.pageLoaded)
       return (
 
-        <div className="">
+        <div className="container">
         <div className="row">
           <div className="col-2">
           <NavBar passedState={this.state} logout = {this.logout}/>
           </div>
-          <div className="col container mainContainer">
+          <div className="col-8 container mainContainer">
           <ApplicationManager passedState={this.state}
           refreshData={this.refreshData} signUpSave={this.signUpSave}
 

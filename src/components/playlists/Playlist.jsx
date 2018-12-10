@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import SongForPubs from "../pubView/SongForPub.jsx"
+import Song from "../songs/Song.jsx"
 import { Link } from "react-router-dom"
 
 
@@ -29,7 +29,7 @@ export default class Playlist extends Component {
   //if there are no songs in a playlist
     if(this.props.songsIds.length===0){
       return(
-        <div>
+        <div className='card p-2 m-1'>
           <h1>{this.props.playlist.title}</h1>
           <h3>Share Link: http://localhost:8088/playlists/{this.props.playlist.id}</h3>
           <div>
@@ -59,11 +59,11 @@ export default class Playlist extends Component {
     let arrayOfSongs = arrayOfSongIds.map(songid => {
       return this.props.songs.filter(song => song.id===songid )
     })
-
+    //normal playlist
     return(
-      <div>
+      <div className="card p-3 m-1">
         {editButtonForm}
-        <h3>Share Link: http://localhost:8088/playlists/{this.props.playlist.id}</h3>
+        <h3>Share Link: http://localhost:3000/playlists/{this.props.playlist.id}</h3>
 
         <div>
           {/* add songs */}
@@ -94,7 +94,9 @@ export default class Playlist extends Component {
             if(song.length===0){
               return <p>Please Upload Songs</p>
             }else{
-              return <SongForPubs key={song[0].id} song={song[0]}/>
+              return <Song key={song[0].id} song={song[0]} deleteSongClick={this.props.deleteSongClick} editSongClick={this.props.editSongClick}
+              passedState={this.props.passedState} backSongClick = {this.props.backSongClick} handleFieldChange={this.props.handleFieldChange}
+              editSongSave={this.props.editSongSave}/>
 
             }
 
