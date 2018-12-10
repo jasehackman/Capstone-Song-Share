@@ -65,14 +65,14 @@
   ],
   "playlists": [
     {
-      "title": "My New Playlist",
+      "title": "Love Songs",
       "userId": 1,
       "password": "123abc",
       "url": null,
       "id": 4
     },
     {
-      "title": "Will it break again",
+      "title": "Party Songs",
       "userId": 1,
       "password": "123abc",
       "url": null,
@@ -91,34 +91,6 @@
       "password": "123abc",
       "url": null,
       "id": 8
-    },
-    {
-      "title": "I am making a new playlist",
-      "userId": "1",
-      "password": "123abc",
-      "url": null,
-      "id": 9
-    },
-    {
-      "title": "I am making a new playlist",
-      "userId": "1",
-      "password": "123abc",
-      "url": null,
-      "id": 10
-    },
-    {
-      "title": "I am making a new playlist",
-      "userId": "1",
-      "password": "123abc",
-      "url": null,
-      "id": 11
-    },
-    {
-      "title": "Testing ",
-      "userId": "1",
-      "password": "123abc",
-      "url": null,
-      "id": 12
     }
   ],
   "songs_playlists": [
@@ -146,6 +118,11 @@
       "songId": 4,
       "playlistId": 5,
       "id": 15
+    },
+    {
+      "songId": 2,
+      "playlistId": 8,
+      "id": 16
     }
   ]
 }

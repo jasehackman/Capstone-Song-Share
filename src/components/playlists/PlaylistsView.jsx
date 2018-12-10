@@ -12,7 +12,8 @@ export default class PlaylistsView extends Component {
     return (
       <React.Fragment>
         <div className="d-flex">
-        <h1 className="display-4" >Playlist</h1>
+        <h1 className="display-4" >Playlists</h1>
+        {/* Modal */}
         <NewPlaylistModal addPlaylist={this.props.addPlaylist} handleFieldChange={this.props.handleFieldChange}/>
         </div>
         {this.props.playlists.map(playlist =>{
