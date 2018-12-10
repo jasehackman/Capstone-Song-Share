@@ -8,11 +8,13 @@ export default class SongsView extends Component {
     return (
       <React.Fragment>
         <div className="songList">
-          <div className="row">
+          <div className="d-flex">
             <h1 className="display-4">Saved Songs</h1>
-            <button type="button" class="btn btn-primary btn-sm mt-4 mb-3 ml-3" data-toggle="modal" data-target="#exampleModalCenter">
-          +
-        </button>
+            <div className="m-1 align-self-center ml-auto">
+              <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter">
+                +
+              </button>
+            </div>
           </div>
           <div className="accordion">
             {this.props.songs.map(song =>

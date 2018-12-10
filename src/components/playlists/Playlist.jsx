@@ -6,6 +6,7 @@ import PlaylistLinkModal from './PlaylistLinkModal.jsx'
 import {Input} from 'reactstrap'
 
 
+
 export default class Playlist extends Component {
 
 
@@ -27,8 +28,6 @@ export default class Playlist extends Component {
           <div className="ml-auto">
           <img src="images/edit.png" className="icon" alt="edit" id={"editPlaylistTitle-" + this.props.playlist.id} onClick={() => this.props.editTitleButton()} />
           <img src="images/trash.png" className="icon" alt="delete" id={"deletePlaylist-" + this.props.playlist.id} onClick={(evt) => this.props.removePlaylist(evt)} />
-          {/* <img src='images/link-symbol.svg' className='icon' alt='playlistLink' id={'linkPlaylist-' + this.props.playlist.id} onClick={evt => console.log(evt)} data-toggle="modal" data-target="#exampleModalCenter" /> */}
-          {/* <h3>Share Link: http://localhost:8088/playlists/{this.props.playlist.id}</h3> */}
           <PlaylistLinkModal playlist = {this.props.playlist} />
           </div>
         </div>
