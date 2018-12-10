@@ -1,5 +1,5 @@
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/cyborg/materia.css'
 import $ from 'jquery';
 import Popper from 'popper.js';

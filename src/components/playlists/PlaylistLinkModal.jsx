@@ -1,0 +1,46 @@
+import React, { Component } from "react"
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+export default class PlaylistLinkModal extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
+
+  render() {
+    console.log(this.props.playlist.id)
+    return (
+      <React.Fragment>
+        <img src='images/link-symbol.svg' className='icon' alt='playlistLink' id={'linkPlaylist-' + this.props.playlist.id} onClick={this.toggle} />
+
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>
+            Playlist Link
+          </ModalHeader>
+
+          <ModalBody>
+            <p>http://localhost:8088/playlists/{this.props.playlist.id}</p>
+          </ModalBody>
+          <ModalFooter>
+            <button className="btn"onClick={() => console.log("click")}>Preview</button>
+            <button type="button" className="btn btn-secondary" onClick={this.toggle} >Close</button>
+          </ModalFooter>
+        </Modal>
+      </React.Fragment>
+    )
+
+  }
+}
