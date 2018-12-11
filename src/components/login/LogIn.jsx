@@ -25,7 +25,6 @@ export default class LogIn extends Component {
           console.log(user)
           if (this.state.email === user.email && this.state.password === user.password) {
             sessionStorage.setItem("id", user.id)
-            console.log(sessionStorage.getItem("id"))
             this.props.refreshData()
           } else {
             alert("boo")

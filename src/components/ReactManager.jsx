@@ -167,7 +167,7 @@ export default class ReactManager extends Component {
     let songObj = {
       title: this.state.songTitleInput,
       fileName: this.state.uploadedFileName,
-      userId: sessionStorage.getItem("id"),
+      userId: Number(sessionStorage.getItem("id")),
       downloadURL: this.state.songDownloadURL,
       lyric: this.state.songLyricInput,
       coWriters: this.state.songCoWriters,
@@ -276,7 +276,7 @@ export default class ReactManager extends Component {
   addPlaylist = () => {
     APICalls.saveToJson("playlists", {
       title: this.state.newPlaylistText,
-      userId: sessionStorage.getItem("id"),
+      userId: Number(sessionStorage.getItem("id")),
       password: "123abc",
       url: null
 

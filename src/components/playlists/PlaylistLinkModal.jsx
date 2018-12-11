@@ -21,7 +21,6 @@ export default class PlaylistLinkModal extends Component {
 
 
   render() {
-    console.log(this.props.playlist.id)
     return (
       <React.Fragment>
         <img src='images/link-symbol.svg' className='icon' alt='playlistLink' id={'linkPlaylist-' + this.props.playlist.id} onClick={this.toggle} />

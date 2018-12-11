@@ -80,17 +80,31 @@
     },
     {
       "title": "New Playlist",
-      "userId": "5",
+      "userId": 5,
       "password": "123abc",
       "url": null,
       "id": 7
     },
     {
       "title": "New Playlist",
-      "userId": "1",
+      "userId": 1,
       "password": "123abc",
       "url": null,
       "id": 8
+    },
+    {
+      "title": "Is this Id a string? ",
+      "userId": 1,
+      "password": "123abc",
+      "url": null,
+      "id": 9
+    },
+    {
+      "title": "What about this one? ",
+      "userId": 1,
+      "password": "123abc",
+      "url": null,
+      "id": 10
     }
   ],
   "songs_playlists": [
