@@ -35,7 +35,7 @@
     {
       "id": 2,
       "title": "Needle In A Haystack",
-      "url": "Needle in a Haystack (Corley-Herring-Vance).m4a",
+      "fileName": "Needle in a Haystack (Corley-Herring-Vance).m4a",
       "userId": 1,
       "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Needle%20in%20a%20Haystack%20(Corley-Herring-Vance).m4a?alt=media&token=b4971f22-fd5f-44a0-9478-a8aee8409949",
       "lyric": "You Knowss",
@@ -65,46 +65,53 @@
   ],
   "playlists": [
     {
-      "title": "Love Songs",
+      "title": "Love Songsss",
       "userId": 1,
-      "password": "123abc",
+      "passKey": "erdzmg0mfxi53dqimwe3e",
       "url": null,
       "id": 4
     },
     {
       "title": "Party Songs",
       "userId": 1,
-      "password": "123abc",
+      "passKey": "qh89gan5bk5lzaz6objr9",
       "url": null,
       "id": 5
     },
     {
       "title": "New Playlist",
       "userId": 5,
-      "password": "123abc",
+      "passKey": "pau6u4ubzl48yvkdjdlzn",
       "url": null,
       "id": 7
     },
     {
       "title": "New Playlist",
       "userId": 1,
-      "password": "123abc",
+      "passKey": "37cdv2fbkfq6p38eqcv61b",
       "url": null,
       "id": 8
     },
     {
       "title": "Is this Id a string? ",
       "userId": 1,
-      "password": "123abc",
+      "passKey": "du2nin31wo71ovgazoqbu",
       "url": null,
       "id": 9
     },
     {
       "title": "What about this one? ",
       "userId": 1,
-      "password": "123abc",
+      "passKey": "9aisycfr40nn41h9f0kyv",
       "url": null,
       "id": 10
+    },
+    {
+      "title": "New PassKey",
+      "userId": 1,
+      "passKey": "oyzr420biw3m66dx4qzh3",
+      "url": null,
+      "id": 11
     }
   ],
   "songs_playlists": [
@@ -112,11 +119,6 @@
       "songId": 3,
       "playlistId": 4,
       "id": 8
-    },
-    {
-      "songId": 2,
-      "playlistId": 4,
-      "id": 11
     },
     {
       "songId": 3,
@@ -137,6 +139,11 @@
       "songId": 2,
       "playlistId": 8,
       "id": 16
+    },
+    {
+      "songId": 4,
+      "playlistId": 4,
+      "id": 17
     }
   ]
 }

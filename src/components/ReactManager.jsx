@@ -190,6 +190,7 @@ export default class ReactManager extends Component {
     //test
     APICalls.getOneFromJson("songs", idOfSongArray[1])
     .then(data => {
+      console.log("file name", data.fileName)
     let songRef = storage.ref(data.fileName);
       songRef.delete().then(() => {
         alert("file deleted")
@@ -277,7 +278,7 @@ export default class ReactManager extends Component {
     APICalls.saveToJson("playlists", {
       title: this.state.newPlaylistText,
       userId: Number(sessionStorage.getItem("id")),
-      password: "123abc",
+      passKey: (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)),
       url: null
 
     }).then(() => this.refreshData())

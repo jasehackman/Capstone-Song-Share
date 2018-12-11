@@ -28,6 +28,16 @@ const jsonURL = "http://localhost:8088"
     .then(data => data.json())
   }
 
+  getEmbedPlaylistFromJson(dataType, dataType2){
+    return fetch(`${jsonURL}/${dataType}?_embed=${dataType2}`)
+    .then(data => data.json())
+  }
+
+  getEmbedPlaylistWithIdFromJson(dataType, dataType2, id){
+    return fetch(`${jsonURL}/${dataType}/${id}?_embed=${dataType2}`)
+    .then(data => data.json())
+  }
+
   getOneFromJson(dataType, id) {
     return fetch(`${jsonURL}/${dataType}/${id}`)
     .then(data => data.json())

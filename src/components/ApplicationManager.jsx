@@ -6,6 +6,7 @@ import ProfileView from "./profile/ProfileView.jsx"
 import PubView from "./pubView/PubView.jsx"
 import Login from "./login/LogIn.jsx"
 import SignUp from "./login/SignUp.jsx"
+import PublisherLanding from "./pubView/PublisherLanding.jsx"
 
 
 export default class ApplicationManager extends Component{
@@ -13,6 +14,8 @@ export default class ApplicationManager extends Component{
     isAuthenticated = () =>sessionStorage.getItem("id") !== null
 
   render(){
+    let rando = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+    console.log(rando)
     return(
     <React.Fragment>
 
@@ -51,8 +54,15 @@ export default class ApplicationManager extends Component{
 
       {/* PUBVIEW */}
       <Route path="/playlists/:playlistsId(\d+)" render={(props) => {
-        return <PubView {...props}  passedState = {this.props.passedState} playlists = {this.props.passedState.playlists}
-        songs_playlists={this.props.passedState.songs_playlists} songs={this.props.passedState.songs}/>
+
+        if(this.isAuthenticated()){
+          return <PubView {...props}  passedState = {this.props.passedState} playlists = {this.props.passedState.playlists}
+          songs_playlists={this.props.passedState.songs_playlists} songs={this.props.passedState.songs}/>
+        }
+        else{
+          return <PubView {...props}  passedState = {this.props.passedState} playlists = {this.props.passedState.allPlaylists}
+          songs_playlists={this.props.passedState.songs_playlists} songs={this.props.passedState.songs}/>
+        }
 }} />
       {/* PROFILE */}
 
@@ -86,6 +96,9 @@ export default class ApplicationManager extends Component{
 
       }}/>
 
+      <Route path="/publisherLanding" render={(props) => {
+        return <PublisherLanding />
+      }}/>
 
 
 
