@@ -1,0 +1,10 @@
+.logo {
+  max-width: 15vw;
+  min-width: 15vw;
+
+}
+
+#nav {
+  height: 100%;
+  position: fixed;
+}

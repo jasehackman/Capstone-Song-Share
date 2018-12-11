@@ -3,7 +3,7 @@ import NavBar from "./nav/NavBar.jsx"
 import ApplicationManager from "./ApplicationManager.jsx"
 import APICalls from "../modules/APICalls"
 import firebase from "firebase"
-
+import './reactManager.css'
 
 let storage = firebase.storage()
 
@@ -47,7 +47,8 @@ export default class ReactManager extends Component {
 
     //playlists
     newPlaylistText: "",
-    editTitleButtonClicked: false,
+    editTitleButtonClicked: 0,
+    editPlaylistTitle: "",
 
     //Sign Up
     signUpNameInput: "",
@@ -298,14 +299,21 @@ export default class ReactManager extends Component {
   }
 
   editPlaylistTitle = (evt) => {
-    const idOfPlaylistArray = evt.target.id.split('-');
-    APICalls.updateItem("playlists", idOfPlaylistArray[1], { title: this.state[`editTitleButtonForm-${idOfPlaylistArray[1]}`] })
+
+    APICalls.updateItem("playlists", this.state.editTitleButtonClicked, { title: this.state.editPlaylistTitle })
       .then(() => this.refreshData())
 
   }
 
-  editTitleButton = () => {
-    this.setState({ editTitleButtonClicked: true })
+  editTitleButton = (evt) => {
+    const idOfPlaylistArray = evt.target.id.split('-');
+    APICalls.getOneFromJson('playlists', Number(idOfPlaylistArray[1]))
+    .then(playlist => {
+      this.setState({
+        editTitleButtonClicked: Number(idOfPlaylistArray[1]),
+        editPlaylistTitle: playlist.title
+      })
+    })
   }
 
   editTitleBackButton = () => {
@@ -317,9 +325,12 @@ export default class ReactManager extends Component {
     if (this.state.pageLoaded)
       return (
 
-
-        <React.Fragment>
+        <div className="container">
+        <div className="row">
+          <div className="col-2">
           <NavBar passedState={this.state} logout = {this.logout}/>
+          </div>
+          <div className="col-8 container mainContainer">
           <ApplicationManager passedState={this.state}
           refreshData={this.refreshData} signUpSave={this.signUpSave}
 
@@ -336,7 +347,9 @@ export default class ReactManager extends Component {
 
 
           />
-        </React.Fragment >
+          </div>
+        </div >
+        </div>
       )
     else {
       return (<p> page loading....</p >)

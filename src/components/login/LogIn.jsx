@@ -4,7 +4,7 @@ import APICalls from "../../modules/APICalls"
 import { Link } from "react-router-dom"
 
 
-export default class LogIn extends Component{
+export default class LogIn extends Component {
 
   state = {
     email: '',
@@ -18,40 +18,41 @@ export default class LogIn extends Component{
     this.setState(stateToChange)
   }
 
-  loginCheck = ()=> {
+  loginCheck = () => {
     APICalls.getAllFromJson("users")
-    .then(users =>{
-      users.forEach(user => {
-        console.log(user)
-        if(this.state.email === user.email && this.state.password === user.password){
-          sessionStorage.setItem("id", user.id)
-          console.log(sessionStorage.getItem("id"))
-          this.props.refreshData()
-        } else{
-          alert("boo")
-        }
+      .then(users => {
+        users.forEach(user => {
+          console.log(user)
+          if (this.state.email === user.email && this.state.password === user.password) {
+            sessionStorage.setItem("id", user.id)
+            console.log(sessionStorage.getItem("id"))
+            this.props.refreshData()
+          } else {
+            alert("boo")
+          }
+
+        })
 
       })
-
-    } )
   }
 
   render() {
     return (
       <div>
         <h3>LogIn</h3>
+        <div className="form-group">
+          <label>Email</label>
 
-        <label>Email</label>
-        <input id="email" type = "email" onChange={(e) => this.handleFieldChange(e)}/>
+          <input id="email" className="form-control m-2" type="email" onChange={(e) => this.handleFieldChange(e)} />
 
-        <label>Password</label>
-        <input id = "password" type="password" onChange={(e) => this.handleFieldChange(e)}/>
+          <label>Password</label>
+          <input id="password" className="form-control m-2" type="password" onChange={(e) => this.handleFieldChange(e)} />
 
-        <button onClick={()=> this.loginCheck()} >Login</button>
+          <button className="btn btn-sm m-2"onClick={() => this.loginCheck()} >Login</button>
 
-        <Link to="/signup">Sign Up</Link>
+          <Link to="/signup">Sign Up</Link>
 
-
+        </div>
 
       </div>
     )

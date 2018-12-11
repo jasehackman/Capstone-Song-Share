@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import APICalls from "../../modules/APICalls";
 import Playlist from "./Playlist.jsx"
+import NewPlaylistModal from './NewPlaylistModal.jsx'
+import './playlist.css'
 
 export default class PlaylistsView extends Component {
 
@@ -10,10 +12,11 @@ export default class PlaylistsView extends Component {
 
     return (
       <React.Fragment>
-        <h1>Playlist</h1>
-        <label>Add Playlist</label>
-        <input type="text" id="newPlaylistText" onChange={(evt)=>this.props.handleFieldChange(evt)}/>
-        <button onClick={()=>this.props.addPlaylist()}>+</button>
+        <div className="d-flex playlistTitle sticky-top">
+        <h1 className="display-4" >Playlists</h1>
+        {/* Modal */}
+        <NewPlaylistModal addPlaylist={this.props.addPlaylist} handleFieldChange={this.props.handleFieldChange}/>
+        </div>
         {this.props.playlists.map(playlist =>{
           return <Playlist key={playlist.id} passedState = {this.props.passedState} playlist = {playlist} songsIds = {playlist.songs_playlists} songs={this.props.songs}
            addSongToPlaylist={this.props.addSongToPlaylist} removeSongFromPlaylist={this.props.removeSongFromPlaylist} removePlaylist={this.props.removePlaylist}
