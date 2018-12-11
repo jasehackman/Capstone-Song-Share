@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
+import {Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
 
 export default class NewPlaylistModal extends Component {
 
@@ -24,7 +24,7 @@ export default class NewPlaylistModal extends Component {
     return (
       <React.Fragment>
         <div className = "m-1 align-self-center ml-auto ">
-        <button className="btn sm btn-primary" onClick={this.toggle} onClick={this.toggle}>+</button>
+        <button className="btn sm btn-primary" onClick={this.toggle}>+</button>
         </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>

@@ -8,7 +8,7 @@ export default class NavBar extends Component {
   render() {
     return(
       <div className="list-group list-group-flush" id="nav">
-        <img className = "logo list-group-item "src='/images/Song-ShareVectorFinal.png'/>
+        <img className = "logo list-group-item "src='/images/Song-ShareVectorFinal.png' alt="logo"/>
         <Link className="logo list-group-item" to="/playlists">Playlists</Link>
         <Link className="logo list-group-item" to = "/songs">Songs</Link>
         <Link className="logo list-group-item" to = "/publisherLanding">PubLanding</Link>

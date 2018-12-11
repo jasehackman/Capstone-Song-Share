@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import APICalls from "../../modules/APICalls";
 import Playlist from "./Playlist.jsx"
 import NewPlaylistModal from './NewPlaylistModal.jsx'
 import './playlist.css'

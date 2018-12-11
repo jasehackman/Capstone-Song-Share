@@ -11,7 +11,7 @@ export default class SongsView extends Component {
           <div className="d-flex">
             <h1 className="display-4">Saved Songs</h1>
             <div className="m-1 align-self-center ml-auto">
-              <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter">
+              <button type="button" className="btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter">
                 +
               </button>
             </div>
@@ -34,9 +34,3 @@ export default class SongsView extends Component {
   }
 }
 
-
-{/* <div key={song.id}>
-          <h3>{song.title}</h3>
-
-          <audio controls src={song.downloadURL}></audio>
-        </div> */}

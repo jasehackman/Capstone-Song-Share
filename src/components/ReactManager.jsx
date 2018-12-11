@@ -137,7 +137,6 @@ export default class ReactManager extends Component {
     let uploadedSong = firebase.storage().ref(file.name)
     //uploading the song
     let task = uploadedSong.put(file)
-    let songDownloadUrl = ""
     //an open connection to the status of that upload
     task.on('state_changed', (snapshot) => {
       let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -156,7 +155,6 @@ export default class ReactManager extends Component {
       () => {
         //getting the download url
         task.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          songDownloadUrl = downloadURL
 
           //setting the download url and file name to state
           this.setState({
@@ -249,9 +247,9 @@ export default class ReactManager extends Component {
   }
 
   backSongClick = (e) => {
-    let buttonId = e.target.id
-    let buttonNumber = buttonId.split('-')
-    let setId = `editSongButton-${Number(buttonNumber[1])}`
+    // let buttonId = e.target.id
+    // let buttonNumber = buttonId.split('-')
+    // let setId = `editSongButton-${Number(buttonNumber[1])}`
     this.setState({editSongButtonClick: 0})
 
   }
@@ -285,7 +283,6 @@ export default class ReactManager extends Component {
       title: this.state.newPlaylistText,
       userId: Number(sessionStorage.getItem("id")),
       passKey: (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)),
-      url: null
 
     }).then(() => this.refreshData())
 
@@ -299,7 +296,7 @@ export default class ReactManager extends Component {
     const arrayOfSongsinPlaylist = this.state.songs_playlists.filter(relationship => relationship.playlistId === Number(idOfPlaylistArray[1]))
     console.log(arrayOfSongsinPlaylist)
     let arrayOfPromises = arrayOfSongsinPlaylist.map(relationship => {
-      APICalls.deleteItem("songs_playlists", relationship.id)
+      return APICalls.deleteItem("songs_playlists", relationship.id)
     })
     Promise.all(arrayOfPromises).then(() => APICalls.deleteItem("playlists", idOfPlaylistArray[1])).then(() => this.refreshData())
 

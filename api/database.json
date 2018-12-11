@@ -29,6 +29,12 @@
       "email": "jim@jim.com",
       "password": "123abc",
       "id": 5
+    },
+    {
+      "name": "John Wood",
+      "email": "john@john.com",
+      "password": "1",
+      "id": 6
     }
   ],
   "songs": [
@@ -89,28 +95,24 @@
       "title": "New Playlist",
       "userId": 1,
       "passKey": "37cdv2fbkfq6p38eqcv61b",
-      "url": null,
       "id": 8
     },
     {
       "title": "Is this Id a string? ",
       "userId": 1,
       "passKey": "du2nin31wo71ovgazoqbu",
-      "url": null,
       "id": 9
     },
     {
       "title": "What about this one? ",
       "userId": 1,
       "passKey": "9aisycfr40nn41h9f0kyv",
-      "url": null,
       "id": 10
     },
     {
       "title": "New PassKey",
       "userId": 1,
       "passKey": "oyzr420biw3m66dx4qzh3",
-      "url": null,
       "id": 11
     }
   ],
