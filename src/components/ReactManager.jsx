@@ -29,6 +29,8 @@ export default class ReactManager extends Component {
 
     songs_playlists: [],
 
+    songwriter: '',
+
     //new song form
     uploader: 0,
     uploadedFileName: "",
@@ -100,8 +102,12 @@ export default class ReactManager extends Component {
         return APICalls.getFromJsonForUser("songs_playlists", sessionStorage.getItem("id"))
       })
       .then(data => {
-        stateSetter.editTitleButtonClicked = false;
+        stateSetter.editTitleButtonClicked = 0;
         stateSetter.songs_playlists = data;
+        return APICalls.getOneFromJson("users", sessionStorage.getItem("id"))
+      })
+      .then(data => {
+        stateSetter.songwriter = data.name
         this.setState(stateSetter)
         this.setState({ pageLoaded: true })
       })
