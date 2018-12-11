@@ -21,9 +21,9 @@ export default class Playlist extends Component {
   else if(playlist.songs_playlists.length===0){
       return(
         <div>
-          <h1>{this.props.playlist.title}</h1>
+          <h1 className = "display-4">{playlist.title} by {this.props.passedState.songwriter}</h1>
           <div>
-
+            <p>There are no songs in this playlist. </p>
           </div>
 
 
@@ -44,7 +44,7 @@ export default class Playlist extends Component {
 
     return(
       <div>
-        <h1>{playlist.title}</h1>
+        <h1 className = "display-4">{playlist.title} by {this.props.passedState.songwriter}</h1>
         <div>
           {/* add songs */}
 

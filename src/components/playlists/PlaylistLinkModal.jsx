@@ -21,21 +21,20 @@ export default class PlaylistLinkModal extends Component {
 
 
   render() {
-    console.log(this.props.playlist.id)
     return (
       <React.Fragment>
         <img src='images/link-symbol.svg' className='icon' alt='playlistLink' id={'linkPlaylist-' + this.props.playlist.id} onClick={this.toggle} />
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
-            Playlist Link
+            Playlist PassKey
           </ModalHeader>
 
           <ModalBody>
-            <p>http://localhost:8088/playlists/{this.props.playlist.id}</p>
+            <p className="text-center">{this.props.playlist.passKey}</p>
           </ModalBody>
           <ModalFooter>
-          <a class="btn btn-primary" href={"http://localhost:3000/playlists/"+this.props.playlist.id} role="button">Preview</a>
+          <a className="btn btn-primary" href={"http://localhost:3000/playlists/"+this.props.playlist.id} role="button">Preview</a>
             <button type="button" className="btn btn-secondary" onClick={this.toggle} >Close</button>
           </ModalFooter>
         </Modal>

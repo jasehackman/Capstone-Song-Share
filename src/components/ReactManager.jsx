@@ -29,6 +29,8 @@ export default class ReactManager extends Component {
 
     songs_playlists: [],
 
+    songwriter: '',
+
     //new song form
     uploader: 0,
     uploadedFileName: "",
@@ -100,8 +102,12 @@ export default class ReactManager extends Component {
         return APICalls.getFromJsonForUser("songs_playlists", sessionStorage.getItem("id"))
       })
       .then(data => {
-        stateSetter.editTitleButtonClicked = false;
+        stateSetter.editTitleButtonClicked = 0;
         stateSetter.songs_playlists = data;
+        return APICalls.getOneFromJson("users", sessionStorage.getItem("id"))
+      })
+      .then(data => {
+        stateSetter.songwriter = data.name
         this.setState(stateSetter)
         this.setState({ pageLoaded: true })
       })
@@ -167,7 +173,7 @@ export default class ReactManager extends Component {
     let songObj = {
       title: this.state.songTitleInput,
       fileName: this.state.uploadedFileName,
-      userId: sessionStorage.getItem("id"),
+      userId: Number(sessionStorage.getItem("id")),
       downloadURL: this.state.songDownloadURL,
       lyric: this.state.songLyricInput,
       coWriters: this.state.songCoWriters,
@@ -190,6 +196,7 @@ export default class ReactManager extends Component {
     //test
     APICalls.getOneFromJson("songs", idOfSongArray[1])
     .then(data => {
+      console.log("file name", data.fileName)
     let songRef = storage.ref(data.fileName);
       songRef.delete().then(() => {
         alert("file deleted")
@@ -276,8 +283,8 @@ export default class ReactManager extends Component {
   addPlaylist = () => {
     APICalls.saveToJson("playlists", {
       title: this.state.newPlaylistText,
-      userId: sessionStorage.getItem("id"),
-      password: "123abc",
+      userId: Number(sessionStorage.getItem("id")),
+      passKey: (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)),
       url: null
 
     }).then(() => this.refreshData())
