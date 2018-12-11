@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import SignUp from "./SignUp.jsx"
 import APICalls from "../../modules/APICalls"
 import { Link } from "react-router-dom"
 
@@ -42,7 +41,7 @@ export default class LogIn extends Component {
   render() {
     return (
       <div>
-        <h1 className="display-4">LogIn</h1>
+        <h1 className="display-4">Login</h1>
 
           {/* <h3>Email</h3> */}
           <div className="input-group input-group-lg">

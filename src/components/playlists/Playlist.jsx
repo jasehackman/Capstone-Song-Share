@@ -1,11 +1,9 @@
 import React, { Component } from "react"
 import Song from "../songs/Song.jsx"
-import { Link } from "react-router-dom"
 import './playlist.css'
 import EditPlaylistModal from './EditPlaylistModal.jsx'
 import PlaylistLinkModal from './PlaylistLinkModal.jsx'
 
-import {Input} from 'reactstrap'
 
 
 
