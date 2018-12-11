@@ -11,7 +11,7 @@ export default class NavBar extends Component {
         <img className = "logo list-group-item "src='/images/Song-ShareVectorFinal.png'/>
         <Link className="logo list-group-item" to="/playlists">Playlists</Link>
         <Link className="logo list-group-item" to = "/songs">Songs</Link>
-        <Link className="logo list-group-item" to = "/profile">Profile</Link>
+        <Link className="logo list-group-item" to = "/publisherLanding">PubLanding</Link>
 
         <a className="logo list-group-item" href="http://localhost:3000/playlists" onClick={()=>this.props.logout()}>Logout</a>
       </div>

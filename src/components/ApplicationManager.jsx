@@ -14,8 +14,6 @@ export default class ApplicationManager extends Component{
     isAuthenticated = () =>sessionStorage.getItem("id") !== null
 
   render(){
-    let rando = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
-    console.log(rando)
     return(
     <React.Fragment>
 

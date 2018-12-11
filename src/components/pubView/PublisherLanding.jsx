@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import APICalls from "../../modules/APICalls";
-import PublisherView from './PublisherView.jsx'
+import PublisherPlaylistView from './PublisherPlaylistView.jsx'
 
 
 export default class PublisherLanding extends Component {
@@ -10,7 +10,8 @@ state = {
   playlists: [],
   playlist: {},
   songs: [],
-  playlistFound: false
+  playlistFound: false,
+  songwriterName: ""
 }
 
 
@@ -26,6 +27,8 @@ keyCheck = () =>{
   if (playlist){
     stateSetter.playlist = playlist
     console.log(playlist)
+    APICalls.getOneFromJson("users", playlist.userId)
+    .then(data => {stateSetter.songwriterName = data.name
     let arrayOfPlaylistSongs = playlist.songs_playlists.map(playlistRel => {
       return APICalls.getOneFromJson('songs', playlistRel.songId)
     })
@@ -38,6 +41,7 @@ keyCheck = () =>{
 
 
     })
+  })
 
   } else {alert("you failed")}
 }
@@ -60,7 +64,7 @@ return(
   </div>
 )}
 else if (this.state.playlistFound){
-  return <PublisherView  playlist = {this.state.playlist} songs = {this.state.songs}/>
+  return <PublisherPlaylistView  playlist = {this.state.playlist} songs = {this.state.songs} songwriter = {this.state.songwriterName}/>
 }
 
 

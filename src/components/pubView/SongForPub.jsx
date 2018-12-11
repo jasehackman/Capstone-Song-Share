@@ -25,13 +25,14 @@ export default class Song extends Component {
     //if a song is clicked
     if(this.state.songPlayerClicked){
         return(
-        <div  >
-          <h3>{this.props.song.title}</h3>
+        <div className = "song m-1 card p-2" >
+          <h3 className = "" >{this.props.song.title}</h3>
 
           <audio controls src={this.props.song.downloadURL}></audio>
           <div>
-            <p>Cowriter:{this.props.song.coWriter}</p>
-            <h3>Lyric</h3>
+            <h4>Cowriter</h4>
+            <p>{this.props.song.coWriter}</p>
+            <h4>Lyric</h4>
             <p>{this.props.song.lyric}</p>
           </div>
           <img className="icon" onClick={()=>this.songUnClicked()} alt="collapse" src={collapse}/>
@@ -43,8 +44,8 @@ export default class Song extends Component {
 
     else{
     return (
-      <div onClick={()=>this.songClicked()}>
-          <h3>{this.props.song.title}</h3>
+      <div className = "song m-1 card p-2" onClick={()=>this.songClicked()}>
+          <h3 className = "">{this.props.song.title}</h3>
 
           <audio controls src={this.props.song.downloadURL}></audio>
 
