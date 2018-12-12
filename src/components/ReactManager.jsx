@@ -121,6 +121,12 @@ export default class ReactManager extends Component {
     this.setState(stateToChange)
   }
 
+  editFieldChange = (value) => {
+    // console.log("e", value.target.value)
+    console.log("value",value)
+    this.setState({editSongLyricInput: value})
+  }
+
   componentDidMount() {
     this.refreshData();
   }
@@ -346,7 +352,7 @@ export default class ReactManager extends Component {
             //songs
             deleteSongClick={this.deleteSongClick} fileUploader={this.fileUploader} handleFieldChange={this.handleFieldChange}
             newSongSave={this.newSongSave} editSongClick={this.editSongClick} backSongClick = {this.backSongClick}
-            editSongSave={this.editSongSave}
+            editSongSave={this.editSongSave} editFieldChange={this.editFieldChange}
 
 
 

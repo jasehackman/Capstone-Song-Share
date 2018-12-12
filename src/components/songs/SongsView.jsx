@@ -19,7 +19,7 @@ export default class SongsView extends Component {
             {this.props.songs.map(song =>
               <Song key={song.id} deleteSongClick={this.props.deleteSongClick} song={song} editSongClick={this.props.editSongClick}
                 passedState={this.props.passedState} backSongClick={this.props.backSongClick} handleFieldChange={this.props.handleFieldChange}
-                editSongSave={this.props.editSongSave} />
+                editSongSave={this.props.editSongSave} editFieldChange={this.props.editFieldChange} />
             )}
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
+import LyricEditor from './LyricEditor.jsx'
 
 export default class EditSongModal extends Component {
 
@@ -53,7 +53,8 @@ export default class EditSongModal extends Component {
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-lg">Lyric</span>
               </div>
-              <input className= "form-control" id="editSongLyricInput" value={this.props.passedState.editSongLyricInput} type="text" onChange={(evt) => this.props.handleFieldChange(evt)} />
+              <LyricEditor passedState={this.props.passedState} handleFieldChange={this.props.handleFieldChange} editFieldChange={this.props.editFieldChange}/>
+              {/* <input className= "form-control" id="editSongLyricInput" value={this.props.passedState.editSongLyricInput} type="text" onChange={(evt) => this.props.handleFieldChange(evt)} /> */}
               </div>
               <div className="input-group input-group-lg">
               <div className="input-group-prepend">
@@ -63,9 +64,9 @@ export default class EditSongModal extends Component {
               </div>
               <div className="input-group input-group-lg">
               <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-lg">Title</span>
+                <span className="input-group-text" id="inputGroup-sizing-lg">Duration</span>
               </div>
-              <textarea className= "form-control" id="editSongDuration" value={this.props.passedState.editSongDuration} type="text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
+              <input className= "form-control" id="editSongDuration" value={this.props.passedState.editSongDuration} type="text" onChange={(evt) => this.props.handleFieldChange(evt)}/>
             </div>
           </ModalBody>
           <ModalFooter>

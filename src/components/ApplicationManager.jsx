@@ -23,7 +23,7 @@ export default class ApplicationManager extends Component{
 
           return <SongsView passedState={this.props.passedState} songs = {this.props.passedState.songs} fileUploader = {this.props.fileUploader} handleFieldChange={this.props.handleFieldChange}
           newSongSave={this.props.newSongSave} deleteSongClick={this.props.deleteSongClick} editSongClick={this.props.editSongClick}
-          backSongClick = {this.props.backSongClick} editSongSave={this.props.editSongSave}/>
+          backSongClick = {this.props.backSongClick} editSongSave={this.props.editSongSave} editFieldChange={this.props.editFieldChange}/>
       }
         else{
           return <Login {...props} refreshData={this.props.refreshData} passedState={this.props.passedState} currentUser = {this.props.currentUser}/>
