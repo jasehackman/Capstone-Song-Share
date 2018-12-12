@@ -11,11 +11,9 @@ export default class SongsView extends Component {
         <div className="songList ">
           <div className="d-flex d-flex songTitle sticky-top">
             <h1 className="display-4">Saved Songs</h1>
-            <div className="m-1 align-self-center ml-auto">
-              <button type="button" className="btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter">
-                +
-              </button>
-            </div>
+             {/* new song form */}
+            <NewSongModal handleFieldChange={this.props.handleFieldChange} fileUploader={this.props.fileUploader} newSongSave={this.props.newSongSave} />
+
           </div>
           <div className="accordion">
             {this.props.songs.map(song =>
@@ -26,9 +24,8 @@ export default class SongsView extends Component {
           </div>
         </div>
 
-        {/* new song form */}
 
-        <NewSongModal handleFieldChange={this.props.handleFieldChange} fileUploader={this.props.fileUploader} newSongSave={this.props.newSongSave} />
+
 
       </React.Fragment>
     )
