@@ -29,7 +29,7 @@ export default class NewSongModal extends Component {
               <label>Title</label>
               <input id="songTitleInput" className="form-control" type="text" onChange={(evt) => this.props.handleFieldChange(evt)} />
               <label>Lyric</label>
-              <input id="songLyricInput" className="form-control" type="text" onChange={(evt) => this.props.handleFieldChange(evt)} />
+              <textarea id="songLyricInput" className="form-control" type="text" onChange={(evt) => this.props.handleFieldChange(evt)} />
               <label>Co-Writers</label>
               <input id="songCoWriters" className="form-control" type="text" onChange={(evt) => this.props.handleFieldChange(evt)} />
               <label>Duration</label>
