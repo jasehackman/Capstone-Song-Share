@@ -13,8 +13,8 @@ export default class LyricEditor extends React.Component {
 
   render() {
     return (
-      <ReactQuill id ="editSongLyricInput" value={this.props.passedState.editSongLyricInput}
-                  onChange={(e) => this.props.editFieldChange(e)} />
+      <ReactQuill id ="editSongLyricInput" value={this.props.passedState.songLyricInput}
+                  onChange={(e) => this.props.newFieldChange(e)} />
     )
   }
 }

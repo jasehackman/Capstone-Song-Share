@@ -22,15 +22,7 @@ export default class Song extends Component {
   }
 
 
-  lyricAdd = () => {
-    document.getElementById("here").innerHTML=this.props.song.lyric
-
-  }
-
-  lyricFunc = () => {
-    return {_html: this.props.song.lyric}
-  }
-
+  //turns string of html into actual html
   buildEle = () => {
     let el =this.props.song.lyric
 
@@ -39,22 +31,11 @@ export default class Song extends Component {
 
 
   render() {
-    console.log("lyric", this.buildEle())
-
-    // let lyrics = this.props.song.lyric
-
-    // let innerlyrics
-    // innerlyrics.innerHTML= this.props.song.lyric
-    // let editLyrics = $.parseHTML(lyrics)
-    // console.log("looke here", editLyrics)
-
-
-
 
     //if a song is clicked
     if (this.state.songPlayerClicked) {
       return (
-        <div className="song m-1 card p-2" >
+        <div className="song m-1   card p-3" >
           <div className="d-flex">
             <h3>{this.props.song.title}</h3>
             <div className="ml-auto">
@@ -69,7 +50,7 @@ export default class Song extends Component {
             <h3>Cowriter</h3>
             <p>{this.props.song.coWriters}</p>
             <h3>Lyric</h3>
-              {this.buildEle()}
+              {this.props.displayStringAsHTML(this.props.song.lyric)}
 
           </div>
           <img className="icon" onClick={() => {
@@ -86,7 +67,7 @@ export default class Song extends Component {
 
     else {
       return (
-        <div className="song m-1 card p-2 row" >
+        <div className="song m-1 card p-3 row" >
           <div className="d-flex">
             <h3>{this.props.song.title}</h3>
             <div className="ml-auto">

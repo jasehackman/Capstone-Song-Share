@@ -27,7 +27,7 @@ export default class Song extends Component {
     //if a song is clicked
     if (this.state.songPlayerClicked) {
       return (
-        <div className="song m-1 card p-2" >
+        <div className="song m-1 card p-3" >
           <div className="d-flex">
             <h3>{this.props.song.title}</h3>
             <div className="ml-auto">
@@ -40,7 +40,7 @@ export default class Song extends Component {
             <h3>Cowriter</h3>
             <p>{this.props.song.coWriters}</p>
             <h3>Lyric</h3>
-            <p>{this.props.song.lyric}</p>
+            {this.props.displayStringAsHTML(this.props.song.lyric)}
           </div>
           <img className="icon" onClick={() => this.songUnClicked()} alt="collapse" src="images/iconfinder_collapse2_308968.svg" />
 
@@ -53,7 +53,7 @@ export default class Song extends Component {
 
     else {
       return (
-        <div className="song m-1 card p-2 row" >
+        <div className="song m-1 card p-3 row" >
           <div className="d-flex">
             <h3>{this.props.song.title}</h3>
             <div className="ml-auto">

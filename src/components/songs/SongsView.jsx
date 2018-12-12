@@ -12,14 +12,14 @@ export default class SongsView extends Component {
           <div className="d-flex d-flex songTitle sticky-top">
             <h1 className="display-4">Saved Songs</h1>
              {/* new song form */}
-            <NewSongModal handleFieldChange={this.props.handleFieldChange} fileUploader={this.props.fileUploader} newSongSave={this.props.newSongSave} />
+            <NewSongModal handleFieldChange={this.props.handleFieldChange} fileUploader={this.props.fileUploader} newSongSave={this.props.newSongSave} newFieldChange={this.props.newFieldChange} passedState={this.props.passedState}/>
 
           </div>
           <div className="accordion">
             {this.props.songs.map(song =>
               <Song key={song.id} deleteSongClick={this.props.deleteSongClick} song={song} editSongClick={this.props.editSongClick}
                 passedState={this.props.passedState} backSongClick={this.props.backSongClick} handleFieldChange={this.props.handleFieldChange}
-                editSongSave={this.props.editSongSave} editFieldChange={this.props.editFieldChange} />
+                editSongSave={this.props.editSongSave} editFieldChange={this.props.editFieldChange} displayStringAsHTML={this.props.displayStringAsHTML}/>
             )}
           </div>
         </div>

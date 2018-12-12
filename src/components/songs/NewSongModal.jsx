@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import {Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
-import LyricEditor from './LyricEditor.jsx'
+import NewLyricEditor from './NewLyricEditor.jsx'
 
 export default class NewSongModal extends Component {
 
@@ -61,7 +61,7 @@ export default class NewSongModal extends Component {
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-lg">Lyric</span>
               </div>
-              <LyricEditor />
+              <NewLyricEditor newFieldChange={this.props.newFieldChange} passedState={this.props.passedState}/>
             {/* <textarea id="songLyricInput" className="form-control" type="text" onChange={(evt) => this.props.handleFieldChange(evt)} /> */}
             </div>
             <div className="input-group input-group-lg">
