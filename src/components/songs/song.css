@@ -8,3 +8,9 @@
   padding: 1%;
 } */
 
+.songTitle {
+  background-color: white;
+  margin-left: -10px;
+  margin-right: -10px;
+  border-bottom: solid whitesmoke .5px
+}
