@@ -79,7 +79,7 @@ export default class NewSongModal extends Component {
           </ModalBody>
 
           <ModalFooter>
-          <button onClick={() => this.props.newSongSave()}>Save</button>
+          <button className = "btn btn-primary" onClick={() => this.props.newSongSave()}>Save</button>
           <button type="button" className="btn btn-secondary" onClick={this.toggle}>Close</button>
           </ModalFooter>
       </Modal>

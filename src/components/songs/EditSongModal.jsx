@@ -29,11 +29,11 @@ export default class EditSongModal extends Component {
 
     return (
       <React.Fragment>
-        <button className="btn btn-primary col m-3" id={`editSongButton-${this.props.song.id}`} onClick={(e) => {
+        <img src="images/edit.png" className="icon" alt="edit" id={`editSongButton-${this.props.song.id}`} onClick={(e) => {
           this.props.editSongClick(e)
           this.toggle()
 
-          }}>Edit</button>
+          }}/>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
             Edit Song
