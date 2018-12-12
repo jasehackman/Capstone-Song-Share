@@ -122,7 +122,6 @@ export default class ReactManager extends Component {
   }
 
   editFieldChange = (value) => {
-    // console.log("e", value.target.value)
     console.log("value",value)
     this.setState({editSongLyricInput: value})
   }

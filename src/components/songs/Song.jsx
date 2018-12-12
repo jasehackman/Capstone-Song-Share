@@ -1,6 +1,10 @@
 import React, { Component } from "react"
 import './song.css'
 import EditSongModal from './EditSongModal.jsx'
+import $ from 'jquery';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+
+
 
 
 export default class Song extends Component {
@@ -18,10 +22,33 @@ export default class Song extends Component {
   }
 
 
+  lyricAdd = () => {
+    document.getElementById("here").innerHTML=this.props.song.lyric
 
+  }
+
+  lyricFunc = () => {
+    return {_html: this.props.song.lyric}
+  }
+
+  buildEle = () => {
+    let el =this.props.song.lyric
+
+  return <div>{ReactHtmlParser(el)}</div>;
+  }
 
 
   render() {
+    console.log("lyric", this.buildEle())
+
+    // let lyrics = this.props.song.lyric
+
+    // let innerlyrics
+    // innerlyrics.innerHTML= this.props.song.lyric
+    // let editLyrics = $.parseHTML(lyrics)
+    // console.log("looke here", editLyrics)
+
+
 
 
     //if a song is clicked
@@ -38,13 +65,17 @@ export default class Song extends Component {
             </div>
           </div>
           <audio controls src={this.props.song.downloadURL}></audio>
-          <div>
+          <div id="thespot" >
             <h3>Cowriter</h3>
             <p>{this.props.song.coWriters}</p>
             <h3>Lyric</h3>
-            <p>{this.props.song.lyric}</p>
+              {this.buildEle()}
+
           </div>
-          <img className="icon" onClick={() => this.songUnClicked()} alt="collapse" src="images/iconfinder_collapse2_308968.svg" />
+          <img className="icon" onClick={() => {
+
+            this.songUnClicked()
+          }} alt="collapse" src="images/iconfinder_collapse2_308968.svg" />
 
         </div>
       )
@@ -66,7 +97,9 @@ export default class Song extends Component {
             </div>
           </div>
 
-          <img className="icon" alt="expand" src="images/iconfinder_expand2_308964.svg" onClick={() => this.songClicked()} />
+          <img className="icon" alt="expand" src="images/iconfinder_expand2_308964.svg" onClick={() => {
+
+            this.songClicked()}} />
         </div>
       )
 
