@@ -4,6 +4,8 @@ import ApplicationManager from "./ApplicationManager.jsx"
 import APICalls from "../modules/APICalls"
 import firebase from "firebase"
 import './reactManager.css'
+import ReactHtmlParser from 'react-html-parser';
+
 
 let storage = firebase.storage()
 
@@ -60,6 +62,10 @@ export default class ReactManager extends Component {
 
 
 
+  }
+
+  displayStringAsHTML = (htmlString) => {
+    return <div>{ReactHtmlParser(htmlString)}</div>;
   }
 
   //Login/out ---------------------------------------------------------------------------------------------
@@ -119,6 +125,15 @@ export default class ReactManager extends Component {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
+  }
+
+  editFieldChange = (value) => {
+    console.log("value",value)
+    this.setState({editSongLyricInput: value})
+  }
+
+  newFieldChange = (value) => {
+    this.setState({songLyricInput: value})
   }
 
   componentDidMount() {
@@ -336,17 +351,17 @@ export default class ReactManager extends Component {
           </div>
           <div className="col-8 container mainContainer">
           <ApplicationManager passedState={this.state}
-          refreshData={this.refreshData} signUpSave={this.signUpSave}
+          refreshData={this.refreshData} signUpSave={this.signUpSave} displayStringAsHTML={this.displayStringAsHTML}
 
             //playlists
             addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
             removeSongFromPlaylist={this.removeSongFromPlaylist} removePlaylist={this.removePlaylist} editTitleButton={this.editTitleButton}
-            editTitleBackButton={this.editTitleBackButton} editPlaylistTitle={this.editPlaylistTitle}
+            editTitleBackButton={this.editTitleBackButton} editPlaylistTitle={this.editPlaylistTitle} newFieldChange={this.newFieldChange}
 
             //songs
             deleteSongClick={this.deleteSongClick} fileUploader={this.fileUploader} handleFieldChange={this.handleFieldChange}
             newSongSave={this.newSongSave} editSongClick={this.editSongClick} backSongClick = {this.backSongClick}
-            editSongSave={this.editSongSave}
+            editSongSave={this.editSongSave} editFieldChange={this.editFieldChange}
 
 
 

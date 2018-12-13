@@ -71,7 +71,9 @@ export default class PublisherLanding extends Component {
       )
     }
     else if (this.state.playlistFound) {
-      return <PublisherPlaylistView playlist={this.state.playlist} songs={this.state.songs} songwriter={this.state.songwriterName} />
+      return <PublisherPlaylistView playlist={this.state.playlist} songs={this.state.songs} songwriter={this.state.songwriterName}
+      displayStringAsHTML={this.props.displayStringAsHTML}
+      />
     }
 
 

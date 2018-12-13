@@ -14,3 +14,19 @@
   margin-right: -10px;
   border-bottom: solid whitesmoke .5px
 }
+
+.myModal {
+  /* min-width: 75% !important; */
+  max-width:  620px !important;
+}
+
+.editor {
+  width: 100% !important;
+}
+
+.lyricBox {
+  border: dashed 1px lightgray;
+  border-radius: 10px;
+
+}
+

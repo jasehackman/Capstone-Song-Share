@@ -31,7 +31,7 @@ export default class PublisherPlaylistView extends Component {
           {/* Songs in playlists */}
           <div>
             {this.props.songs.map(song => {
-              return <SongForPub key={song.id} song={song} />
+              return <SongForPub key={song.id} song={song} displayStringAsHTML={this.props.displayStringAsHTML} />
             }
 
             )}

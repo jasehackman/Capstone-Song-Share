@@ -52,7 +52,7 @@ export default class Playlist extends Component {
         {/* Songs in playlists */}
         <div>
         {arrayOfSongs.map(song => {
-         return <SongForPub key={song[0].id} song={song[0]}/>
+         return <SongForPub key={song[0].id} song={song[0]} displayStringAsHTML={this.props.displayStringAsHTML}/>
         }
 
         )}

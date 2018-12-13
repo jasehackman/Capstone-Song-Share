@@ -23,7 +23,9 @@ export default class ApplicationManager extends Component{
 
           return <SongsView passedState={this.props.passedState} songs = {this.props.passedState.songs} fileUploader = {this.props.fileUploader} handleFieldChange={this.props.handleFieldChange}
           newSongSave={this.props.newSongSave} deleteSongClick={this.props.deleteSongClick} editSongClick={this.props.editSongClick}
-          backSongClick = {this.props.backSongClick} editSongSave={this.props.editSongSave}/>
+          backSongClick = {this.props.backSongClick} editSongSave={this.props.editSongSave} editFieldChange={this.props.editFieldChange}
+          displayStringAsHTML={this.props.displayStringAsHTML} newFieldChange = {this.props.newFieldChange}
+          />
       }
         else{
           return <Login {...props} refreshData={this.props.refreshData} passedState={this.props.passedState} currentUser = {this.props.currentUser}/>
@@ -41,7 +43,8 @@ export default class ApplicationManager extends Component{
         return <PlaylistsView passedState = {this.props.passedState} playlists = {this.props.passedState.playlists} songs_playlists={this.props.passedState.songs_playlists}
         songs={this.props.passedState.songs} handleFieldChange={this.props.handleFieldChange} addSongToPlaylist={this.props.addSongToPlaylist}
         addPlaylist={this.props.addPlaylist} removeSongFromPlaylist={this.props.removeSongFromPlaylist} removePlaylist = {this.props.removePlaylist}
-        editTitleButton={this.props.editTitleButton} editTitleBackButton={this.props.editTitleBackButton} editPlaylistTitle={this.props.editPlaylistTitle}/>
+        editTitleButton={this.props.editTitleButton} editTitleBackButton={this.props.editTitleBackButton} editPlaylistTitle={this.props.editPlaylistTitle}
+        displayStringAsHTML={this.props.displayStringAsHTML}/>
       }
         else{
           return <Login {...props} refreshData={this.props.refreshData} passedState={this.props.passedState} currentUser = {this.props.currentUser}/>
@@ -55,11 +58,13 @@ export default class ApplicationManager extends Component{
 
         if(this.isAuthenticated()){
           return <PubView {...props}  passedState = {this.props.passedState} playlists = {this.props.passedState.playlists}
-          songs_playlists={this.props.passedState.songs_playlists} songs={this.props.passedState.songs}/>
+          songs_playlists={this.props.passedState.songs_playlists} songs={this.props.passedState.songs}
+          displayStringAsHTML={this.props.displayStringAsHTML}/>
         }
         else{
           return <PubView {...props}  passedState = {this.props.passedState} playlists = {this.props.passedState.allPlaylists}
-          songs_playlists={this.props.passedState.songs_playlists} songs={this.props.passedState.songs}/>
+          songs_playlists={this.props.passedState.songs_playlists} songs={this.props.passedState.songs}
+          displayStringAsHTML={this.props.displayStringAsHTML}/>
         }
 }} />
       {/* PROFILE */}
@@ -80,7 +85,7 @@ export default class ApplicationManager extends Component{
          if (!this.isAuthenticated()) {
             return <SignUp refreshData={this.props.refreshData} handleFieldChange={this.props.handleFieldChange} signUpSave={this.props.signUpSave}/>
          }else {
-           return <Redirect to='/'/>
+           return <Redirect to='/playlists'/>
          }
 
       }}/>
@@ -89,13 +94,13 @@ export default class ApplicationManager extends Component{
          if (!this.isAuthenticated()) {
             return <Login refreshData={this.props.refreshData} handleFieldChange={this.props.handleFieldChange}/>
          }else {
-           return <Redirect to='/'/>
+           return <Redirect to='/playlists'/>
          }
 
       }}/>
 
       <Route path="/publisherLanding" render={(props) => {
-        return <PublisherLanding />
+        return <PublisherLanding displayStringAsHTML={this.props.displayStringAsHTML}/>
       }}/>
 
 
