@@ -14,3 +14,16 @@
   margin-right: -10px;
   border-bottom: solid whitesmoke .5px
 }
+
+#myModal {
+  min-width: 75% !important;
+  min-height: 100% !important;
+}
+
+div.modal-content {
+  min-height: 80% !important;
+  max-height: 80% !important;
+  flex-grow: 3 !important;
+
+}
+

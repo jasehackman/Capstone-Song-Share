@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import LyricEditor from './LyricEditor.jsx'
+import "./song.css"
 
 export default class EditSongModal extends Component {
 
@@ -34,7 +35,7 @@ export default class EditSongModal extends Component {
           this.toggle()
 
           }}/>
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+        <Modal id="myModal" isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
             Edit Song
             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -56,7 +57,7 @@ export default class EditSongModal extends Component {
               <LyricEditor passedState={this.props.passedState} handleFieldChange={this.props.handleFieldChange} editFieldChange={this.props.editFieldChange}/>
               {/* <input className= "form-control" id="editSongLyricInput" value={this.props.passedState.editSongLyricInput} type="text" onChange={(evt) => this.props.handleFieldChange(evt)} /> */}
               </div>
-              <div className="input-group input-group-lg">
+              <div className="input-group input-group-lg mt-5">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-lg">CoWirter</span>
               </div>
