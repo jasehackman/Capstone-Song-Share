@@ -72,12 +72,12 @@ export default class EditSongModal extends Component {
           </ModalBody>
           <ModalFooter>
 
-            <button onClick={() => {
+            <button className = "btn btn-primary" onClick={() => {
               this.toggle()
               this.props.editSongSave()
 
               }}>Save</button>
-            <button id={`editButtonBack-${this.props.song.id}`} onClick={this.toggle}>Back</button>
+            <button className = "btn btn-secondary" id={`editButtonBack-${this.props.song.id}`} onClick={this.toggle}>Back</button>
           </ModalFooter>
         </Modal>
       </React.Fragment>)

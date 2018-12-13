@@ -196,7 +196,15 @@ export default class ReactManager extends Component {
     APICalls.saveToJson("songs", songObj)
       .then(() => APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id")).then(data => {
         console.log(data)
-        this.setState({ songs: data })
+        this.setState({
+          songs: data,
+          songTitleInput: "",
+          uploadedFileName: "",
+          songDownloadURL: "",
+          songLyricInput: "",
+          songCoWriters: "",
+          songDuration: ""
+         })
       }))
 
   }
