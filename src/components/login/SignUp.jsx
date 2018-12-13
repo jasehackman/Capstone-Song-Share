@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import BlankSignUpModal from './BlankSignUpModal.jsx'
 
 
 export default class SignUp extends Component {
 
+  state = {
+    blankSignUp: ''
+  }
+
+  blankSignUpFunction = () => {
+    this.setState({blankSignUp: <BlankSignUpModal blankSignUpReset={this.blankSignUpReset}/>})
+  }
+
+  blankSignUpReset = () => {
+    this.setState({blankSignUp: ""})
+  }
 
   render() {
     return (
@@ -32,10 +44,18 @@ export default class SignUp extends Component {
           <input className = "form-control" id="signUpPassword" type="password" onChange={(e) => this.props.handleFieldChange(e)} />
         </div>
         <div className = "mt-4">
-        <button className="btn btn-primary mr-2" onClick={() => this.props.signUpSave()}>Create Account</button>
+        <button className="btn btn-primary mr-2" onClick={() => {
+          if(this.props.passedState.signUpNameInput==="" ||this.props.passedState.signUpEmailInput==="" || this.props.passedState.signUpPassword==="" ){
+            this.blankSignUpFunction()
+          }else {
+
+          this.props.signUpSave()
+          }
+
+        }}>Create Account</button>
         <Link className="btn btn-success" to="/login">Login</Link>
         </div>
-
+        {this.state.blankSignUp}
 
       </div>
 
