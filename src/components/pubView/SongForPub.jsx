@@ -33,7 +33,9 @@ export default class Song extends Component {
             <h4>Cowriter</h4>
             <p>{this.props.song.coWriter}</p>
             <h4>Lyric</h4>
+            <div className="lyricBox p-3">
             {this.props.displayStringAsHTML(this.props.song.lyric)}
+            </div>
           </div>
           <img className="icon" onClick={()=>this.songUnClicked()} alt="collapse" src={collapse}/>
 

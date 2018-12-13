@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import {Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
 import NewLyricEditor from './NewLyricEditor.jsx'
+import "./song.css"
 
 export default class NewSongModal extends Component {
 
@@ -36,7 +37,7 @@ export default class NewSongModal extends Component {
     </button>
         </div>
 
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+        <Modal className="myModal" isOpen={this.state.modal} toggle={this.toggle}>
         <ModalHeader toggle={this.toggle}>
 
           Add New Song
@@ -61,10 +62,9 @@ export default class NewSongModal extends Component {
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-lg">Lyric</span>
               </div>
-              <NewLyricEditor newFieldChange={this.props.newFieldChange} passedState={this.props.passedState}/>
-            {/* <textarea id="songLyricInput" className="form-control" type="text" onChange={(evt) => this.props.handleFieldChange(evt)} /> */}
+              <NewLyricEditor  newFieldChange={this.props.newFieldChange} passedState={this.props.passedState}/>
             </div>
-            <div className="input-group input-group-lg">
+            <div className="input-group input-group-lg mt-5">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-lg">CoWriters</span>
               </div>

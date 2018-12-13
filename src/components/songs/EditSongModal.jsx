@@ -35,7 +35,7 @@ export default class EditSongModal extends Component {
           this.toggle()
 
           }}/>
-        <Modal id="myModal" isOpen={this.state.modal} toggle={this.toggle}>
+        <Modal className="myModal" isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
             Edit Song
             <button type="button" className="close" data-dismiss="modal" aria-label="Close">

@@ -15,15 +15,18 @@
   border-bottom: solid whitesmoke .5px
 }
 
-#myModal {
-  min-width: 75% !important;
-  min-height: 100% !important;
+.myModal {
+  /* min-width: 75% !important; */
+  max-width:  620px !important;
 }
 
-div.modal-content {
-  min-height: 80% !important;
-  max-height: 80% !important;
-  flex-grow: 3 !important;
+.editor {
+  width: 100% !important;
+}
+
+.lyricBox {
+  border: dashed 1px lightgray;
+  border-radius: 10px;
 
 }
 
