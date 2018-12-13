@@ -35,6 +35,18 @@
       "email": "john@john.com",
       "password": "1",
       "id": 6
+    },
+    {
+      "name": "Stu",
+      "email": "stu@mail.com",
+      "password": "123abc",
+      "id": 7
+    },
+    {
+      "name": "Sam",
+      "email": "sam@sam.com",
+      "password": "123abc",
+      "id": 8
     }
   ],
   "songs": [
