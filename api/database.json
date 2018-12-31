@@ -98,22 +98,27 @@
     {
       "songId": 3,
       "playlistId": 4,
-      "id": 8
+      "id": 8,
+      "position": 2
     },
     {
       "songId": 3,
       "playlistId": 5,
-      "id": 13
+      "id": 13,
+      "position": 2
     },
     {
       "songId": 4,
       "playlistId": 5,
       "id": 15
+      ,
+      "position": 1
     },
     {
       "songId": 4,
       "playlistId": 4,
-      "id": 17
+      "id": 17,
+      "position": 1
     }
   ]
 }
