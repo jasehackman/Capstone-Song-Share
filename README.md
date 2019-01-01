@@ -416,53 +416,9 @@ http://localhost:8080/
 http://localhost:8088/
 ```
 
-<h1 style="text-align:center; font-weight: bold;">Congratulations! You are now experiencing ReactShell!
-
-<h2 style="font-weight:bold;text-align:center" > Topics Covered Building Mission Control</h2>
-
-<h2 style="text-align: center">We covered numerous topics in the execution of this project which include:</h2>
-
-1. Functions
-1. Stand-Up meetings
-1. ERD Diagrams
-1. React
-1. State-management
-1. Databases/API
-1. Github
-1. Objects
-1. CSS
-1. Handling user events
-1. Factory functions
-1. Data entry/editing
-1. Modular code with Browserify
-1. Relational data
-
+<h1 style="text-align:center; font-weight: bold;">Congratulations! You are now experiencing Song-Share!
 
 <h2 style="text-align: center">Entity Relationship Diagrams</h2>
 
 <img src="./public/images/CapstoneSong-ShareERD.jpeg"/>
 
-<h2 style="font-weight:bold;text-align: center"> Professional Requirements</h2>
-
-1. All teams must manage their navigation through state
-1. The README for your project should include instructions on how another person can download and run the application
-
-<h2 style="font-weight:bold;text-align: center">How to Handle Authentication</h2>
-
-Session storage was used to store the current user at login and makeAPI calls in relation to the value stored. Only the userId is saved to sessonStorage.
-
-```js
-sessionStorage.setItem("id", userId);
-```
-
-If you want to add a Logout feature, all you need to do it remove the session storage item.
-
-```js
-sessionStorage.removeItem("id");
-```
-
-<h2 style="text-align: center; font-weight: bold"> Visual Feature List</h2>
-
-<h3 style="text-align: center">To help you along, here is a visualization of the features, and behaviors of the application to get you started.</h3>
-
-____________________________![](./public/gif/reactShell.gif)____________________________
