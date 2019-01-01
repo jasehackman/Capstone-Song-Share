@@ -440,7 +440,7 @@ http://localhost:8088/
 
 <h2 style="text-align: center">Entity Relationship Diagrams</h2>
 
-<img src="./CapstoneSong-ShareERD.pdf" />
+<img src="./public/images/CapstoneSong-ShareERD.jpeg"/>
 
 <h2 style="font-weight:bold;text-align: center"> Professional Requirements</h2>
 
