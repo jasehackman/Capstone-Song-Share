@@ -38,9 +38,9 @@
 #### Create a new directory to store the files in. Type this into your terminal window.
 
   ```sh
-  mkdir reactShell
-  cd reactShell
-  git clone git@github.com:nss-mission-control/reactshell.git
+  mkdir songShare
+  cd songShare
+  git clone git@github.com:jasehackman/Capstone-Song-Share.git
   ```
 
 #### If you do not have Node.js installed on your machine, visit the [Node.js Download Page](https://nodejs.org/en/download/) and follow the included instructions. To ensure that it is installed correctly, in your terminal window, type
@@ -61,7 +61,7 @@ echo $PATH
 #### You will need to go into the lib folder in your  directory and install and build npm modules and also your json-server. In your terminal, type
 
 ```sh
-cd reactShell/src/lib
+cd songShare/src/lib
 npm init
 npm i
 sudo npm install -g json-server
@@ -440,7 +440,7 @@ http://localhost:8088/
 
 <h2 style="text-align: center">Entity Relationship Diagrams</h2>
 
-<img src="./public/images/MissionControlERD.png" />
+<img src="./CapstoneSong-ShareERD.pdf" />
 
 <h2 style="font-weight:bold;text-align: center"> Professional Requirements</h2>
 
