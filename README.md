@@ -1,8 +1,8 @@
-<h1 style="font-weight: bold">ReactShell</h1>
+<h1 style="font-weight: bold">Song-Share</h1>
 
 <h2 style="font-weight: bold">The Information Dashboard</h2>
 
-<h3>ReactShell is a new product offering that you have been tasked with building. It's a dashboard for people to use to organize their daily tasks, events, news article, friends, and chat messages.</h3>
+<h3>Song-Share is a new product offering that you have been tasked with building. It's a dashboard for people to use to organize their daily tasks, events, news article, friends, and chat messages.</h3>
 
 <h2 style="font-weight: bold;"> Technologies Used
 <h3>Development Languages and Libraries</h3>
