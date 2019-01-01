@@ -7,7 +7,7 @@
 <h2 style="font-weight: bold;"> Technologies Used
 <h3>Development Languages and Libraries</h3>
 
-<img src="./public/images/node.jpg"/>______<img src="./public/images/js.jpg"/>______<img src="./public/images/react.png"/>______<img src="./public/images/html5.jpg"/>______<img src="./public/images/css3.jpg"/>
+<img src="./public/images/node.jpg"/>______<img src="./public/images/js.jpg"/>______<img src="./public/images/react.png"/>______<img src="./public/images/html5.jpg"/>______<img src="./public/images/css3.jpg"/>______<img src="./public/images/icons8-bootstrap.svg"/>
 
 <h1></h1>
 <h3>Development Tools</h3>
