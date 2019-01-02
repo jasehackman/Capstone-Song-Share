@@ -269,9 +269,6 @@ export default class ReactManager extends Component {
   }
 
   backSongClick = (e) => {
-    // let buttonId = e.target.id
-    // let buttonNumber = buttonId.split('-')
-    // let setId = `editSongButton-${Number(buttonNumber[1])}`
     this.setState({editSongButtonClick: 0})
 
   }
@@ -279,10 +276,33 @@ export default class ReactManager extends Component {
 
   //Playlists-----------------------------------------------------------------------------------------
   moveSongUp = (evt) => {
-    console.log("upup")
+    //first number is position number, second number is id number
+
+    const relationshipArray = evt.target.id.split('-');
+    const positionNumb = Number(relationshipArray[1])
+    const relationshipId = Number(relationshipArray[2])
+    const playlistId = Number(relationshipArray[3])
+
+    const otherSongToChange = this.state.songs_playlists.filter(relationship => relationship.playlistId === playlistId && relationship.position === positionNumb -1)
+
+
+    APICalls.updateItem('songs_playlists', relationshipId, {position: positionNumb-1})
+    .then(() => APICalls.updateItem('songs_playlists', otherSongToChange[0].id, {position: otherSongToChange[0].position+1})
+    .then(() => this.refreshData()))
   }
   moveSongDown = (evt) => {
-    console.log("downdown")
+    //first number is position number, second number is id number
+
+    const relationshipArray = evt.target.id.split('-');
+    const positionNumb = Number(relationshipArray[1])
+    const relationshipId = Number(relationshipArray[2])
+    const playlistId = Number(relationshipArray[3])
+
+    const otherSongToChange = this.state.songs_playlists.filter(relationship => relationship.playlistId === playlistId && relationship.position === positionNumb +1)
+
+    APICalls.updateItem('songs_playlists', relationshipId, {position: positionNumb+1})
+    .then(() => APICalls.updateItem('songs_playlists', otherSongToChange[0].id, {position: otherSongToChange[0].position-1})
+    .then(() => this.refreshData()))
   }
 
 

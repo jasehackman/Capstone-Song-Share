@@ -22,7 +22,7 @@ export default class SongsInPlaylists extends Component {
 
   render() {
 
-
+    const songPosition = this.props.song.songs_playlists.filter(relationship => this.props.playlistId === relationship.playlistId)
     //if a song is clicked
     if (this.state.songPlayerClicked) {
       return (
@@ -62,8 +62,10 @@ export default class SongsInPlaylists extends Component {
             </div>
           </div>
           <div className="d-flex ml-auto arrows flex-column">
-            <img className="icon" alt="expand" src="images/Arrows-Up-icon.png" onClick={(evt) => this.props.moveSongUp(evt)}/>
-            <img className="icon" alt="expand" src="images/Arrows-Down-icon.png" onClick={(evt) => this.props.moveSongDown(evt)}/>
+            <img id={`upSong-${songPosition[0].position}-${songPosition[0].id}-${songPosition[0].playlistId}`} className="icon" alt="expand" src="images/Arrows-Up-icon.png" onClick={(evt) => {
+              console.log(this.props.song)
+              this.props.moveSongUp(evt)}}/>
+            <img id={`downSong-${songPosition[0].position}-${songPosition[0].id}-${songPosition[0].playlistId}`}className="icon" alt="expand" src="images/Arrows-Down-icon.png" onClick={(evt) => this.props.moveSongDown(evt)}/>
 
             </div>
 

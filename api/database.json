@@ -171,19 +171,19 @@
     {
       "songId": 6,
       "playlistId": 8,
-      "position": 2,
+      "position": 1,
       "id": 2
     },
     {
       "songId": 9,
       "playlistId": 8,
-      "position": 1,
+      "position": 5,
       "id": 3
     },
     {
       "songId": 8,
       "playlistId": 8,
-      "position": 5,
+      "position": 2,
       "id": 4
     },
     {
@@ -221,6 +221,12 @@
       "playlistId": 9,
       "position": 4,
       "id": 11
+    },
+    {
+      "songId": 9,
+      "playlistId": 9,
+      "position": 5,
+      "id": 12
     }
   ]
 }
