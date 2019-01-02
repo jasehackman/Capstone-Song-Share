@@ -143,62 +143,44 @@
       "userId": 1,
       "passKey": "887aim7b91ldrnqmannvw8",
       "id": 8
-    },
-    {
-      "title": "Fast",
-      "userId": 1,
-      "passKey": "6xtkop7ojcsuh6inbsmik",
-      "id": 9
     }
   ],
   "songs_playlists": [
     {
-      "songId": 7,
+      "songId": 5,
       "playlistId": 8,
-      "position": 5,
-      "id": 6
-    },
-    {
-      "songId": 10,
-      "playlistId": 8,
-      "position": 2,
-      "id": 7
+      "position": 3,
+      "id": 1
     },
     {
       "songId": 6,
       "playlistId": 8,
-      "position": 3,
-      "id": 10
+      "position": 2,
+      "id": 2
     },
     {
       "songId": 9,
       "playlistId": 8,
-      "position": 4,
-      "id": 11
-    },
-    {
-      "songId": 11,
-      "playlistId": 8,
       "position": 1,
-      "id": 12
-    },
-    {
-      "songId": 5,
-      "playlistId": 9,
-      "position": 1,
-      "id": 13
+      "id": 3
     },
     {
       "songId": 8,
-      "playlistId": 9,
-      "position": 2,
-      "id": 14
+      "playlistId": 8,
+      "position": 5,
+      "id": 4
     },
     {
-      "songId": 11,
-      "playlistId": 9,
-      "position": 3,
-      "id": 15
+      "songId": 12,
+      "playlistId": 8,
+      "position": 4,
+      "id": 5
+    },
+    {
+      "songId": 7,
+      "playlistId": 8,
+      "position": 6,
+      "id": 6
     }
   ]
 }
