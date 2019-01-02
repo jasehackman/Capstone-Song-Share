@@ -196,7 +196,15 @@ export default class ReactManager extends Component {
     APICalls.saveToJson("songs", songObj)
       .then(() => APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id")).then(data => {
         console.log(data)
-        this.setState({ songs: data })
+        this.setState({
+          songs: data,
+          songTitleInput: "",
+          uploadedFileName: "",
+          songDownloadURL: "",
+          songLyricInput: "",
+          songCoWriters: "",
+          songDuration: ""
+         })
       }))
 
   }
@@ -273,12 +281,20 @@ export default class ReactManager extends Component {
   //Playlists-----------------------------------------------------------------------------------------
   addSongToPlaylist = (evt) => {
 
+
+
     const idOfSong = Number(evt.target.value);
     const idOfPlaylistArray = evt.target.id.split('-');
     const idOfPlaylist = Number(idOfPlaylistArray[1])
+
+    //gather the number of songs in the playlist
+    let playlistSongs = this.state.playlists.filter(playlist => playlist.id === idOfPlaylist)
+    let songsArrayLength = playlistSongs[0].songs_playlists.length
+
     APICalls.saveToJson('songs_playlists', {
       songId: idOfSong,
-      playlistId: idOfPlaylist
+      playlistId: idOfPlaylist,
+      position: songsArrayLength + 1
     }).then(() => this.refreshData())
   }
 

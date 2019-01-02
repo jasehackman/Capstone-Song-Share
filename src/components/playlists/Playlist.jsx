@@ -65,7 +65,6 @@ export default class Playlist extends Component {
       return (
         <div className="card p-4 mb-4 mt-4">
           {editButtonForm}
-          {/* <h3>Share Link: http://localhost:3000/playlists/{this.props.playlist.id}</h3> */}
 
           <div className = ''>
             {/* add songs */}

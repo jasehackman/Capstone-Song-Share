@@ -35,6 +35,11 @@ export default class ApplicationManager extends Component{
 
       })}/>
 
+      <Route exact path = "/" render = {(props => {
+        return <Redirect to='/playlists'/>
+
+      })}/>
+
 
       {/* PLAYLISTS */}
       <Route exact path = "/playlists" render={(props => {
@@ -83,7 +88,7 @@ export default class ApplicationManager extends Component{
 
       <Route exact path="/signup" render={(props) => {
          if (!this.isAuthenticated()) {
-            return <SignUp refreshData={this.props.refreshData} handleFieldChange={this.props.handleFieldChange} signUpSave={this.props.signUpSave}/>
+            return <SignUp passedState = {this.props.passedState} refreshData={this.props.refreshData} handleFieldChange={this.props.handleFieldChange} signUpSave={this.props.signUpSave}/>
          }else {
            return <Redirect to='/playlists'/>
          }

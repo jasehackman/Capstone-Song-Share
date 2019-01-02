@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import APICalls from "../../modules/APICalls"
 import { Link } from "react-router-dom"
+import LoginAlertModal from './LoginAlertModal.jsx'
 
 
 export default class LogIn extends Component {
 
   state = {
     email: '',
-    password: ''
+    password: '',
+    loginStuff: ""
 
   }
 
@@ -15,6 +17,10 @@ export default class LogIn extends Component {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
+  }
+
+  resetLoginState = () => {
+    this.setState({loginStuff: ""})
   }
 
   loginCheck = () => {
@@ -30,7 +36,10 @@ export default class LogIn extends Component {
         }
 
         else {
-          alert("boo")
+
+          this.props.refreshData()
+          this.setState({loginStuff: <LoginAlertModal  resetLoginState = {this.resetLoginState}/>})
+
         }
 
       })
@@ -39,6 +48,7 @@ export default class LogIn extends Component {
 
 
   render() {
+
     return (
       <div>
         <h1 className="display-4">Login</h1>
@@ -61,7 +71,7 @@ export default class LogIn extends Component {
         <button className="btn btn-primary  m-2 input-group-lg" placeholder="password" onClick={() => this.loginCheck()} >Login</button>
 
         <Link className="btn btn-success" to="/signup">Sign Up</Link>
-
+        {this.state.loginStuff}
       </div>
 
 
