@@ -61,6 +61,11 @@ export default class Song extends Component {
 
             </div>
           </div>
+          <div className="d-flex ml-auto arrows flex-column">
+            <img className="icon" alt="expand" src="images/Arrows-Up-icon.png" onClick={() => console.log("up")}/>
+            <img className="icon" alt="expand" src="images/Arrows-Down-icon.png" onClick={() => console.log("down")}/>
+
+            </div>
 
           <img className="icon" alt="expand" src="images/iconfinder_expand2_308964.svg" onClick={() => this.songClicked()} />
         </div>

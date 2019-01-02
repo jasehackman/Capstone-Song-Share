@@ -54,7 +54,6 @@ export default class Playlist extends Component {
 
     else {
       let arrayOfSongIds = this.props.songsIds.sort((a,b)=> a.position - b.position).map(songid => {
-        console.log('songid', songid)
         return songid.songId
       })
 
@@ -95,7 +94,6 @@ export default class Playlist extends Component {
             {
 
               arrayOfSongs.map(song => {
-                console.log("songs", song)
                 if (song.length === 0) {
                   return <p>Please Upload Songs</p>
                 } else {

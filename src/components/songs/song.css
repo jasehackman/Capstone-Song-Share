@@ -3,10 +3,9 @@
   cursor: pointer;
 }
 
-/* .song {
-  margin: 1%;
-  padding: 1%;
-} */
+.song {
+  position: relative;
+}
 
 .songTitle {
   background-color: white;
@@ -30,6 +29,12 @@
 
 
 
+}
+
+.arrows{
+  /* float: right; */
+  position: absolute;
+  right: 5%;
 }
 
 /* .song{

@@ -129,6 +129,16 @@
       "coWriters": "None",
       "duration": "",
       "id": 12
+    },
+    {
+      "title": "You Know",
+      "fileName": "You Know (Laura Vance).mp3",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/You%20Know%20(Laura%20Vance).mp3?alt=media&token=d5662345-7381-40fd-bf94-4367a7e03c60",
+      "lyric": "<p><strong style=\"color: rgb(34, 34, 34); background-color: transparent;\">V1</strong></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">The first time I fell in love</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">It was a case of bad luck</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">It took nine lives and lots of Haagan Daas</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">To land in your arms</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\"> </span></p><p><strong style=\"color: rgb(34, 34, 34); background-color: transparent;\">CH</strong></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">Sometimes you try, the first time is a little too hot</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">Then you try and it’s a little too cold</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">But when you find the kind that feels just right</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">You know, you know?</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\"> </span></p><p><strong style=\"color: rgb(34, 34, 34); background-color: transparent;\">V2</strong></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">I still believe in fairy tales</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">You got me under your spell</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">When you kiss me, it’s like I’m waking up</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">That’s how I know it’s for real</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\"> </span></p><p><strong style=\"color: rgb(34, 34, 34); background-color: transparent;\">CH</strong></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\"> </span></p><p><strong style=\"color: rgb(34, 34, 34); background-color: transparent;\">BR</strong></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">I’m not saying I hear wedding bells…</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">I’m not asking for a ring…</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">But baby I can’t help thinking about</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\">A happy ending…</span></p><p><span style=\"color: rgb(34, 34, 34); background-color: transparent;\"> </span></p><p><strong style=\"color: rgb(34, 34, 34); background-color: transparent;\">CH</strong></p>",
+      "coWriters": "None",
+      "duration": "3:18",
+      "id": 13
     }
   ],
   "playlists": [
@@ -143,6 +153,12 @@
       "userId": 1,
       "passKey": "887aim7b91ldrnqmannvw8",
       "id": 8
+    },
+    {
+      "title": "Love Songs",
+      "userId": 1,
+      "passKey": "gle6dye6thnlxiz0f0lnz",
+      "id": 9
     }
   ],
   "songs_playlists": [
@@ -181,6 +197,30 @@
       "playlistId": 8,
       "position": 6,
       "id": 6
+    },
+    {
+      "songId": 12,
+      "playlistId": 9,
+      "position": 1,
+      "id": 8
+    },
+    {
+      "songId": 13,
+      "playlistId": 9,
+      "position": 2,
+      "id": 9
+    },
+    {
+      "songId": 7,
+      "playlistId": 9,
+      "position": 3,
+      "id": 10
+    },
+    {
+      "songId": 10,
+      "playlistId": 9,
+      "position": 4,
+      "id": 11
     }
   ]
 }
