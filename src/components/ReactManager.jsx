@@ -98,7 +98,7 @@ export default class ReactManager extends Component {
 
   refreshData = () => {
     let stateSetter = {}
-    APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id"))
+    APICalls.getEmbedFromJson("songs", 'songs_playlists', sessionStorage.getItem("id"))
       .then(data => {
         stateSetter.songs = data;
         return APICalls.getEmbedFromJson('playlists', 'songs_playlists', sessionStorage.getItem("id"))
