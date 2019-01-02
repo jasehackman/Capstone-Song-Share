@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import './song.css'
-import EditSongModal from './EditSongModal.jsx'
 
 
 export default class Song extends Component {

@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import './song.css'
 import EditSongModal from './EditSongModal.jsx'
-import $ from 'jquery';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 
 
 

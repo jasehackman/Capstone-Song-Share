@@ -143,19 +143,13 @@
       "userId": 1,
       "passKey": "887aim7b91ldrnqmannvw8",
       "id": 8
-    },
-    {
-      "title": "Fun",
-      "userId": 1,
-      "passKey": "jbh1ek5qk0nmb2f13tj1tb",
-      "id": 9
     }
   ],
   "songs_playlists": [
     {
       "songId": 7,
       "playlistId": 8,
-      "position": 1,
+      "position": 5,
       "id": 6
     },
     {
@@ -163,6 +157,24 @@
       "playlistId": 8,
       "position": 2,
       "id": 7
+    },
+    {
+      "songId": 6,
+      "playlistId": 8,
+      "position": 3,
+      "id": 10
+    },
+    {
+      "songId": 9,
+      "playlistId": 8,
+      "position": 4,
+      "id": 11
+    },
+    {
+      "songId": 11,
+      "playlistId": 8,
+      "position": 1,
+      "id": 12
     }
   ]
 }

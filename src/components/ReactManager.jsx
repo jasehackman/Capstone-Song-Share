@@ -306,30 +306,20 @@ export default class ReactManager extends Component {
 
 
     const arrayOfSongs = this.state.songs_playlists.filter(relationship => relationship.playlistId === idOfPlaylist)
-    console.log("look", arrayOfSongs)
     const objOfCorrectRelationship = arrayOfSongs.filter(relationship => relationship.songId === idOfSong)
     let deletedSongPosition = objOfCorrectRelationship[0].position
-    console.log(deletedSongPosition)
+
     let promises = arrayOfSongs.filter(song => {
-      console.log("song", song.position)
+      //deletes the selected song
       if (song.songId === idOfSong){
-        console.log("test")
         return APICalls.deleteItem('songs_playlists', song.id)
       }
+      //changes the position number of the songs in the playlists
       else if(song.position > deletedSongPosition){
-        console.log("second test")
         return APICalls.updateItem("songs_playlists", song.id, {position: (song.position-1)})
       }
     } )
-
-    console.log("check", promises)
-
     Promise.all(promises).then(this.refreshData())
-
-    // APICalls.deleteItem('songs_playlists', objOfCorrectRelationship[0].id)
-    //   .then(() =>
-
-    //   this.refreshData())
   }
 
   addPlaylist = () => {
