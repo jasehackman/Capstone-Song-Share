@@ -49,7 +49,7 @@ export default class ApplicationManager extends Component{
         songs={this.props.passedState.songs} handleFieldChange={this.props.handleFieldChange} addSongToPlaylist={this.props.addSongToPlaylist}
         addPlaylist={this.props.addPlaylist} removeSongFromPlaylist={this.props.removeSongFromPlaylist} removePlaylist = {this.props.removePlaylist}
         editTitleButton={this.props.editTitleButton} editTitleBackButton={this.props.editTitleBackButton} editPlaylistTitle={this.props.editPlaylistTitle}
-        displayStringAsHTML={this.props.displayStringAsHTML}/>
+        displayStringAsHTML={this.props.displayStringAsHTML} moveSongUp = {this.props.moveSongUp} moveSongDown = {this.props.moveSongDown}/>
       }
         else{
           return <Login {...props} refreshData={this.props.refreshData} passedState={this.props.passedState} currentUser = {this.props.currentUser}/>

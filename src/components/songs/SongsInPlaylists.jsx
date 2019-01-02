@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import './song.css'
 
 
-export default class Song extends Component {
+export default class SongsInPlaylists extends Component {
 
   state = {
     songPlayerClicked: false,
@@ -62,8 +62,8 @@ export default class Song extends Component {
             </div>
           </div>
           <div className="d-flex ml-auto arrows flex-column">
-            <img className="icon" alt="expand" src="images/Arrows-Up-icon.png" onClick={() => console.log("up")}/>
-            <img className="icon" alt="expand" src="images/Arrows-Down-icon.png" onClick={() => console.log("down")}/>
+            <img className="icon" alt="expand" src="images/Arrows-Up-icon.png" onClick={(evt) => this.props.moveSongUp(evt)}/>
+            <img className="icon" alt="expand" src="images/Arrows-Down-icon.png" onClick={(evt) => this.props.moveSongDown(evt)}/>
 
             </div>
 

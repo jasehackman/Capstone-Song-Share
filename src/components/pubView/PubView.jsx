@@ -33,7 +33,7 @@ export default class Playlist extends Component {
     }
 
     else{
-    let arrayOfSongIds = playlist.songs_playlists.map(songid => {
+    let arrayOfSongIds = playlist.songs_playlists.sort((a,b)=> a.position - b.position).map(songid => {
       return songid.songId
     })
 

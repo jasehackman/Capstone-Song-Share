@@ -99,7 +99,7 @@ export default class Playlist extends Component {
                 } else {
                   return <SongsInPlaylists key={song[0].id} song={song[0]} deleteSongClick={this.props.deleteSongClick} editSongClick={this.props.editSongClick}
                     passedState={this.props.passedState} backSongClick={this.props.backSongClick} handleFieldChange={this.props.handleFieldChange}
-                    editSongSave={this.props.editSongSave} displayStringAsHTML={this.props.displayStringAsHTML} />
+                    editSongSave={this.props.editSongSave} displayStringAsHTML={this.props.displayStringAsHTML} moveSongUp = {this.props.moveSongUp} moveSongDown = {this.props.moveSongDown}/>
 
                 }
 

@@ -278,9 +278,15 @@ export default class ReactManager extends Component {
 
 
   //Playlists-----------------------------------------------------------------------------------------
+  moveSongUp = (evt) => {
+    console.log("upup")
+  }
+  moveSongDown = (evt) => {
+    console.log("downdown")
+  }
+
+
   addSongToPlaylist = (evt) => {
-
-
 
     const idOfSong = Number(evt.target.value);
     const idOfPlaylistArray = evt.target.id.split('-');
@@ -389,7 +395,7 @@ export default class ReactManager extends Component {
             //songs
             deleteSongClick={this.deleteSongClick} fileUploader={this.fileUploader} handleFieldChange={this.handleFieldChange}
             newSongSave={this.newSongSave} editSongClick={this.editSongClick} backSongClick = {this.backSongClick}
-            editSongSave={this.editSongSave} editFieldChange={this.editFieldChange}
+            editSongSave={this.editSongSave} editFieldChange={this.editFieldChange} moveSongUp = {this.moveSongUp} moveSongDown = {this.moveSongDown}
 
 
 
