@@ -153,28 +153,16 @@
   ],
   "songs_playlists": [
     {
-      "songId": 6,
+      "songId": 7,
       "playlistId": 8,
-      "position": 1,
-      "id": 1
-    },
-    {
-      "songId": 9,
-      "playlistId": 8,
-      "position": 3,
-      "id": 3
-    },
-    {
-      "songId": 5,
-      "playlistId": 8,
-      "position": 4,
-      "id": 5
-    },
-    {
-      "songId": 8,
-      "playlistId": 9,
       "position": 1,
       "id": 6
+    },
+    {
+      "songId": 10,
+      "playlistId": 8,
+      "position": 2,
+      "id": 7
     }
   ]
 }
