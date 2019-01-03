@@ -4,6 +4,7 @@ import SongForPub from "./SongForPub.jsx"
 
 export default class PublisherPlaylistView extends Component {
   render(){
+
     //if there are no songs in a playlist
     if (this.props.playlist.songs_playlists.length === 0) {
       return (
@@ -31,6 +32,7 @@ export default class PublisherPlaylistView extends Component {
           {/* Songs in playlists */}
           <div>
             {this.props.songs.map(song => {
+
               return <SongForPub key={song.id} song={song} displayStringAsHTML={this.props.displayStringAsHTML} />
             }
 

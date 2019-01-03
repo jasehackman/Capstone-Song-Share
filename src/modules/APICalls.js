@@ -43,6 +43,11 @@ const jsonURL = "http://localhost:8088"
     .then(data => data.json())
   }
 
+  getOneAndEmbed(dataType, dataType2, id) {
+    return fetch(`${jsonURL}/${dataType}/${id}?_embed=${dataType2}`)
+    .then(data => data.json())
+  }
+
   saveToJson(dataType, item) {
     return fetch(`${jsonURL}/${dataType}`, {
       method: "POST",

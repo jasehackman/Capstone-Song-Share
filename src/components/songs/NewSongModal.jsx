@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import {Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
+import {Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import NewLyricEditor from './NewLyricEditor.jsx'
 import "./song.css"
 

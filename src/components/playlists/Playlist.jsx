@@ -53,7 +53,7 @@ export default class Playlist extends Component {
     }
 
     else {
-      let arrayOfSongIds = this.props.songsIds.map(songid => {
+      let arrayOfSongIds = this.props.songsIds.sort((a,b)=> a.position - b.position).map(songid => {
         return songid.songId
       })
 
@@ -65,7 +65,6 @@ export default class Playlist extends Component {
       return (
         <div className="card p-4 mb-4 mt-4">
           {editButtonForm}
-          {/* <h3>Share Link: http://localhost:3000/playlists/{this.props.playlist.id}</h3> */}
 
           <div className = ''>
             {/* add songs */}
@@ -80,13 +79,13 @@ export default class Playlist extends Component {
             </select>
               {/* remove songs */}
 
-            <select className='form-control p-1 pl-2' id={"removeSongFromPlaylist-" + this.props.playlist.id} onChange={(evt) => this.props.removeSongFromPlaylist(evt)}>
+            {/* <select className='form-control p-1 pl-2' id={"removeSongFromPlaylist-" + this.props.playlist.id} onChange={(evt) => this.props.removeSongFromPlaylist(evt)}>
               <option>Remove Song To Playlist</option>
               {this.props.songs.map(song => {
                 if (arrayOfSongIds.includes(song.id))
                   return <option key={song.id} value={song.id}>{song.title}</option>
               })}
-            </select>
+            </select> */}
             </div>
 
           </div>
@@ -100,7 +99,9 @@ export default class Playlist extends Component {
                 } else {
                   return <SongsInPlaylists key={song[0].id} song={song[0]} deleteSongClick={this.props.deleteSongClick} editSongClick={this.props.editSongClick}
                     passedState={this.props.passedState} backSongClick={this.props.backSongClick} handleFieldChange={this.props.handleFieldChange}
-                    editSongSave={this.props.editSongSave} displayStringAsHTML={this.props.displayStringAsHTML} />
+                    editSongSave={this.props.editSongSave} displayStringAsHTML={this.props.displayStringAsHTML} moveSongUp = {this.props.moveSongUp}
+                    moveSongDown = {this.props.moveSongDown} playlistId = {this.props.playlist.id} arrayOfSongIds = {arrayOfSongIds}
+                    deleteSongFromPlaylist={this.props.deleteSongFromPlaylist}/>
 
                 }
 

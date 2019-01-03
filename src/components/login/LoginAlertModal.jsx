@@ -1,6 +1,6 @@
 
 import React, { Component } from "react"
-import { Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export default class LoginAlertModal extends Component {
 

@@ -26,16 +26,14 @@ export default class PublisherLanding extends Component {
     let playlist = this.state.playlists.find(singlePlaylist => singlePlaylist.passKey === this.state.playlistKey)
     if (playlist) {
       stateSetter.playlist = playlist
-      console.log(playlist)
       APICalls.getOneFromJson("users", playlist.userId)
         .then(data => {
         stateSetter.songwriterName = data.name
-          let arrayOfPlaylistSongs = playlist.songs_playlists.map(playlistRel => {
-            return APICalls.getOneFromJson('songs', playlistRel.songId)
+          let arrayOfPlaylistSongs = playlist.songs_playlists.sort((a,b)=> a.position - b.position).map(playlistRel => {
+            return APICalls.getOneAndEmbed('songs', 'songs_playlists', playlistRel.songId)
           })
           Promise.all(arrayOfPlaylistSongs)
             .then(data => {
-              console.log("data", data)
               stateSetter.songs = data
               stateSetter.playlistFound = true
               this.setState(stateSetter)
