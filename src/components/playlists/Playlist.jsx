@@ -79,13 +79,13 @@ export default class Playlist extends Component {
             </select>
               {/* remove songs */}
 
-            <select className='form-control p-1 pl-2' id={"removeSongFromPlaylist-" + this.props.playlist.id} onChange={(evt) => this.props.removeSongFromPlaylist(evt)}>
+            {/* <select className='form-control p-1 pl-2' id={"removeSongFromPlaylist-" + this.props.playlist.id} onChange={(evt) => this.props.removeSongFromPlaylist(evt)}>
               <option>Remove Song To Playlist</option>
               {this.props.songs.map(song => {
                 if (arrayOfSongIds.includes(song.id))
                   return <option key={song.id} value={song.id}>{song.title}</option>
               })}
-            </select>
+            </select> */}
             </div>
 
           </div>
@@ -99,7 +99,9 @@ export default class Playlist extends Component {
                 } else {
                   return <SongsInPlaylists key={song[0].id} song={song[0]} deleteSongClick={this.props.deleteSongClick} editSongClick={this.props.editSongClick}
                     passedState={this.props.passedState} backSongClick={this.props.backSongClick} handleFieldChange={this.props.handleFieldChange}
-                    editSongSave={this.props.editSongSave} displayStringAsHTML={this.props.displayStringAsHTML} moveSongUp = {this.props.moveSongUp} moveSongDown = {this.props.moveSongDown} playlistId = {this.props.playlist.id}/>
+                    editSongSave={this.props.editSongSave} displayStringAsHTML={this.props.displayStringAsHTML} moveSongUp = {this.props.moveSongUp}
+                    moveSongDown = {this.props.moveSongDown} playlistId = {this.props.playlist.id} arrayOfSongIds = {arrayOfSongIds}
+                    deleteSongFromPlaylist={this.props.deleteSongFromPlaylist}/>
 
                 }
 

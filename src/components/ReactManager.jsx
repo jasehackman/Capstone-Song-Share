@@ -219,9 +219,9 @@ export default class ReactManager extends Component {
       console.log("file name", data.fileName)
     let songRef = storage.ref(data.fileName);
       songRef.delete().then(() => {
-        alert("file deleted")
+        console.log("file deleted")
       }).catch((error) =>{
-        alert(error)
+        console.log(error)
       });
     })
 
@@ -323,6 +323,31 @@ export default class ReactManager extends Component {
     }).then(() => this.refreshData())
   }
 
+  deleteSongFromPlaylist = (evt) => {
+   //first number is position number, second number is id number
+
+   const idOfPlaylistArray = evt.target.id.split('-');
+   const idOfPlaylist = Number(idOfPlaylistArray[3])
+   const relId = Number(idOfPlaylistArray[2])
+   const idOfSong = Number(idOfPlaylistArray[4]);
+
+    const arrayOfSongs = this.state.songs_playlists.filter(relationship => relationship.playlistId === idOfPlaylist)
+    const objOfCorrectRelationship = arrayOfSongs.filter(relationship => relationship.songId === idOfSong)
+    let deletedSongPosition = objOfCorrectRelationship[0].position
+
+    let promises = arrayOfSongs.filter(song => {
+      //deletes the selected song
+      if (song.songId === idOfSong){
+        return APICalls.deleteItem('songs_playlists', song.id)
+      }
+      //changes the position number of the songs in the playlists
+      else if(song.position > deletedSongPosition){
+        return APICalls.updateItem("songs_playlists", song.id, {position: (song.position-1)})
+      }
+    } )
+    Promise.all(promises).then(this.refreshData())
+  }
+
   removeSongFromPlaylist = (evt) => {
 
     const idOfSong = Number(evt.target.value);
@@ -411,6 +436,7 @@ export default class ReactManager extends Component {
             addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
             removeSongFromPlaylist={this.removeSongFromPlaylist} removePlaylist={this.removePlaylist} editTitleButton={this.editTitleButton}
             editTitleBackButton={this.editTitleBackButton} editPlaylistTitle={this.editPlaylistTitle} newFieldChange={this.newFieldChange}
+            deleteSongFromPlaylist={this.deleteSongFromPlaylist}
 
             //songs
             deleteSongClick={this.deleteSongClick} fileUploader={this.fileUploader} handleFieldChange={this.handleFieldChange}
