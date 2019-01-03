@@ -35,85 +35,140 @@
       "email": "john@john.com",
       "password": "1",
       "id": 6
+    },
+    {
+      "name": "Stu",
+      "email": "stu@mail.com",
+      "password": "123abc",
+      "id": 7
+    },
+    {
+      "name": "Sam",
+      "email": "sam@sam.com",
+      "password": "123abc",
+      "id": 8
     }
   ],
   "songs": [
     {
-      "title": "Searching ",
-      "fileName": "02_Searching.mp3",
+      "title": "Everyone But You",
+      "fileName": "Everyone But You (Affable_Vance).mp3",
       "userId": 1,
-      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/02_Searching.mp3?alt=media&token=18a281bf-55f0-4c41-90e4-e7c75803c571",
-      "lyric": "<h1>HELLO</h1><p><br></p><p>Raunniang in circles While trying to catch my breath Never grasping what i'm racing after While being chased by ghosts from my past Searching for answers For the questions on my mind Nothing seems true enough Answers i cant find Searching for Searching to find Searching for the one thing I'll find That will make the hurt no more I swear this will be the last time I wont need it anymore But i knew from the very start That was a lie to its core Searching for Searching to find Searching for the one thing i'll find That will make the hurt no more Where can I find love I've looked in every open door None of it seems real enough Always leaves me wanting more</p>",
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Everyone%20But%20You%20(Affable_Vance).mp3?alt=media&token=781c256b-4da1-4b67-9358-8d482c0d16dc",
+      "lyric": "<p><strong>V1</strong></p><p>Rumor has it you found someone</p><p>They say you disappear when your phone lights up</p><p>And ya don’t hang out with your friends as much</p><p>As you used to</p><p>&nbsp;</p><p>You work through lunch and you don’t take breaks, just to</p><p>Cut out early for dinner dates</p><p>Yeah it’s obvious that’s something’s changed</p><p>About you</p><p>&nbsp;</p><p><strong>CH</strong></p><p>It’s the talk, talk, talk, talk, talk of the town</p><p>I’m the first to know and the last to find out</p><p>I’m the only one</p><p>But I hear it from everyone</p><p>You know I know what you’re talking about</p><p>But you won’t say it out loud</p><p>I know I’m the only one</p><p>But I hear it from everyone but you</p><p>&nbsp;</p><p><strong>V2</strong></p><p>You brought me home to your mama’s house</p><p>I wondered what the fuss was all about</p><p>They say thatcha never bring girls around</p><p>I was the first one</p><p>&nbsp;</p><p>Yeah, I can tell that you’re feeling it</p><p>Cuz you tell me with every soft, slow kiss</p><p>But I wanna hear it come off your lips</p><p>Just say I love ya, I love ya, I love ya…</p><p>&nbsp;</p><p><strong>BR</strong></p><p>Yeah, it’s easier said than done</p><p>So say I love ya, I love ya</p><p>&nbsp;</p><p><strong>CH</strong></p>",
+      "coWriters": "Jason Afable",
+      "duration": "3:03",
+      "id": 5
+    },
+    {
+      "title": "Let It Shine",
+      "fileName": "Let It Shine (Laura Vance).mp3",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Let%20It%20Shine%20(Laura%20Vance).mp3?alt=media&token=ae6a3e0e-5635-41de-9063-0fbbc5808559",
+      "lyric": "<p><br></p>",
       "coWriters": "None",
-      "duration": "4:16",
-      "id": 3
+      "duration": "3:26",
+      "id": 6
+    },
+    {
+      "title": "Perfect World",
+      "fileName": "Perfect World (Laura Vance).mp3",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Perfect%20World%20(Laura%20Vance).mp3?alt=media&token=8847d982-3b9a-447b-afe2-2d226ac21e22",
+      "lyric": "<p><br></p>",
+      "coWriters": "None",
+      "duration": "4:03",
+      "id": 7
+    },
+    {
+      "title": "Run Away",
+      "fileName": "Run Away (Laura Vance_Luke Sheets).mp3",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Run%20Away%20(Laura%20Vance_Luke%20Sheets).mp3?alt=media&token=af3134bf-daca-46c4-8c6e-0114aa60dd36",
+      "lyric": "",
+      "coWriters": "Luke Sheets",
+      "duration": "2:53",
+      "id": 8
+    },
+    {
+      "title": "Take It to the Grave",
+      "fileName": "Take It to the Grave MP3 Laura Vance.mp3",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Take%20It%20to%20the%20Grave%20MP3%20Laura%20Vance.mp3?alt=media&token=7840208b-483d-4dff-8b1a-9ba65c7c84cc",
+      "lyric": "<p><strong>V1</strong></p><p>I tell your mother I’m doing fine</p><p>She sends me money from time to time</p><p>Since you been gone</p><p>I’ve been living with my sin</p><p>Small town princess with no prince</p><p>&nbsp;</p><p><strong>PRE</strong></p><p>You left me your last name</p><p>A baby on the way</p><p>No sign that you ever left</p><p>No sign that you’re coming back</p><p>&nbsp;</p><p><strong>CH</strong></p><p>Every rose has a thorn</p><p>Every angel has a horn</p><p>You keep my secret, I’ll keep yours safe</p><p>Take it to the grave</p><p>&nbsp;</p><p><strong>V2</strong></p><p>It took a year to just start breathing</p><p>I don’t think folks ever stop talking</p><p>Some think it’s my fault, and I drove you away</p><p>Others think you lost it</p><p>I think you had it coming</p><p>&nbsp;</p><p><strong>PRE</strong></p><p>I see you in my dreams</p><p>Like a ghost that’s haunting</p><p>But like the baby, I fall back to sleep</p><p>Cuz you can’t touch me</p><p>&nbsp;</p><p><strong>CH</strong></p><p>&nbsp;</p><p><strong>V3</strong></p><p>I planted flowers in the garden</p><p>You always had a thing for roses</p><p>Long stem payment for forgiveness</p><p>Now we’re even…shhhhh</p><p>You’re my little secret</p><p>In the garden</p>",
+      "coWriters": "None",
+      "duration": "3:16",
+      "id": 9
+    },
+    {
+      "title": "Wish I Could Change",
+      "fileName": "Wish I Could Change MP3 Laura Vance.mp3",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Wish%20I%20Could%20Change%20MP3%20Laura%20Vance.mp3?alt=media&token=3c9526ca-198e-4c08-9f36-bfcde06f1088",
+      "lyric": "<p><strong>V1</strong></p><p>Sometimes I try to hide</p><p>Because I’m so afraid</p><p>Of feeling alive</p><p>The scars it could make</p><p><strong>&nbsp;</strong></p><p><strong>PRE</strong></p><p>Wish I could change</p><p>Wish I could change</p><p>&nbsp;</p><p><strong>V2</strong></p><p>You loved me inside out; up and down; You’ve seen me up and down</p><p>When lovers/other went/ran away; And loved me anyway; Tears fall down my face</p><p>When I finally come around</p><p>You’re tired of the chase</p><p><strong>&nbsp;</strong></p><p><strong>PRE</strong></p><p>Wish I could change</p><p>Wish I could change</p><p>Wish I could change</p><p>&nbsp;</p><p><strong>CH</strong></p><p>The past, your mind, I’m sorry, goodbye</p><p>&nbsp;</p><p><strong>INSTRUMENTAL</strong></p><p>&nbsp;</p><p><strong>CH</strong></p><p><strong>PRE</strong></p><p><strong>&nbsp;</strong></p><p><strong>V3</strong></p><p>Strange, how we began</p><p>I was so afraid</p><p>And now, here at the end</p><p>I have scars anyway</p>",
+      "coWriters": "None",
+      "duration": "3:15",
+      "id": 10
     },
     {
       "title": "When I Fall",
       "fileName": "When I Fall.mp3",
-      "userId": "1",
-      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/When%20I%20Fall.mp3?alt=media&token=2ccb7a69-0cf7-4c93-8688-41f55ee15824",
-      "lyric": "Here are the lyrics",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/When%20I%20Fall.mp3?alt=media&token=f578cedc-14b2-42f9-a2ea-9737aca5f3c9",
+      "lyric": "<p><strong>V1</strong></p><p>Never say never</p><p>I thought forever</p><p>Wasn’t true</p><p>Then you</p><p>Broke thru the ice</p><p>Took all the time</p><p>I needed to</p><p>Fall for you</p><p>&nbsp;</p><p><strong>CH</strong></p><p>I-ay-ay’ll</p><p>Never ask why-ay-ay</p><p>I was so slow to fall</p><p>Scared to fly</p><p>In to</p><p>That deep sea of You-ooo-ooo</p><p>Ready with open arms</p><p>To catch me when I fall</p><p>&nbsp;</p><p><strong>V2</strong></p><p>If love was a boat</p><p>I was looking for holes</p><p>Trying to sink it</p><p>Cuz I’m always thinking; Maybe I’m stupid</p><p>How can it be</p><p>That you chose me</p><p>Or am I dreaming</p><p>If this is the real thing</p><p>&nbsp;</p><p><strong>CH</strong></p><p>&nbsp;</p><p><strong>BR</strong></p><p>So as I take that leap of faith</p><p>I will be brave</p><p>That’s what love takes</p><p>&nbsp;</p><p><strong>CH</strong></p>",
       "coWriters": "None",
-      "duration": "3:16",
-      "id": 4
+      "duration": "4:02",
+      "id": 11
+    },
+    {
+      "title": "Your Side Of The Bed",
+      "fileName": "Your Side Of The Bed (Laura Vance).mp3",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/Your%20Side%20Of%20The%20Bed%20(Laura%20Vance).mp3?alt=media&token=4fd39a9c-8115-4bde-82a7-95cb9a5aa8f9",
+      "lyric": "<p><strong>V1</strong></p><p>The sun is high</p><p>I’m feeling low</p><p>Don’t know whether I should come</p><p>Or whether I should go…no</p><p>So I don’t</p><p>&nbsp;</p><p>You got away</p><p>I watched you leave</p><p>But the sun keeps coming up</p><p>Like you it’s over me…cuz I see</p><p>&nbsp;</p><p><strong>CH</strong></p><p>Your cars gone</p><p>So is your toothbrush</p><p>Your favorite coffee cup</p><p>My favorite t-shirt</p><p>The closets just full of hangers</p><p>I’ll never use up</p><p>Now that you’re gone<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p><p>There’s a scar that marks the hole inside of my chest</p><p>I’m as empty as your side of the bed</p><p>&nbsp;</p><p><strong>V2</strong></p><p>My eyes are dry</p><p>I try to sleep</p><p>Hoping when I wake up</p><p>You’ll be there right beside me…</p><p>It was a dream</p><p>&nbsp;</p><p><strong>CH</strong></p><p>&nbsp;</p><p><strong>BR</strong></p><p>The truth hurts</p><p>Cuz it’s too late to tell</p><p>Anyone but myself</p><p>What I put you through</p><p>And I’m sorry</p><p>I never told you so</p><p>The one thing you should know</p><p>How much I need you</p><p>&nbsp;</p><p><strong>CH</strong></p>",
+      "coWriters": "None",
+      "duration": "",
+      "id": 12
     }
   ],
   "playlists": [
     {
-      "title": "Love Songsss",
-      "userId": 1,
-      "passKey": "erdzmg0mfxi53dqimwe3e",
-      "url": null,
-      "id": 4
-    },
-    {
-      "title": "Party Songs",
-      "userId": 1,
-      "passKey": "qh89gan5bk5lzaz6objr9",
-      "url": null,
-      "id": 5
-    },
-    {
       "title": "New Playlist",
       "userId": 5,
       "passKey": "pau6u4ubzl48yvkdjdlzn",
-      "url": null,
       "id": 7
     },
     {
-      "title": "New Playlist",
+      "title": "Love",
       "userId": 1,
-      "passKey": "37cdv2fbkfq6p38eqcv61b",
+      "passKey": "qwwhrjhuo0i1zj3u2uewar",
       "id": 8
-    },
-    {
-      "title": "What about this one? ",
-      "userId": 1,
-      "passKey": "9aisycfr40nn41h9f0kyv",
-      "id": 10
     }
   ],
   "songs_playlists": [
     {
-      "songId": 3,
-      "playlistId": 4,
-      "id": 8
+      "songId": 12,
+      "playlistId": 8,
+      "position": 3,
+      "id": 2
     },
     {
-      "songId": 3,
-      "playlistId": 5,
-      "id": 13
+      "songId": 11,
+      "playlistId": 8,
+      "position": 2,
+      "id": 3
     },
     {
-      "songId": 4,
-      "playlistId": 5,
-      "id": 15
+      "songId": 7,
+      "playlistId": 8,
+      "position": 1,
+      "id": 4
     },
     {
-      "songId": 4,
-      "playlistId": 4,
-      "id": 17
+      "songId": 8,
+      "playlistId": 8,
+      "position": 4,
+      "id": 5
     }
   ]
 }

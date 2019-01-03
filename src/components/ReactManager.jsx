@@ -98,7 +98,7 @@ export default class ReactManager extends Component {
 
   refreshData = () => {
     let stateSetter = {}
-    APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id"))
+    APICalls.getEmbedFromJson("songs", 'songs_playlists', sessionStorage.getItem("id"))
       .then(data => {
         stateSetter.songs = data;
         return APICalls.getEmbedFromJson('playlists', 'songs_playlists', sessionStorage.getItem("id"))
@@ -128,7 +128,6 @@ export default class ReactManager extends Component {
   }
 
   editFieldChange = (value) => {
-    console.log("value",value)
     this.setState({editSongLyricInput: value})
   }
 
@@ -196,7 +195,15 @@ export default class ReactManager extends Component {
     APICalls.saveToJson("songs", songObj)
       .then(() => APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id")).then(data => {
         console.log(data)
-        this.setState({ songs: data })
+        this.setState({
+          songs: data,
+          songTitleInput: "",
+          uploadedFileName: "",
+          songDownloadURL: "",
+          songLyricInput: "",
+          songCoWriters: "",
+          songDuration: ""
+         })
       }))
 
   }
@@ -212,9 +219,9 @@ export default class ReactManager extends Component {
       console.log("file name", data.fileName)
     let songRef = storage.ref(data.fileName);
       songRef.delete().then(() => {
-        alert("file deleted")
+        console.log("file deleted")
       }).catch((error) =>{
-        alert(error)
+        console.log(error)
       });
     })
 
@@ -262,24 +269,83 @@ export default class ReactManager extends Component {
   }
 
   backSongClick = (e) => {
-    // let buttonId = e.target.id
-    // let buttonNumber = buttonId.split('-')
-    // let setId = `editSongButton-${Number(buttonNumber[1])}`
     this.setState({editSongButtonClick: 0})
 
   }
 
 
   //Playlists-----------------------------------------------------------------------------------------
+  moveSongUp = (evt) => {
+    //first number is position number, second number is id number
+
+    const relationshipArray = evt.target.id.split('-');
+    const positionNumb = Number(relationshipArray[1])
+    const relationshipId = Number(relationshipArray[2])
+    const playlistId = Number(relationshipArray[3])
+
+    const otherSongToChange = this.state.songs_playlists.filter(relationship => relationship.playlistId === playlistId && relationship.position === positionNumb -1)
+
+
+    APICalls.updateItem('songs_playlists', relationshipId, {position: positionNumb-1})
+    .then(() => APICalls.updateItem('songs_playlists', otherSongToChange[0].id, {position: otherSongToChange[0].position+1})
+    .then(() => this.refreshData()))
+  }
+  moveSongDown = (evt) => {
+    //first number is position number, second number is id number
+
+    const relationshipArray = evt.target.id.split('-');
+    const positionNumb = Number(relationshipArray[1])
+    const relationshipId = Number(relationshipArray[2])
+    const playlistId = Number(relationshipArray[3])
+
+    const otherSongToChange = this.state.songs_playlists.filter(relationship => relationship.playlistId === playlistId && relationship.position === positionNumb +1)
+
+    APICalls.updateItem('songs_playlists', relationshipId, {position: positionNumb+1})
+    .then(() => APICalls.updateItem('songs_playlists', otherSongToChange[0].id, {position: otherSongToChange[0].position-1})
+    .then(() => this.refreshData()))
+  }
+
+
   addSongToPlaylist = (evt) => {
 
     const idOfSong = Number(evt.target.value);
     const idOfPlaylistArray = evt.target.id.split('-');
     const idOfPlaylist = Number(idOfPlaylistArray[1])
+
+    //gather the number of songs in the playlist
+    let playlistSongs = this.state.playlists.filter(playlist => playlist.id === idOfPlaylist)
+    let songsArrayLength = playlistSongs[0].songs_playlists.length
+
     APICalls.saveToJson('songs_playlists', {
       songId: idOfSong,
-      playlistId: idOfPlaylist
+      playlistId: idOfPlaylist,
+      position: songsArrayLength + 1
     }).then(() => this.refreshData())
+  }
+
+  deleteSongFromPlaylist = (evt) => {
+   //first number is position number, second number is id number
+
+   const idOfPlaylistArray = evt.target.id.split('-');
+   const idOfPlaylist = Number(idOfPlaylistArray[3])
+   const relId = Number(idOfPlaylistArray[2])
+   const idOfSong = Number(idOfPlaylistArray[4]);
+
+    const arrayOfSongs = this.state.songs_playlists.filter(relationship => relationship.playlistId === idOfPlaylist)
+    const objOfCorrectRelationship = arrayOfSongs.filter(relationship => relationship.songId === idOfSong)
+    let deletedSongPosition = objOfCorrectRelationship[0].position
+
+    let promises = arrayOfSongs.filter(song => {
+      //deletes the selected song
+      if (song.songId === idOfSong){
+        return APICalls.deleteItem('songs_playlists', song.id)
+      }
+      //changes the position number of the songs in the playlists
+      else if(song.position > deletedSongPosition){
+        return APICalls.updateItem("songs_playlists", song.id, {position: (song.position-1)})
+      }
+    } )
+    Promise.all(promises).then(this.refreshData())
   }
 
   removeSongFromPlaylist = (evt) => {
@@ -287,10 +353,23 @@ export default class ReactManager extends Component {
     const idOfSong = Number(evt.target.value);
     const idOfPlaylistArray = evt.target.id.split('-');
     const idOfPlaylist = Number(idOfPlaylistArray[1])
+
+
     const arrayOfSongs = this.state.songs_playlists.filter(relationship => relationship.playlistId === idOfPlaylist)
     const objOfCorrectRelationship = arrayOfSongs.filter(relationship => relationship.songId === idOfSong)
-    APICalls.deleteItem('songs_playlists', objOfCorrectRelationship[0].id)
-      .then(() => this.refreshData())
+    let deletedSongPosition = objOfCorrectRelationship[0].position
+
+    let promises = arrayOfSongs.filter(song => {
+      //deletes the selected song
+      if (song.songId === idOfSong){
+        return APICalls.deleteItem('songs_playlists', song.id)
+      }
+      //changes the position number of the songs in the playlists
+      else if(song.position > deletedSongPosition){
+        return APICalls.updateItem("songs_playlists", song.id, {position: (song.position-1)})
+      }
+    } )
+    Promise.all(promises).then(this.refreshData())
   }
 
   addPlaylist = () => {
@@ -357,11 +436,12 @@ export default class ReactManager extends Component {
             addSongToPlaylist={this.addSongToPlaylist} addPlaylist={this.addPlaylist}
             removeSongFromPlaylist={this.removeSongFromPlaylist} removePlaylist={this.removePlaylist} editTitleButton={this.editTitleButton}
             editTitleBackButton={this.editTitleBackButton} editPlaylistTitle={this.editPlaylistTitle} newFieldChange={this.newFieldChange}
+            deleteSongFromPlaylist={this.deleteSongFromPlaylist}
 
             //songs
             deleteSongClick={this.deleteSongClick} fileUploader={this.fileUploader} handleFieldChange={this.handleFieldChange}
             newSongSave={this.newSongSave} editSongClick={this.editSongClick} backSongClick = {this.backSongClick}
-            editSongSave={this.editSongSave} editFieldChange={this.editFieldChange}
+            editSongSave={this.editSongSave} editFieldChange={this.editFieldChange} moveSongUp = {this.moveSongUp} moveSongDown = {this.moveSongDown}
 
 
 

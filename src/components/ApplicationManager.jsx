@@ -35,6 +35,11 @@ export default class ApplicationManager extends Component{
 
       })}/>
 
+      <Route exact path = "/" render = {(props => {
+        return <Redirect to='/playlists'/>
+
+      })}/>
+
 
       {/* PLAYLISTS */}
       <Route exact path = "/playlists" render={(props => {
@@ -44,7 +49,8 @@ export default class ApplicationManager extends Component{
         songs={this.props.passedState.songs} handleFieldChange={this.props.handleFieldChange} addSongToPlaylist={this.props.addSongToPlaylist}
         addPlaylist={this.props.addPlaylist} removeSongFromPlaylist={this.props.removeSongFromPlaylist} removePlaylist = {this.props.removePlaylist}
         editTitleButton={this.props.editTitleButton} editTitleBackButton={this.props.editTitleBackButton} editPlaylistTitle={this.props.editPlaylistTitle}
-        displayStringAsHTML={this.props.displayStringAsHTML}/>
+        displayStringAsHTML={this.props.displayStringAsHTML} moveSongUp = {this.props.moveSongUp} moveSongDown = {this.props.moveSongDown}
+        deleteSongFromPlaylist={this.props.deleteSongFromPlaylist}/>
       }
         else{
           return <Login {...props} refreshData={this.props.refreshData} passedState={this.props.passedState} currentUser = {this.props.currentUser}/>
@@ -83,7 +89,7 @@ export default class ApplicationManager extends Component{
 
       <Route exact path="/signup" render={(props) => {
          if (!this.isAuthenticated()) {
-            return <SignUp refreshData={this.props.refreshData} handleFieldChange={this.props.handleFieldChange} signUpSave={this.props.signUpSave}/>
+            return <SignUp passedState = {this.props.passedState} refreshData={this.props.refreshData} handleFieldChange={this.props.handleFieldChange} signUpSave={this.props.signUpSave}/>
          }else {
            return <Redirect to='/playlists'/>
          }
