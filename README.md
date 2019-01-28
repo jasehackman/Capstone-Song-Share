@@ -2,7 +2,7 @@
 
 <h2 style="font-weight: bold">The Information Dashboard</h2>
 
-<h3>Song-Share is a new product offering that you have been tasked with building. It's a dashboard for people to use to organize their daily tasks, events, news article, friends, and chat messages.</h3>
+<h3>Song-Share is a single page responsive CRUD web application built with React.js and Bootstrap that reduces the barriers between publishers and songwriters. Song-Share allows songwriters to upload songs, build playlists and privately share those playlists with a publisher. A publisher can then hear each song on the playlist in one page and read pertinent information on each song.</h3>
 
 <h2 style="font-weight: bold;"> Technologies Used
 <h3>Development Languages and Libraries</h3>
