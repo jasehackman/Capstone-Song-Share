@@ -13,7 +13,7 @@
 <img src="./public/images/babel.jpg"/>______<img src="./public/images/vs.jpg"/>______<img src="./public/images/lucid.png"/>______<img src="./public/images/github.jpg"/>
 
 
-<h2>Instructions for Installing Mission Control</h2>
+<h2>Instructions for Installing Song-Share</h2>
 
 <h4> You will need to have command line tools installed for your computer to use terminal commands.
 </h4>
