@@ -1,7 +1,5 @@
 <h1 style="font-weight: bold">Song-Share</h1>
 
-<h2 style="font-weight: bold">The Information Dashboard</h2>
-
 <h3>Song-Share is a single page responsive CRUD web application built with React.js and Bootstrap that reduces the barriers between publishers and songwriters. Song-Share allows songwriters to upload songs, build playlists and privately share those playlists with a publisher. A publisher can then hear each song on the playlist in one page and read pertinent information on each song.</h3>
 
 <h2 style="font-weight: bold;"> Technologies Used
