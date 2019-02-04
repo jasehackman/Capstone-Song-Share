@@ -91,7 +91,7 @@ http://localhost:8088/
 
 <h1 style="text-align:center; font-weight: bold;">Congratulations! You are now experiencing Song-Share!
 
-![Song-Share Walk Through](https://github.com/jasehackman/Capstone-Song-Share/song-share-gif.gif)
+![Song-Share Walk Through](https://github.com/jasehackman/Capstone-Song-Share/blob/jh-gif/song-share-gif.gif)
 
 <h2 style="text-align: center">Entity Relationship Diagrams</h2>
 
