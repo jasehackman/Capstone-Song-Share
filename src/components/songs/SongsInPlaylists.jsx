@@ -29,7 +29,8 @@ export default class SongsInPlaylists extends Component {
 
           <img id={`downSong-${songPosition[0].position}-${songPosition[0].id}-${songPosition[0].playlistId}`} className="icon" alt="expand" src="images/Arrows-Down-icon.png" onClick={(evt) => this.props.moveSongDown(evt)} />
         </div>
-    } else if (songPosition[0].position === this.props.arrayOfSongIds.length) {
+    }
+     else if (songPosition[0].position === this.props.arrayOfSongIds.length) {
       upDownArrows =
         <div className="d-flex ml-auto arrows flex-column">
           <img id={`upSong-${songPosition[0].position}-${songPosition[0].id}-${songPosition[0].playlistId}`} className="icon" alt="expand" src="images/Arrows-Up-icon.png" onClick={(evt) => {

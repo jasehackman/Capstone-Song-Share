@@ -193,8 +193,7 @@ export default class ReactManager extends Component {
     }
 
     APICalls.saveToJson("songs", songObj)
-      .then(() => APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id")).then(data => {
-        console.log(data)
+      .then(() => APICalls.getEmbedFromJson("songs", 'songs_playlists', sessionStorage.getItem("id")).then(data => {
         this.setState({
           songs: data,
           songTitleInput: "",
@@ -258,7 +257,7 @@ export default class ReactManager extends Component {
       coWriters: this.state.editSongCoWriters,
       duration: this.state.editSongDuration
 
-    }).then(() => APICalls.getFromJsonForUser("songs",sessionStorage.getItem("id"))
+    }).then(() => APICalls.getEmbedFromJson("songs", 'songs_playlists', sessionStorage.getItem("id"))
     .then(data => {
       this.setState({
         songs: data,
