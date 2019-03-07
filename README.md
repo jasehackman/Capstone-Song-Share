@@ -5,12 +5,12 @@
 <h2 style="font-weight: bold;"> Technologies Used
 <h3>Development Languages and Libraries</h3>
 
-<img src="./public/images/node.jpg"/>______<img src="./public/images/js.jpg"/>______<img src="./public/images/react.png"/>______<img src="./public/images/html5.jpg"/>______<img src="./public/images/css3.jpg"/>______<img src="./public/images/icons8-bootstrap-96.png"/>
+<img src="./public/images/js.jpg"/>______<img src="./public/images/react.png"/>______<img src="./public/images/html5.jpg"/>______<img src="./public/images/css3.jpg"/>______<img src="./public/images/icons8-bootstrap-96.png"/>
 
 <h1></h1>
 <h3>Development Tools</h3>
 
-<img src="./public/images/babel.jpg"/>______<img src="./public/images/vs.jpg"/>______<img src="./public/images/lucid.png"/>______<img src="./public/images/github.jpg"/>
+<img src="./public/images/vs.jpg"/>______<img src="./public/images/lucid.png"/>______<img src="./public/images/github.jpg"/>
 
 
 <h2>Instructions for Installing Song-Share</h2>
