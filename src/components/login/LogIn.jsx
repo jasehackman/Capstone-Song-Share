@@ -52,16 +52,12 @@ export default class LogIn extends Component {
     return (
       <div>
         <h1 className="display-4">Login</h1>
-
-        {/* <h3>Email</h3> */}
-
         <div className="input-group input-group-lg">
           <div className="input-group-prepend">
             <span className="input-group-text" id="inputGroup-sizing-lg">Email</span>
           </div>
           <input id="email" className="form-control m-2 " type="email" onChange={(e) => this.handleFieldChange(e)} />
         </div>
-        {/* <h3>Password</h3> */}
         <div className="input-group input-group-lg">
           <div className="input-group-prepend">
             <span className="input-group-text" id="inputGroup-sizing-lg">Password</span>
@@ -69,7 +65,6 @@ export default class LogIn extends Component {
           <input id="password" className="form-control m-2" type="password" onChange={(e) => this.handleFieldChange(e)} />
         </div>
         <button className="btn btn-primary  m-2 input-group-lg" placeholder="password" onClick={() => this.loginCheck()} >Login</button>
-
         <Link className="btn btn-success" to="/signup">Sign Up</Link>
         {this.state.loginStuff}
       </div>

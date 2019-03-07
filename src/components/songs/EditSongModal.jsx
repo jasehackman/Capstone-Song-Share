@@ -55,7 +55,6 @@ export default class EditSongModal extends Component {
                 <span className="input-group-text" id="inputGroup-sizing-lg">Lyric</span>
               </div>
               <LyricEditor passedState={this.props.passedState} handleFieldChange={this.props.handleFieldChange} editFieldChange={this.props.editFieldChange}/>
-              {/* <input className= "form-control" id="editSongLyricInput" value={this.props.passedState.editSongLyricInput} type="text" onChange={(evt) => this.props.handleFieldChange(evt)} /> */}
               </div>
               <div className="input-group input-group-lg mt-5">
               <div className="input-group-prepend">

@@ -379,8 +379,6 @@ export default class ReactManager extends Component {
 
     }).then(() => this.refreshData())
 
-    //The bellow code broke. See if you can just render playlist and get it to work
-    // APICalls.getFromJsonForUser("playlists", sessionStorage.getItem("id"))).then((data) => this.setState({ playlists: data }))
   }
 
   removePlaylist = (evt) => {

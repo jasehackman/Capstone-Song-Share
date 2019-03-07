@@ -40,7 +40,6 @@ export default class Song extends Component {
             <div className="ml-auto">
 
               <EditSongModal editFieldChange={this.props.editFieldChange} editSongClick={this.props.editSongClick} editSongSave={this.props.editSongSave} song={this.props.song} passedState={this.props.passedState} handleFieldChange={this.props.handleFieldChange} />
-              {/* <button className="btn btn-primary col m-3" id={`editSongButton-${this.props.song.id}`} onClick={(e) => this.props.editSongClick(e)}>Edit</button> */}
               <img src="images/trash.png" className="icon" alt="delete" id={`deleteSongButton-${this.props.song.id}`} onClick={(evt) => this.props.deleteSongClick(evt)} />
             </div>
           </div>
@@ -73,7 +72,6 @@ export default class Song extends Component {
             <div className="ml-auto">
 
               <EditSongModal editFieldChange={this.props.editFieldChange} editSongClick={this.props.editSongClick} editSongSave={this.props.editSongSave} song={this.props.song} passedState={this.props.passedState} handleFieldChange={this.props.handleFieldChange} />
-              {/* <button className="btn btn-primary col m-3" id={`editSongButton-${this.props.song.id}`} onClick={(e) => this.props.editSongClick(e)}>Edit</button> */}
               <img src="images/trash.png" className="icon" alt="delete" id={`deleteSongButton-${this.props.song.id}`} onClick={(evt) => this.props.deleteSongClick(evt)} />
             </div>
           </div>
