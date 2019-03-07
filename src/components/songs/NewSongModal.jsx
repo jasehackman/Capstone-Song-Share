@@ -48,7 +48,6 @@ export default class NewSongModal extends Component {
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-lg">File Upload</span>
               </div>
-            {/* <progress id="uploader" value="0" max="100">0%</progress> */}
             <input id="songUpload" className="form-control-file" type="file" onChange={(e) => this.props.fileUploader(e)} />
            </div>
            <div className="input-group input-group-lg">
