@@ -226,7 +226,7 @@ export default class ReactManager extends Component {
 
     APICalls.deleteItem("songs", idOfSongArray[1])
       .then(() => APICalls.getFromJsonForUser("songs", sessionStorage.getItem("id")).then(data => {
-        this.setState({ songs: data })
+        this.setState({ songs: data }, this.refreshData())
 
       }
 

@@ -129,6 +129,16 @@
       "coWriters": "None",
       "duration": "",
       "id": 12
+    },
+    {
+      "title": "You Know",
+      "fileName": "You Know (Laura Vance).mp3",
+      "userId": 1,
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/songshare19.appspot.com/o/You%20Know%20(Laura%20Vance).mp3?alt=media&token=08a20b47-9a2a-4a21-bbda-e7efe0254a63",
+      "lyric": "<p><strong style=\"background-color: transparent; color: rgb(34, 34, 34);\">V1</strong></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">The first time I fell in love</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">It was a case of bad luck</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">It took nine lives and lots of Haagan Daas</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">To land in your arms</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\"> </span></p><p><strong style=\"background-color: transparent; color: rgb(34, 34, 34);\">CH</strong></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">Sometimes you try, the first time is a little too hot</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">Then you try and it’s a little too cold</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">But when you find the kind that feels just right</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">You know, you know?</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\"> </span></p><p><strong style=\"background-color: transparent; color: rgb(34, 34, 34);\">V2</strong></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">I still believe in fairy tales</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">You got me under your spell</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">When you kiss me, it’s like I’m waking up</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">That’s how I know it’s for real</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\"> </span></p><p><strong style=\"background-color: transparent; color: rgb(34, 34, 34);\">CH</strong></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\"> </span></p><p><strong style=\"background-color: transparent; color: rgb(34, 34, 34);\">BR</strong></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">I’m not saying I hear wedding bells…</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">I’m not asking for a ring…</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">But baby I can’t help thinking about</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\">A happy ending…</span></p><p><span style=\"background-color: transparent; color: rgb(34, 34, 34);\"> </span></p><p><strong style=\"background-color: transparent; color: rgb(34, 34, 34);\">CH</strong></p><p><br></p>",
+      "coWriters": "None",
+      "duration": "",
+      "id": 13
     }
   ],
   "playlists": [
@@ -139,36 +149,36 @@
       "id": 7
     },
     {
-      "title": "Love",
+      "title": "Love Songs",
       "userId": 1,
-      "passKey": "qwwhrjhuo0i1zj3u2uewar",
+      "passKey": "bl1rpsi9hzgtph8qucmed",
       "id": 8
     }
   ],
   "songs_playlists": [
     {
-      "songId": 12,
+      "songId": 5,
       "playlistId": 8,
       "position": 3,
-      "id": 2
+      "id": 1
     },
     {
       "songId": 11,
       "playlistId": 8,
-      "position": 1,
-      "id": 3
+      "position": 2,
+      "id": 2
     },
     {
       "songId": 7,
       "playlistId": 8,
-      "position": 2,
-      "id": 4
+      "position": 4,
+      "id": 3
     },
     {
-      "songId": 8,
+      "songId": 13,
       "playlistId": 8,
-      "position": 4,
-      "id": 5
+      "position": 1,
+      "id": 4
     }
   ]
 }

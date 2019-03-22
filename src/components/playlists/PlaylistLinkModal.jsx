@@ -34,7 +34,7 @@ export default class PlaylistLinkModal extends Component {
             <p className="text-center">{this.props.playlist.passKey}</p>
           </ModalBody>
           <ModalFooter>
-          <a className="btn btn-primary" href={"http://localhost:3000/playlists/"+this.props.playlist.id} role="button">Preview</a>
+          <a className="btn btn-primary" href={"/playlists/"+this.props.playlist.id} role="button">Preview</a>
             <button type="button" className="btn btn-secondary" onClick={this.toggle} >Close</button>
           </ModalFooter>
         </Modal>
